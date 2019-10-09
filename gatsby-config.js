@@ -16,6 +16,14 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
+      resolve: `gatsby-source-storyblok`,
+      options: {
+        accessToken: `jK5tTVp364A2XEsUw0DhAAtt`,
+        homeSlug: `home`,
+        version: process.env.NODE_ENV == 'production' ? 'published' : 'draft',
+      },
+    },
+    {
       resolve: `gatsby-plugin-manifest`,
       options: {
         name: `gatsby-starter-default`,
