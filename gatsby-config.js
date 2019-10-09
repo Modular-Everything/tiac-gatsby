@@ -20,7 +20,7 @@ module.exports = {
       options: {
         accessToken: `jK5tTVp364A2XEsUw0DhAAtt`,
         homeSlug: `home`,
-        version: process.env.NODE_ENV == 'production' ? 'published' : 'draft',
+        version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
       },
     },
     {
