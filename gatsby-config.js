@@ -21,6 +21,7 @@ module.exports = {
         accessToken: `jK5tTVp364A2XEsUw0DhAAtt`,
         homeSlug: `home`,
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
+        includeLinks: true,
       },
     },
     {
