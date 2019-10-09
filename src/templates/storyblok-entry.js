@@ -1,5 +1,6 @@
 import React from 'react'
 import Components from '../components/components.js'
+import Layout from '../components/layout'
 
 class StoryblokEntry extends React.Component {
   static getDerivedStateFromProps(props, state) {
@@ -26,12 +27,12 @@ class StoryblokEntry extends React.Component {
     let content = this.state.story.content
 
     return (
-      <div>
+      <Layout>
         {React.createElement(Components(content.component), {
           key: content._uid,
           blok: content,
         })}
-      </div>
+      </Layout>
     )
   }
 }
