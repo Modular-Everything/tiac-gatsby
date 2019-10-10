@@ -1,27 +1,9 @@
 import React from 'react'
 import { useStaticQuery, Link, graphql } from 'gatsby'
-import styled from 'styled-components'
+import tw from 'tailwind.macro'
 
-const PageHeader = styled.header`
-  background: hsl(0, 0%, 0%);
-  color: hsl(0, 100%, 100%);
-  padding: 32px;
-
-  ul {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-
-  li {
-    margin-right: 16px;
-
-    &:last-of-type {
-      margin-right: 0;
-    }
-  }
+const Button = tw.button`
+  font-bold text-2xl
 `
 
 const Header = () => {
@@ -46,11 +28,15 @@ const Header = () => {
   )
 
   return (
-    <PageHeader>
+    <div>
       <ul>
         {data.allStoryblokLink.edges.map(({ node }, index) => (
           <li key={index}>
-            <Link to={node.slug === 'home' ? '' : node.slug}>{node.name}</Link>
+            <Button>
+              <Link to={node.slug === 'home' ? '' : node.slug}>
+                {node.name}
+              </Link>
+            </Button>
           </li>
         ))}
       </ul>
@@ -60,7 +46,7 @@ const Header = () => {
           - Try out styled-components ThemeProvider (https://www.styled-components.com/docs/advanced)
           - Utilise Typography.js for vertical rhythm and general type-niceness (https://www.gatsbyjs.org/docs/typography-js/)
       */}
-    </PageHeader>
+    </div>
   )
 }
 
