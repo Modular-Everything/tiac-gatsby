@@ -23,13 +23,19 @@ const Header = () => {
   )
 
   return (
-    <header>
-      <ul>
+    <header className="bg-black px-4 py-8 text-sm">
+      <ul className="inline-flex w-full">
         {data.allStoryblokLink.edges.map(({ node }, index) => (
-          <li key={index}>
-            <Link to={node.slug === 'home' ? '' : node.slug}>{node.name}</Link>
+          <li key={index} className="mr-6 last:mr-0">
+            <Link
+              to={node.slug === 'home' ? '' : node.slug}
+              className="text-white hover:text-gray-400"
+            >
+              {node.name}
+            </Link>
           </li>
         ))}
+        <li className="text-white ml-auto">Contact</li>
       </ul>
     </header>
   )
