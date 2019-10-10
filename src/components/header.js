@@ -29,17 +29,11 @@ const Header = () => {
 
   return (
     <div>
-      <ul>
-        {data.allStoryblokLink.edges.map(({ node }, index) => (
-          <li key={index}>
-            <Button>
-              <Link to={node.slug === 'home' ? '' : node.slug}>
-                {node.name}
-              </Link>
-            </Button>
-          </li>
-        ))}
-      </ul>
+      {data.allStoryblokLink.edges.map(({ node }, index) => (
+        <Button key={index}>
+          <Link to={node.slug === 'home' ? '' : node.slug}>{node.name}</Link>
+        </Button>
+      ))}
       {/* 
         Things to do next:
           x Navigation
