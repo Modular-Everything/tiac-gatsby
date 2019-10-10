@@ -7,10 +7,10 @@ class Layout extends React.Component {
     // const rootPath = `${__PATH_PREFIX__}/`
 
     return (
-      <div>
+      <>
         <Header />
         <main>{children}</main>
-      </div>
+      </>
     )
   }
 }
