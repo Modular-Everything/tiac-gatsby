@@ -2,7 +2,6 @@ import React from 'react'
 import { useStaticQuery, Link, graphql } from 'gatsby'
 import styled from 'styled-components'
 
-// Component Styled
 const PageHeader = styled.header`
   background: hsl(0, 0%, 0%);
   color: hsl(0, 100%, 100%);
@@ -24,17 +23,21 @@ const PageHeader = styled.header`
     }
   }
 `
-// ---
 
 const Header = () => {
   const data = useStaticQuery(
     graphql`
       query Navigation {
-        allStoryblokEntry {
+        allStoryblokLink(
+          filter: { parent_id: { eq: 0 } }
+          sort: { fields: [name], order: ASC }
+        ) {
           edges {
             node {
+              id
               name
-              full_slug
+              slug
+              parent_id
             }
           }
         }
@@ -45,20 +48,15 @@ const Header = () => {
   return (
     <PageHeader>
       <ul>
-        {data.allStoryblokEntry.edges.map(({ node }, index) => (
+        {data.allStoryblokLink.edges.map(({ node }, index) => (
           <li key={index}>
-            <Link to={node.full_slug == 'home' ? '' : node.full_slug}>
-              {node.name}
-            </Link>
+            <Link to={node.slug === 'home' ? '' : node.slug}>{node.name}</Link>
           </li>
         ))}
       </ul>
-
       {/* 
         Things to do next:
-          - Navigation
-              - The above works but it doesn't show folders.
-              - Try using `allStoryblokLink` instead
+          x Navigation
           - Try out styled-components ThemeProvider (https://www.styled-components.com/docs/advanced)
           - Utilise Typography.js for vertical rhythm and general type-niceness (https://www.gatsbyjs.org/docs/typography-js/)
       */}
