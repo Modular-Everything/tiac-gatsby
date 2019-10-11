@@ -20,7 +20,9 @@
     "react": "^16.10.2",
     "react-dom": "^16.10.2",
     "react-helmet": "^5.2.1",
-    "storyblok-react": "0.0.9"
+    "react-id-swiper": "^2.3.2",
+    "storyblok-react": "0.0.9",
+    "swiper": "^5.0.4"
   },
   "devDependencies": {
     "prettier": "^1.18.2",
