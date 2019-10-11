@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
+
+@font-face {
+  font-family: 'Tiempos Text';
+  src: url('fonts/TiemposText-Regular.woff') format('woff'),
+    url('fonts/TiemposText-Regular.svg') format('svg');
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'Tiempos Text';
+  src: url('fonts/TiemposText-Medium.woff') format('woff'),
+    url('fonts/TiemposText-Medium.svg') format('svg');
+  font-style: normal;
+  font-weight: 600;
+}
+
 @tailwind utilities;

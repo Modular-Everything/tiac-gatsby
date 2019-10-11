@@ -1,6 +1,7 @@
 import React from 'react'
-import './tailwind.css'
 import Header from '../header'
+import './tailwind.css'
+import './layout.css'
 
 class Layout extends React.Component {
   render() {
