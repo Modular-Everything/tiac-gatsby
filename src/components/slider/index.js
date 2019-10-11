@@ -5,8 +5,6 @@ import './swiper-base.css'
 import './slider.css'
 
 const Slider = props => {
-  console.table(props.blok.slides)
-
   const params = {
     loop: true,
     pagination: {
