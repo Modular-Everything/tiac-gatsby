@@ -1,4 +1,5 @@
 import React from 'react'
+import Layout from '../components/layout'
 import Components from '../components/components.js'
 import SbEditable from 'storyblok-react'
 import config from '../../gatsby-config'
@@ -93,14 +94,16 @@ class StoryblokEntry extends React.Component {
     let content = this.state.story.content
 
     return (
-      <SbEditable content={content}>
-        <div>
-          {React.createElement(Components(content.component), {
-            key: content._uid,
-            blok: content,
-          })}
-        </div>
-      </SbEditable>
+      <Layout>
+        <SbEditable content={content}>
+          <>
+            {React.createElement(Components(content.component), {
+              key: content._uid,
+              blok: content,
+            })}
+          </>
+        </SbEditable>
+      </Layout>
     )
   }
 }
