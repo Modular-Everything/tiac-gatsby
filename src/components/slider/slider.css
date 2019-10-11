@@ -1,9 +1,9 @@
 .swiper-container {
-  @apply .mb-6;
+  @apply .mb-8;
 }
 
 .slide-caption {
-  @apply .h-6;
+  @apply .h-6 .mt-8 .mb-2;
 }
 
 .swiper-pagination {
@@ -11,12 +11,11 @@
 }
 
 .swiper-pagination-bullets {
-  @apply static;
+  @apply .static .mt-2;
 }
 
 .swiper-pagination-bullet {
   width: 32px;
-  height: 1.5rem;
   border-bottom: 1px solid black;
-  @apply .rounded-none .bg-transparent;
+  @apply .rounded-none .bg-transparent .h-6;
 }
