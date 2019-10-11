@@ -1,0 +1,22 @@
+.swiper-container {
+  @apply .mb-6;
+}
+
+.slide-caption {
+  @apply .h-6;
+}
+
+.swiper-pagination {
+  @apply .flex .justify-center;
+}
+
+.swiper-pagination-bullets {
+  @apply static;
+}
+
+.swiper-pagination-bullet {
+  width: 32px;
+  height: 1.5rem;
+  border-bottom: 1px solid black;
+  @apply .rounded-none .bg-transparent;
+}
