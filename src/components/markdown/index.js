@@ -4,8 +4,6 @@ import * as markdownit from 'markdown-it'
 import './markdown.css'
 
 const Markdown = props => {
-  console.table(props.blok)
-
   const md = markdownit()
   md.use(require('markdown-it-highlightjs'))
   const htmlContent = md.render(props.blok.copy)
