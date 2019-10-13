@@ -19,7 +19,7 @@ const Slider = props => {
         {props.blok.slides.map((slide, index) => (
           <div key={index}>
             <img src={slide.image} alt={slide.alt} />
-            <p className="slide-caption text-brand-gray-600 text-center text-xs">
+            <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide">
               {slide.caption}
             </p>
           </div>
