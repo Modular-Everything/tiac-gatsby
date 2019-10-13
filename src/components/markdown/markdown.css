@@ -1,6 +1,11 @@
 .md {
   @apply .mb-6;
 
+  &:last-of-type {
+    /* Remove bottom margin on the last item in a grid */
+    @apply .mb-0;
+  }
+
   & h2 {
     /* The Main Title */
     @apply .text-xl .font-semibold .mb-4 .leading-tight .text-brand-black;
