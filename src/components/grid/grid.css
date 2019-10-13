@@ -1,0 +1,9 @@
+.grid {
+  &.aside {
+    @apply bg-yellow-200;
+  }
+
+  &.gallery {
+    @apply bg-teal-200;
+  }
+}
