@@ -4,7 +4,7 @@ import SbEditable from 'storyblok-react'
 
 const Grid = props => (
   <SbEditable content={props.blok}>
-    <div className="grid">
+    <div className="grid mb-16">
       {props.blok.columns.map(blok =>
         React.createElement(Components(blok.component), {
           key: blok._uid,

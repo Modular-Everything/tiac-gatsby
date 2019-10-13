@@ -1,5 +1,5 @@
 .swiper-container {
-  @apply .mb-8;
+  @apply .mb-16;
 }
 
 .slide-caption {
