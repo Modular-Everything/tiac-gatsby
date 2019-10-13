@@ -10,10 +10,7 @@ const Markdown = props => {
 
   return (
     <SbEditable content={props.blok}>
-      <div
-        className="md container"
-        dangerouslySetInnerHTML={{ __html: htmlContent }}
-      />
+      <div className="md" dangerouslySetInnerHTML={{ __html: htmlContent }} />
     </SbEditable>
   )
 }

@@ -1,9 +1,40 @@
-.grid {
-  &.aside {
-    @apply bg-yellow-200;
+.grid.aside {
+}
+
+.grid.gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  grid-gap: 1rem;
+
+  & .rows-one {
+    grid-row: span 1;
   }
 
-  &.gallery {
-    @apply bg-teal-200;
+  & .rows-two {
+    grid-row: span 2;
+  }
+
+  & .cols-one,
+  & .cols-two {
+    grid-column: span 2;
+  }
+
+  @media (min-width: 640px) {
+    & .rows-two {
+      grid-row: span 2;
+    }
+
+    & .rows-one {
+      grid-row: span 1;
+    }
+
+    & .cols-two {
+      grid-column: span 2;
+    }
+
+    & .cols-one {
+      grid-column: span 1;
+    }
   }
 }
