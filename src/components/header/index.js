@@ -23,7 +23,7 @@ const Header = () => {
   )
 
   return (
-    <header className="bg-brand-black px-4 py-8 text-sm">
+    <header className="bg-brand-black px-4 py-8 text-xs">
       <ul className="inline-flex w-full">
         {data.allStoryblokLink.edges.map(({ node }, index) => (
           <li key={index} className="mr-6 last:mr-0">
