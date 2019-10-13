@@ -3,7 +3,11 @@ import React from 'react'
 const Divider = props => {
   const color = props.colour
 
-  return <div className="container h-px bg-brand-gray-300" />
+  return (
+    <div className="container mb-16">
+      <hr className="border-brand-gray-300" />
+    </div>
+  )
 }
 
 export default Divider
