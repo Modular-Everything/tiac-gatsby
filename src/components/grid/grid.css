@@ -1,4 +1,9 @@
 .grid.aside {
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 1.5rem;
+  }
 }
 
 .grid.gallery {

@@ -17,7 +17,7 @@ const Image = props => {
     <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
       <img src={props.blok.image} alt="" />
       {props.blok.caption !== '' ? (
-        <h4 className="mt-3 text-brand-gray-600 text-xs">
+        <h4 className="mt-3 text-brand-gray-600 text-xs tracking-wide lg:text-sm">
           {props.blok.caption}
         </h4>
       ) : (
