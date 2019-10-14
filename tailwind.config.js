@@ -4,6 +4,10 @@ module.exports = {
       center: true,
       padding: '2rem',
     },
+    aspectRatio: {
+      square: [1, 1],
+      '3/2': [3, 2],
+    },
     fontFamily: {
       serif: [
         'Tiempos Text',
@@ -27,5 +31,5 @@ module.exports = {
   variants: {
     margin: ['last'],
   },
-  plugins: [],
+  plugins: [require('tailwindcss-aspect-ratio')()],
 }

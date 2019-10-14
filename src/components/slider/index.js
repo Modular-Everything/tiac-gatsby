@@ -18,7 +18,13 @@ const Slider = props => {
       <Swiper {...params}>
         {props.blok.slides.map((slide, index) => (
           <div key={index}>
-            <img src={slide.image} alt={slide.alt} />
+            <div className="aspect-ratio-3/2 relative overflow-hidden">
+              <img
+                src={slide.image}
+                alt={slide.alt}
+                className="absolute top-0 left-0 w-full h-full"
+              />
+            </div>
             <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide">
               {slide.caption}
             </p>

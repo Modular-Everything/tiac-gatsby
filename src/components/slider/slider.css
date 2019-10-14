@@ -15,7 +15,7 @@
 }
 
 .swiper-pagination-bullet {
-  width: 32px;
-  border-bottom: 1px solid black;
   @apply .rounded-none .bg-transparent .h-6;
+  width: 2rem;
+  border-bottom: 1px solid black;
 }

@@ -15,7 +15,13 @@ import React from 'react'
 const Image = props => {
   return (
     <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
-      <img src={props.blok.image} alt="" />
+      <div className="aspect-ratio-3/2 relative overflow-hidden">
+        <img
+          src={props.blok.image}
+          alt=""
+          className="absolute top-0 left-0 w-full h-full"
+        />
+      </div>
       {props.blok.caption !== '' ? (
         <h4 className="mt-3 text-brand-gray-600 text-xs tracking-wide lg:text-sm">
           {props.blok.caption}
