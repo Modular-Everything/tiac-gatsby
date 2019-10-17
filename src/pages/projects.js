@@ -1,6 +1,6 @@
 import React from 'react'
 import Layout from '../components/layout'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql, useStaticQuery, Link } from 'gatsby'
 import '../components/grid/grid.css'
 
 const Projects = () => {
@@ -11,7 +11,7 @@ const Projects = () => {
           edges {
             node {
               name
-              slug
+              full_slug
               parent_id
               field_cover_string
             }
@@ -29,11 +29,13 @@ const Projects = () => {
             key={index}
             className="aspect-ratio-3/2 relative overflow-hidden"
           >
-            <img
-              src={node.field_cover_string}
-              alt=""
-              className="absolute top-0 left-0 w-full h-full"
-            />
+            <Link to={node.full_slug}>
+              <img
+                src={node.field_cover_string}
+                alt=""
+                className="absolute top-0 left-0 w-full h-full"
+              />
+            </Link>
           </div>
         ))}
       </div>
