@@ -48,7 +48,7 @@
 }
 
 .grid.projects {
-  @apply .p-8;
+  @apply .pt-8 .pb-8;
   grid-gap: 1rem;
 
   @media (min-width: 768px) {

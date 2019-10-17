@@ -7,7 +7,7 @@ const Projects = () => {
   const data = useStaticQuery(
     graphql`
       query Projects {
-        allStoryblokEntry(filter: { parent_id: { eq: 2875854 } }) {
+        allStoryblokEntry {
           edges {
             node {
               name
@@ -23,21 +23,43 @@ const Projects = () => {
 
   return (
     <Layout>
+      <div className="container pt-8">
+        <ul className="flex flex-row justify-center">
+          {data.allStoryblokEntry.edges.map(({ node }, index) => {
+            if (node.parent_id === 3050741) {
+              return (
+                <li
+                  key={index}
+                  className="bg-brand-gray-300 p-3 mr-4 last:mr-0"
+                >
+                  {node.name}
+                </li>
+              )
+            }
+          })}
+        </ul>
+      </div>
+
       <div className="grid projects container">
-        {data.allStoryblokEntry.edges.map(({ node }, index) => (
-          <div
-            key={index}
-            className="aspect-ratio-3/2 relative overflow-hidden"
-          >
-            <Link to={node.full_slug}>
-              <img
-                src={node.field_cover_string}
-                alt=""
-                className="absolute top-0 left-0 w-full h-full"
-              />
-            </Link>
-          </div>
-        ))}
+        {data.allStoryblokEntry.edges.map(({ node }, index) => {
+          if (node.parent_id === 2875854) {
+            return (
+              <div
+                key={index}
+                className="aspect-ratio-3/2 relative overflow-hidden"
+              >
+                <Link to={node.full_slug}>
+                  <img
+                    src={node.field_cover_string}
+                    alt=""
+                    className="absolute top-0 left-0 w-full h-full"
+                  />
+                  <div className="absolute">{node.caption}</div>
+                </Link>
+              </div>
+            )
+          }
+        })}
       </div>
     </Layout>
   )
