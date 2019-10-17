@@ -6,12 +6,11 @@ const Header = () => {
     graphql`
       query Navigation {
         allStoryblokLink(
-          filter: { parent_id: { eq: 0 } }
+          filter: { parent_id: { eq: 0 }, slug: { ne: "categories" } }
           sort: { fields: [name], order: ASC }
         ) {
           edges {
             node {
-              id
               name
               slug
               parent_id
