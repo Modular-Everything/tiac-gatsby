@@ -4,6 +4,7 @@ import Slider from './slider'
 import Markdown from './markdown'
 import Divider from './divider'
 import Image from './image'
+import Video from './video'
 import ComponentNotFound from './component-not-found'
 
 const ComponentList = {
@@ -13,6 +14,7 @@ const ComponentList = {
   markdown: Markdown,
   divider: Divider,
   image: Image,
+  video: Video,
 }
 
 const Components = type => {

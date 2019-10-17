@@ -7,6 +7,7 @@ module.exports = {
     aspectRatio: {
       square: [1, 1],
       '3/2': [3, 2],
+      '43/25': [43, 25],
     },
     fontFamily: {
       serif: [
