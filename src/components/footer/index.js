@@ -6,22 +6,22 @@ const Footer = props => (
       <ul className="flex justify-center">
         <li className="relative mr-6 md:mr-8 lg:mr-12">
           <i className="absolute right-0 left-0 text-center">temp.</i>
-          <a href="#">Instagram</a>
+          <a href="http://instagram.com">Instagram</a>
         </li>
 
         <li className="relative mr-6 md:mr-8 lg:mr-12">
           <i className="absolute right-0 left-0 text-center">temp.</i>
-          <a href="#">Twitter</a>
+          <a href="http://twitter.com">Twitter</a>
         </li>
 
         <li className="relative mr-6 md:mr-8 lg:mr-12">
           <i className="absolute right-0 left-0 text-center">temp.</i>
-          <a href="#">LinkedIn</a>
+          <a href="http://linkedin.com">LinkedIn</a>
         </li>
 
         <li className="relative">
           <i className="absolute right-0 left-0 text-center">temp.</i>
-          <a href="#">Behance</a>
+          <a href="http://behance.com">Behance</a>
         </li>
       </ul>
     </div>
