@@ -1,8 +1,11 @@
+.grid {
+  display: grid;
+}
+
 .grid.aside {
   @media (min-width: 768px) {
-    display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: 1.5rem;
+    grid-gap: 2rem;
   }
 }
 
@@ -41,5 +44,14 @@
     & .cols-one {
       grid-column: span 1;
     }
+  }
+}
+
+.grid.projects {
+  @apply .p-8;
+  grid-gap: 1rem;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr;
   }
 }
