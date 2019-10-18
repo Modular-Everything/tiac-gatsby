@@ -1,4 +1,5 @@
 import React from 'react'
+import SbEditable from 'storyblok-react'
 // import Img from 'gatsby-image'
 
 /*
@@ -14,22 +15,28 @@ import React from 'react'
 
 const Image = props => {
   return (
-    <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
-      <div className="aspect-ratio-43/25 relative overflow-hidden">
-        <img
-          src={props.blok.image}
-          alt=""
-          className="absolute top-0 left-0 w-full h-full object-cover"
-        />
+    <SbEditable content={props.blok}>
+      <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
+        <div className="relative overflow-hidden">
+          <img
+            src={props.blok.image}
+            alt=""
+            className="absolute top-0 left-0 w-full h-full object-cover"
+          />
+        </div>
+        {props.blok.caption !== '' ? (
+          <h4
+            className={`mt-3 cen text-brand-gray-600 text-xs text-${
+              props.blok.caption_align ? props.blok.caption_align : 'left'
+            } lg:text-sm tracking-wide`}
+          >
+            {props.blok.caption}
+          </h4>
+        ) : (
+          ''
+        )}
       </div>
-      {props.blok.caption !== '' ? (
-        <h4 className="mt-3 text-brand-gray-600 text-xs tracking-wide lg:text-sm">
-          {props.blok.caption}
-        </h4>
-      ) : (
-        ''
-      )}
-    </div>
+    </SbEditable>
   )
 }
 

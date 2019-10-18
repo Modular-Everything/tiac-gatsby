@@ -14,6 +14,7 @@ const Projects = () => {
               full_slug
               parent_id
               field_cover_string
+              published_at
             }
           }
         }
@@ -26,7 +27,7 @@ const Projects = () => {
       <div className="container pt-8">
         <ul className="flex flex-row justify-center">
           {data.allStoryblokEntry.edges.map(({ node }, index) => {
-            if (node.parent_id === 3050741) {
+            if (node.parent_id === 3050741 && node.published_at != null) {
               return (
                 <li
                   key={index}

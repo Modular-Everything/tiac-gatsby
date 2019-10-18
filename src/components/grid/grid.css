@@ -17,15 +17,27 @@
 
   & .rows-one {
     grid-row: span 1;
+
+    & div {
+      @apply .aspect-ratio-43/25;
+    }
   }
 
   & .rows-two {
     grid-row: span 2;
+
+    & div {
+      @apply .aspect-ratio-43/25;
+    }
   }
 
   & .cols-one,
   & .cols-two {
     grid-column: span 2;
+  }
+
+  & .cols-one.rows-two div {
+    height: 100%;
   }
 
   @media (min-width: 640px) {
