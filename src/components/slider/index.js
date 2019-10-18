@@ -5,12 +5,16 @@ import './swiper-base.css'
 import './slider.css'
 
 const Slider = props => {
-  const params = {
-    loop: true,
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
+  let params = {}
+
+  if (props.blok.slides.length > 1) {
+    let params = {
+      loop: true,
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+    }
   }
 
   return (
