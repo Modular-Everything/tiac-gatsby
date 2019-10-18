@@ -1,4 +1,5 @@
 .grid {
+  @apply mt-4;
   display: grid;
 }
 
@@ -31,7 +32,7 @@
     }
   }
 
-  & .rows-two.cols-one {
+  & .rows-two.cols-one + .rows-two.cols-one {
     & div {
       @apply .aspect-ratio-140/171;
     }
