@@ -41,9 +41,6 @@ const Slider = props => {
               ) : (
                 ''
               )}
-              {/* <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide m-0">
-                test
-              </p> */}
             </div>
           ))}
         </Swiper>
