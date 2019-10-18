@@ -6,6 +6,10 @@
     @apply .mb-0;
   }
 
+  @media (min-width: 768px) {
+    @apply .mb-0;
+  }
+
   & h2 {
     /* The Main Title */
     @apply .text-xl .font-semibold .mb-4 .leading-tight .text-brand-black;
