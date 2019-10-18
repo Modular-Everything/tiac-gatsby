@@ -31,6 +31,12 @@
     }
   }
 
+  & .rows-two.cols-one {
+    & div {
+      @apply .aspect-ratio-140/171;
+    }
+  }
+
   & .cols-one,
   & .cols-two {
     grid-column: span 2;
