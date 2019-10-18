@@ -18,7 +18,7 @@ const Slider = props => {
   if (props.blok.caption === undefined) {
     var hasCaption = false
   } else {
-    var hasCaption = true
+    hasCaption = true
   }
 
   return (
