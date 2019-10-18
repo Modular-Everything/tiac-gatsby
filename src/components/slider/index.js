@@ -5,16 +5,20 @@ import './swiper-base.css'
 import './slider.css'
 
 const Slider = props => {
-  let params = {}
-
   if (props.blok.slides.length > 1) {
-    let params = {
+    var params = {
       loop: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
       },
     }
+  }
+
+  if (props.blok.caption === undefined) {
+    var hasCaption = false
+  } else {
+    var hasCaption = true
   }
 
   return (
@@ -29,9 +33,16 @@ const Slider = props => {
                 className="absolute top-0 left-0 w-full h-full"
               />
             </div>
-            <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide">
-              {slide.caption}
-            </p>
+            {hasCaption ? (
+              <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide m-0">
+                {props.blok.caption}
+              </p>
+            ) : (
+              ''
+            )}
+            {/* <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide m-0">
+              test
+            </p> */}
           </div>
         ))}
       </Swiper>
