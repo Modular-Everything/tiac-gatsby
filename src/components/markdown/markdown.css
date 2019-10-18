@@ -21,7 +21,11 @@
 
   & h3 {
     /* Highlighted 'Intro' Copy */
-    @apply .text-base .text-brand-black .mt-8 .mb-8;
+    @apply .text-base .text-brand-black .mt-8;
+
+    + p {
+      @apply .mt-8;
+    }
 
     @media (min-width: 1024px) {
       @apply .text-lg .leading-relaxed;
@@ -43,6 +47,10 @@
 
     @media (min-width: 1024px) {
       @apply .text-base .leading-relaxed;
+    }
+
+    & + h4 {
+      @apply .mt-4;
     }
   }
 
