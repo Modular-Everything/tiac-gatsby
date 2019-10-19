@@ -11,7 +11,7 @@
 }
 
 .swiper-pagination-bullets {
-  @apply .static .mt-2;
+  @apply .static .mt-6;
 }
 
 .swiper-pagination-bullet {

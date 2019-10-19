@@ -15,34 +15,36 @@ const Slider = props => {
     }
   }
 
-  if (props.blok.caption === undefined) {
-    var hasCaption = false
-  } else {
-    hasCaption = true
-  }
-
   return (
     <SbEditable content={props.blok}>
       <div className={props.blok.container ? 'container' : ''}>
         <Swiper {...params}>
-          {props.blok.slides.map((slide, index) => (
-            <div key={index}>
-              <div className="aspect-ratio-3/2 relative overflow-hidden">
-                <img
-                  src={slide.image}
-                  alt={slide.alt}
-                  className="absolute top-0 left-0 w-full h-full"
-                />
+          {props.blok.slides.map((slide, index) => {
+            if (slide.caption === undefined) {
+              var hasCaption = false
+            } else {
+              hasCaption = true
+            }
+
+            return (
+              <div key={index}>
+                <div className="aspect-ratio-3/2 relative overflow-hidden">
+                  <img
+                    src={slide.image}
+                    alt={slide.alt}
+                    className="absolute top-0 left-0 w-full h-full"
+                  />
+                </div>
+                {hasCaption ? (
+                  <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide mt-8 mb-0">
+                    {slide.caption}
+                  </p>
+                ) : (
+                  ''
+                )}
               </div>
-              {hasCaption ? (
-                <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide m-0">
-                  {props.blok.caption}
-                </p>
-              ) : (
-                ''
-              )}
-            </div>
-          ))}
+            )
+          })}
         </Swiper>
       </div>
     </SbEditable>
