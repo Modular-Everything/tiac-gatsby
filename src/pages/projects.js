@@ -43,19 +43,34 @@ const Projects = () => {
 
       <div className="grid projects container">
         {data.allStoryblokEntry.edges.map(({ node }, index) => {
+          var regex = RegExp(/(.mp4)/)
+          if (regex.test(node.field_cover_string)) {
+            var isVideo = true
+          }
+
           if (node.parent_id === 2875854) {
             return (
               <div
                 key={index}
-                className="aspect-ratio-3/2 relative overflow-hidden"
+                className={`${
+                  !isVideo ? 'aspect-ratio-43/25' : ''
+                } relative overflow-hidden`}
               >
                 <Link to={node.full_slug}>
-                  <img
-                    src={node.field_cover_string}
-                    alt=""
-                    className="absolute top-0 left-0 w-full h-full"
-                  />
-                  <div className="absolute">{node.caption}</div>
+                  {!isVideo ? (
+                    <img
+                      src={node.field_cover_string}
+                      alt=""
+                      className="absolute top-0 left-0 w-full h-full object-cover"
+                    />
+                  ) : (
+                    <video height="100%" width="100%" autoPlay loop muted>
+                      <source
+                        src={node.field_cover_string}
+                        type="video/mp4"
+                      ></source>
+                    </video>
+                  )}
                 </Link>
               </div>
             )

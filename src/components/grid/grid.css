@@ -1,9 +1,10 @@
 .grid {
-  @apply mt-4;
   display: grid;
 }
 
 .grid.aside {
+  @apply mt-4;
+
   @media (min-width: 768px) {
     grid-template-columns: 2fr 1fr;
     grid-gap: 2rem;
@@ -15,6 +16,7 @@
   grid-template-columns: 1fr 1fr;
   grid-template-rows: auto 1fr;
   grid-gap: 1rem;
+  @apply mt-4;
 
   & .rows-one {
     grid-row: span 1;
