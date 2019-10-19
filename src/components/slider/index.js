@@ -28,11 +28,11 @@ const Slider = props => {
 
             return (
               <div key={index}>
-                <div className="aspect-ratio-3/2 relative overflow-hidden">
+                <div className="aspect-ratio-43/25 relative overflow-hidden">
                   <img
                     src={slide.image}
                     alt={slide.alt}
-                    className="absolute top-0 left-0 w-full h-full"
+                    className="absolute top-0 left-0 w-full h-full object-cover"
                   />
                 </div>
                 {hasCaption ? (
