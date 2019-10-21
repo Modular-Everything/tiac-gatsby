@@ -35,7 +35,9 @@ const Header = () => {
               </Link>
             </li>
           ))}
-          <li className="text-white ml-auto">ac@tiac.design</li>
+          <li className="text-white ml-auto">
+            <a href="mailto:ac@tiac.design">ac@tiac.design</a>
+          </li>
         </ul>
       </div>
     </header>
