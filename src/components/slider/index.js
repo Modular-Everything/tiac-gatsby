@@ -20,7 +20,7 @@ const Slider = props => {
       <div className={props.blok.container ? 'container' : ''}>
         <Swiper {...params}>
           {props.blok.slides.map((slide, index) => {
-            if (slide.caption === undefined) {
+            if (slide.caption === '') {
               var hasCaption = false
             } else {
               hasCaption = true
