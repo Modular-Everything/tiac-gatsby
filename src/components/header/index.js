@@ -1,5 +1,6 @@
 import React from 'react'
 import { useStaticQuery, Link, graphql } from 'gatsby'
+import { Helmet } from 'react-helmet'
 
 const Header = () => {
   const data = useStaticQuery(
@@ -17,12 +18,22 @@ const Header = () => {
             }
           }
         }
+        allStoryblokSpace {
+          edges {
+            node {
+              name
+            }
+          }
+        }
       }
     `
   )
 
   return (
     <header className="bg-brand-black px-4 py-8 text-xs tracking-wide lg:text-sm">
+      <Helmet>
+        <title>{data.allStoryblokSpace.edges[0].node.name}</title>
+      </Helmet>
       <div className="container">
         <ul className="inline-flex w-full">
           {data.allStoryblokLink.edges.map(({ node }, index) => (
