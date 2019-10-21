@@ -49,6 +49,10 @@
       @apply .text-base .leading-relaxed;
     }
 
+    & + p {
+      @apply .mt-4;
+    }
+
     & + h4 {
       @apply .mt-4;
     }
