@@ -1,28 +1,26 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
-// import Img from 'gatsby-image'
-
-/*
- * This component is built using `gatsby-image` to automatically serve optimized
- * images with lazy loading and reduced file sizes. The image is loaded using a
- * `useStaticQuery`, which allows us to load the image from directly within this
- * component, rather than having to pass the image data down from pages.
- *
- * For more information, see the docs:
- * - `gatsby-image`: https://gatsby.dev/gatsby-image
- * - `useStaticQuery`: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import './image.css'
+import Img from 'gatsby-image'
+import {
+  getFluidGatsbyImage,
+  getFixedGatsbyImage,
+} from 'gatsby-storyblok-image'
 
 const Image = props => {
+  const fluidProps = getFluidGatsbyImage(props.blok.image, {
+    maxWidth: 1800,
+  })
+
+  const fixed = getFixedGatsbyImage(props.blok.image, {
+    maxWidth: 1800,
+  })
+
   return (
     <SbEditable content={props.blok}>
       <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
         <div className="relative overflow-hidden">
-          <img
-            src={props.blok.image}
-            alt=""
-            className="absolute top-0 left-0 w-full h-full object-cover"
-          />
+          <Img fixed={fluidProps} />
         </div>
         {props.blok.caption !== '' ? (
           <h4

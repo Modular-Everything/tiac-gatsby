@@ -21,7 +21,7 @@
   & .rows-one {
     grid-row: span 1;
 
-    & div {
+    & .gatsby-image-wrapper {
       @apply .aspect-ratio-43/25;
     }
   }
@@ -29,13 +29,13 @@
   & .rows-two {
     grid-row: span 2;
 
-    & div {
+    & .gatsby-image-wrapper {
       @apply .aspect-ratio-43/25;
     }
   }
 
   & .rows-two.cols-one + .rows-two.cols-one {
-    & div {
+    & .gatsby-image-wrapper {
       @apply .aspect-ratio-140/171;
     }
   }
