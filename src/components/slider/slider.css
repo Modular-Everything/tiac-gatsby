@@ -1,5 +1,9 @@
 .swiper-container {
   @apply .mb-12;
+
+  & .gatsby-image-wrapper {
+    @apply .aspect-ratio-43/25;
+  }
 }
 
 .slide-caption {

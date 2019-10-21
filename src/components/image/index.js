@@ -2,17 +2,10 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 import './image.css'
 import Img from 'gatsby-image'
-import {
-  getFluidGatsbyImage,
-  getFixedGatsbyImage,
-} from 'gatsby-storyblok-image'
+import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 
 const Image = props => {
   const fluidProps = getFluidGatsbyImage(props.blok.image, {
-    maxWidth: 1800,
-  })
-
-  const fixed = getFixedGatsbyImage(props.blok.image, {
     maxWidth: 1800,
   })
 

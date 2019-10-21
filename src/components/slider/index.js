@@ -1,6 +1,9 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import Swiper from 'react-id-swiper'
+import '../image/image.css'
+import Img from 'gatsby-image'
+import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 import './swiper-base.css'
 import './slider.css'
 
@@ -20,6 +23,10 @@ const Slider = props => {
       <div className={props.blok.container ? 'container' : ''}>
         <Swiper {...params}>
           {props.blok.slides.map((slide, index) => {
+            const fluidProps = getFluidGatsbyImage(slide.image, {
+              maxWidth: 1800,
+            })
+
             if (slide.caption === '') {
               var hasCaption = false
             } else {
@@ -28,12 +35,8 @@ const Slider = props => {
 
             return (
               <div key={index}>
-                <div className="aspect-ratio-43/25 relative overflow-hidden">
-                  <img
-                    src={slide.image}
-                    alt={slide.alt}
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                  />
+                <div>
+                  <Img fixed={fluidProps} />
                 </div>
                 {hasCaption ? (
                   <p className="slide-caption text-brand-gray-600 text-center text-xs tracking-wide mt-8 mb-0">

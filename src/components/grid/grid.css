@@ -34,6 +34,20 @@
     }
   }
 
+  & .rows-two.cols-one {
+    & .gatsby-image-wrapper {
+      @apply .aspect-ratio-140/171;
+    }
+  }
+
+  @media (min-width: 640px) {
+    & .rows-two.cols-one {
+      & .gatsby-image-wrapper {
+        @apply .aspect-ratio-43/25;
+      }
+    }
+  }
+
   & .rows-two.cols-one + .rows-two.cols-one {
     & .gatsby-image-wrapper {
       @apply .aspect-ratio-140/171;
