@@ -39,7 +39,7 @@ const Header = () => {
           {data.allStoryblokLink.edges.map(({ node }, index) => (
             <li key={index} className="mr-6 last:mr-0">
               <Link
-                to={node.slug === 'home' ? '' : node.slug}
+                to={node.slug === 'home' ? '/' : '/' + node.slug}
                 className="text-white hover:text-brand-gray-600"
               >
                 {node.name}
