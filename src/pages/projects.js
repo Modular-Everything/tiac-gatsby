@@ -31,7 +31,7 @@ const Projects = () => {
               return (
                 <li
                   key={index}
-                  className="bg-brand-gray-300 p-3 mr-4 last:mr-0"
+                  className="rounded-sm text-brand-gray-600 text-xs mr-1 sm:mr-6 sm:p-3 sm:bg-brand-gray-100 sm:text-brand-gray-800 last:mr-0"
                 >
                   {node.name}
                 </li>
