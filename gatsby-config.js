@@ -23,6 +23,7 @@ module.exports = {
         homeSlug: `home`,
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
         includeLinks: true,
+        resolveRelations: ['page.pageCategories'],
       },
     },
     {

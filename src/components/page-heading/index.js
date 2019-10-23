@@ -21,6 +21,8 @@ const PageHeading = props => {
     `
   )
 
+  console.log(props.pageData.pageCategories)
+
   return (
     <div className="container py-6 sm:py-12 md:py-16">
       <div className="flex flex-col-reverse justify-between sm:flex-row sm:flex-1">
@@ -28,13 +30,13 @@ const PageHeading = props => {
           {isHome ? data.allStoryblokSpace.edges[0].node.name : props.pageName}
         </h1>
         <ul className="flex flex-row sm:justify-end">
-          {props.pageData.pageCategories.map(({ node }, index) => {
+          {props.pageData.pageCategories.map((value, index) => {
             return (
               <li
                 key={index}
                 className="rounded-sm text-brand-gray-600 text-xs mr-1 sm:mr-6 sm:p-3 sm:bg-brand-gray-100 sm:text-brand-gray-800 last:mr-0"
               >
-                {node}
+                {value.name}
               </li>
             )
           })}
