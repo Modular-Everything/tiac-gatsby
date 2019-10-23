@@ -24,14 +24,16 @@ module.exports = {
       colors: {
         brand: {
           black: '#191919',
+          'gray-100': '#ededed',
           'gray-300': '#d8d8d8',
           'gray-600': '#888',
+          'gray-800': '#3c3c3b',
         },
       },
     },
   },
   variants: {
-    margin: ['last'],
+    margin: ['responsive', 'last'],
   },
   plugins: [require('tailwindcss-aspect-ratio')()],
 }

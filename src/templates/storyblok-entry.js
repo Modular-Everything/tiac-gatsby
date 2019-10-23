@@ -1,6 +1,7 @@
 import React from 'react'
 import Components from '../components/components.js'
 import Layout from '../components/layout'
+import PageHeading from '../components/page-heading'
 
 class StoryblokEntry extends React.Component {
   static getDerivedStateFromProps(props, state) {
@@ -24,10 +25,13 @@ class StoryblokEntry extends React.Component {
   }
 
   render() {
+    let name = this.state.story.name
     let content = this.state.story.content
+    let slug = this.state.story.slug
 
     return (
       <Layout>
+        <PageHeading pageName={name} pageData={content} pageSlug={slug} />
         {React.createElement(Components(content.component), {
           key: content._uid,
           blok: content,
