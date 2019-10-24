@@ -1,10 +1,10 @@
 import React from 'react'
 
 const Footer = props => (
-  <div className="bg-brand-gray-300">
+  <div className="bg-brand-gray-50">
     <div className="container py-12">
       <ul className="flex justify-center">
-        <li className="relative mr-6 md:mr-8 lg:mr-12">
+        <li className="text-brand-gray-800 text-sm relative mr-6 md:mr-8 lg:mr-12">
           <i className="absolute right-0 left-0 text-center opacity-0 hover:opacity-1">
             temp.
           </i>
@@ -13,7 +13,7 @@ const Footer = props => (
           </a>
         </li>
 
-        <li className="relative mr-6 md:mr-8 lg:mr-12">
+        <li className="text-brand-gray-800 text-sm relative mr-6 md:mr-8 lg:mr-12">
           <i className="absolute right-0 left-0 text-center opacity-0 hover:opacity-1">
             temp.
           </i>
@@ -22,7 +22,7 @@ const Footer = props => (
           </a>
         </li>
 
-        <li className="relative mr-6 md:mr-8 lg:mr-12">
+        <li className="text-brand-gray-800 text-sm relative mr-6 md:mr-8 lg:mr-12">
           <i className="absolute right-0 left-0 text-center opacity-0 hover:opacity-1">
             temp.
           </i>
@@ -31,7 +31,7 @@ const Footer = props => (
           </a>
         </li>
 
-        <li className="relative">
+        <li className="text-brand-gray-800 text-sm relative">
           <i className="absolute right-0 left-0 text-center opacity-0 hover:opacity-1">
             temp.
           </i>
