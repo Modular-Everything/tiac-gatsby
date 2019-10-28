@@ -21,7 +21,7 @@
 
   & h3 {
     /* Highlighted 'Intro' Copy */
-    @apply .text-base .text-brand-gray-800 .mt-8;
+    @apply .text-sm .text-brand-gray-800 .mt-6;
 
     + p {
       @apply .mt-8;
@@ -34,19 +34,19 @@
 
   & h4 {
     /* Small Sub Headings */
-    @apply .text-xs .text-brand-gray-600 .tracking-wide .mb-2;
+    @apply .text-xxs .text-brand-gray-600 .tracking-wide .mb-2;
 
     @media (min-width: 1024px) {
-      @apply .text-sm .leading-relaxed;
+      @apply .text-xs .leading-relaxed;
     }
   }
 
   & p {
     /* Primary Copy */
-    @apply .text-sm .tracking-wide .text-brand-gray-800 .leading-relaxed;
+    @apply .text-xs .tracking-wide .text-brand-gray-800 .leading-relaxed;
 
     @media (min-width: 1024px) {
-      @apply .text-base .leading-relaxed;
+      @apply .text-sm .leading-relaxed;
     }
 
     & + p {
@@ -60,7 +60,7 @@
 
   & ol {
     /* Not displayed at lists, but we force two columns */
-    @apply .text-sm .tracking-wide .text-brand-gray-800;
+    @apply .text-xs .tracking-wide .text-brand-gray-800;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -69,7 +69,7 @@
     }
 
     @media (min-width: 1024px) {
-      @apply .text-base .leading-relaxed;
+      @apply .text-base .leading-relaxed .text-sm;
     }
   }
 }

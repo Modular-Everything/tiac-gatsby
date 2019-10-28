@@ -35,12 +35,13 @@ module.exports = {
         xs: '16rem',
       },
       fontSize: {
-        xs: '0.625rem',
+        xxs: '0.625rem',
       },
     },
   },
   variants: {
     margin: ['responsive', 'last'],
+    fontSize: ['responsive'],
   },
   plugins: [require('tailwindcss-aspect-ratio')()],
 }
