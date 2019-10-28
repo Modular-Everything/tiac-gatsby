@@ -25,7 +25,7 @@ const Projects = () => {
   return (
     <Layout>
       <div className="container pt-8">
-        <ul className="flex flex-row justify-center">
+        <ul className="hidden md:flex flex-row justify-center">
           {data.allStoryblokEntry.edges.map(({ node }, index) => {
             if (node.parent_id === 3050741 && node.published_at != null) {
               return (
