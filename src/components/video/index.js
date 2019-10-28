@@ -22,7 +22,7 @@ const Video = props => {
 
       {props.blok.caption !== '' ? (
         <h4
-          className={`mt-3 cen text-brand-gray-600 text-xs text-${
+          className={`mt-3 cen text-brand-gray-600 text-xxs text-${
             props.blok.caption_align ? props.blok.caption_align : 'left'
           } lg:text-sm tracking-wide`}
         >

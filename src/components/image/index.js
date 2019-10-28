@@ -12,12 +12,23 @@ const Image = props => {
   return (
     <SbEditable content={props.blok}>
       <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
-        <div className="relative overflow-hidden">
-          <Img fixed={fluidProps} />
+        <div className="relative">
+          <div className="relative overflow-hidden">
+            <Img fixed={fluidProps} />
+          </div>
+
+          {/* {props.blok.hover_caption !== undefined ? (
+            <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center bg-brand-black opacity-75 text-white text-xs">
+              <p>{props.blok.hover_caption}</p>
+            </div>
+          ) : (
+            ''
+          )} */}
         </div>
+
         {props.blok.caption !== '' ? (
           <h4
-            className={`mt-3 cen text-brand-gray-600 text-xs text-${
+            className={`mt-3 cen text-brand-gray-600 text-xxs text-${
               props.blok.caption_align ? props.blok.caption_align : 'left'
             } lg:text-sm tracking-wide`}
           >
