@@ -31,6 +31,12 @@ module.exports = {
           'gray-800': '#3c3c3b',
         },
       },
+      maxWidth: {
+        xs: '16rem',
+      },
+      fontSize: {
+        xs: '0.625rem',
+      },
     },
   },
   variants: {
