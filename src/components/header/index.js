@@ -30,7 +30,7 @@ const Header = () => {
   )
 
   return (
-    <header className="bg-brand-black py-8 text-xs tracking-wide lg:text-sm">
+    <header className="bg-brand-black py-8 text-sm tracking-wide sm:text-xs">
       <Helmet>
         <title>{data.allStoryblokSpace.edges[0].node.name}</title>
       </Helmet>
