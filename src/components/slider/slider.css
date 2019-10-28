@@ -1,5 +1,5 @@
 .swiper-container {
-  @apply .mb-12 .relative;
+  @apply .mb-10 .relative;
 
   & .gatsby-image-wrapper {
     @apply .aspect-ratio-43/25;
@@ -12,7 +12,7 @@
 
 .swiper-pagination-bullets {
   @apply .absolute;
-  bottom: 3.5rem !important;
+  bottom: 3rem !important;
 }
 
 .swiper-pagination-bullet {
