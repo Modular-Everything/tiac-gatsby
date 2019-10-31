@@ -23,12 +23,15 @@ module.exports = {
     extend: {
       colors: {
         brand: {
-          black: '#191919',
+          'gray-25': '#fafafa',
           'gray-50': '#f6f6f6',
           'gray-100': '#ededed',
           'gray-300': '#d8d8d8',
           'gray-600': '#888',
+          'gray-700': '#4a4a4a',
           'gray-800': '#3c3c3b',
+          'gray-850': '#333',
+          black: '#191919',
         },
       },
       maxWidth: {
