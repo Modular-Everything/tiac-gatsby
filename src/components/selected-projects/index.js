@@ -4,8 +4,6 @@ import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 import './selected-projects.css'
 
 const SelectedProjects = props => {
-  console.log(props)
-
   if (props.projects !== undefined) {
     var projects = []
 
