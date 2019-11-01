@@ -2,6 +2,7 @@ import React from 'react'
 import Components from '../components/components.js'
 import Layout from '../components/layout'
 import PageHeading from '../components/page-heading'
+import SelectedProjects from '../components/selected-projects'
 
 class StoryblokEntry extends React.Component {
   static getDerivedStateFromProps(props, state) {
@@ -28,6 +29,7 @@ class StoryblokEntry extends React.Component {
     let name = this.state.story.name
     let content = this.state.story.content
     let slug = this.state.story.slug
+    let selectedProjects = this.state.story.content.selected_projects
 
     return (
       <Layout>
@@ -36,6 +38,7 @@ class StoryblokEntry extends React.Component {
           key: content._uid,
           blok: content,
         })}
+        <SelectedProjects projects={selectedProjects} />
       </Layout>
     )
   }
