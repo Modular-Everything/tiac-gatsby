@@ -12,7 +12,7 @@
 
   & h2 {
     /* The Main Title */
-    @apply .text-xl .font-semibold .mb-4 .leading-tight .text-brand-gray-800;
+    @apply .text-xl .font-semibold .mb-4 .leading-tight .text-brand-gray-800 .tracking-tight;
 
     @media (min-width: 1024px) {
       @apply .text-2xl .leading-relaxed;
@@ -21,7 +21,7 @@
 
   & h3 {
     /* Highlighted 'Intro' Copy */
-    @apply .text-sm .text-brand-gray-800 .mt-6;
+    @apply .text-sm .text-brand-gray-800 .mt-6 .tracking-tight;
 
     + p {
       @apply .mt-8;
@@ -34,7 +34,7 @@
 
   & h4 {
     /* Small Sub Headings */
-    @apply .text-xxs .text-brand-gray-600 .tracking-wide .mb-2;
+    @apply .text-xxs .text-brand-gray-600 .tracking-normal .mb-2;
 
     @media (min-width: 1024px) {
       @apply .text-xs .leading-relaxed;
@@ -43,7 +43,7 @@
 
   & p {
     /* Primary Copy */
-    @apply .text-xs .tracking-wide .text-brand-gray-800 .leading-relaxed;
+    @apply .text-xs .tracking-normal .text-brand-gray-800 .leading-relaxed;
 
     @media (min-width: 1024px) {
       @apply .text-sm .leading-relaxed;
@@ -60,7 +60,7 @@
 
   & ol {
     /* Not displayed at lists, but we force two columns */
-    @apply .text-xs .tracking-wide .text-brand-gray-800;
+    @apply .text-xs .tracking-normal .text-brand-gray-800;
     display: grid;
     grid-template-columns: 1fr 1fr;
 
