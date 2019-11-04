@@ -16,7 +16,7 @@
     width: 143px;
 
     &:last-of-type {
-      /* Fixes bug where cards won't scroll to the end */
+      /* Fixes bug where cards won't scroll to the edge of the screen */
       width: 1px;
     }
   }

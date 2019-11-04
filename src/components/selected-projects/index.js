@@ -29,7 +29,7 @@ const SelectedProjects = props => {
       }
 
       projects.push(
-        <li key={index} className="text-white mr-8 last:mr-0">
+        <li key={index} className="text-white mr-4 last:mr-0">
           <h2 className="text-xs mb-2">{value.name}</h2>
           {thumbnail}
           <h3 className="text-xxs text-brand-gray-600 mt-3">
