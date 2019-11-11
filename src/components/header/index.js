@@ -46,7 +46,7 @@ const Header = () => {
               </Link>
             </li>
           ))}
-          <li className="text-white ml-auto">
+          <li className="text-brand-gray-600 sm:text-white ml-auto">
             <a href="mailto:ac@tiac.design">ac@tiac.design</a>
           </li>
         </ul>
