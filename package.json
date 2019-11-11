@@ -32,7 +32,8 @@
     "postcss-nesting": "^7.0.1",
     "prettier": "^1.18.2",
     "tailwindcss": "^1.1.2",
-    "tailwindcss-aspect-ratio": "^2.0.0"
+    "tailwindcss-aspect-ratio": "^2.0.0",
+    "tailwindcss-transition": "^1.0.5"
   },
   "keywords": [
     "gatsby"

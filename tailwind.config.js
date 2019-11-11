@@ -3,6 +3,7 @@ module.exports = {
     container: {
       center: true,
       padding: '2rem',
+      maxWidth: '80rem',
     },
     aspectRatio: {
       square: [1, 1],
@@ -32,10 +33,12 @@ module.exports = {
           'gray-800': '#3c3c3b',
           'gray-850': '#333',
           black: '#191919',
+          'black-overlay': 'rgba(25,25,25,0.75)',
         },
       },
       maxWidth: {
         xs: '16rem',
+        '6xl': '80rem',
       },
       fontSize: {
         xxs: '0.625rem',
@@ -45,6 +48,7 @@ module.exports = {
   variants: {
     margin: ['responsive', 'last'],
     fontSize: ['responsive'],
+    opacity: ['responsive', 'hover'],
   },
   plugins: [require('tailwindcss-aspect-ratio')()],
 }

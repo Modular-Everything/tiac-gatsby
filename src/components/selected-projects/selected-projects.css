@@ -2,9 +2,16 @@
   @apply .flex .flex-no-wrap .overflow-x-auto;
   -webkit-overflow-scrolling: touch;
 
+  @media (min-width: 640px) {
+    @apply .flex-wrap;
+  }
+
   & .sp__project-card {
-    @apply .overflow-hidden;
     height: 80px;
+
+    @media (min-width: 640px) {
+      height: 110px;
+    }
   }
 
   &::-webkit-scrollbar {
@@ -15,9 +22,13 @@
     flex: 0 0 auto;
     width: 143px;
 
+    @media (min-width: 640px) {
+      width: 200px;
+    }
+
     &:last-of-type {
       /* Fixes bug where cards won't scroll to the edge of the screen */
-      width: 1px;
+      @apply .w-2;
     }
   }
 }
