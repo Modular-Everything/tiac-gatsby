@@ -5,7 +5,8 @@ import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 import './selected-projects.css'
 
 const SelectedProjects = props => {
-  if (props.projects !== undefined) {
+  console.log(props)
+  if (Array.isArray(props.projects) && props.projects.length) {
     var projects = []
 
     for (const [index, value] of props.projects.entries()) {
@@ -43,21 +44,23 @@ const SelectedProjects = props => {
         </li>
       )
     }
-  }
 
-  return (
-    <div className="bg-brand-gray-850">
-      <div className="container pl-0 pr-0 pt-10 pb-20 sm:pl-8 sm:pr-8 sm:mx-auto">
-        <h2 className="text-xs mb-16 text-brand-gray-600 pl-8">
-          Selected Projects
-        </h2>
-        <ul className="sp__scrolling-wrapper pl-8 overflow-x-auto">
-          {projects}
-          <li className="w-2 sm:w-2 sm:hidden"></li>
-        </ul>
+    return (
+      <div className="bg-brand-gray-850">
+        <div className="container pl-0 pr-0 pt-10 pb-20 sm:pl-8 sm:pr-8 sm:mx-auto">
+          <h2 className="text-xs mb-16 text-brand-gray-600 pl-8">
+            Selected Projects
+          </h2>
+          <ul className="sp__scrolling-wrapper pl-8 overflow-x-auto">
+            {projects}
+            <li className="w-2 sm:w-2 sm:hidden"></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return null
+  }
 }
 
 export default SelectedProjects
