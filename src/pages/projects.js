@@ -25,24 +25,7 @@ const Projects = () => {
 
   return (
     <Layout>
-      <div className="container pt-8">
-        <ul className="hidden md:flex flex-row justify-center">
-          {data.allStoryblokEntry.edges.map(({ node }, index) => {
-            if (node.parent_id === 3050741 && node.published_at != null) {
-              return (
-                <li
-                  key={index}
-                  className="rounded-sm text-brand-gray-600 text-xs mr-1 sm:mr-6 sm:p-3 sm:bg-brand-gray-100 sm:text-brand-gray-800 last:mr-0"
-                >
-                  {node.name}
-                </li>
-              )
-            }
-          })}
-        </ul>
-      </div>
-
-      <div className="grid projects container">
+      <div className="grid projects container py-8 md:py-4">
         {data.allStoryblokEntry.edges.map(({ node }, index) => {
           var regex = RegExp(/(.mp4)/)
           if (regex.test(node.field_cover_string)) {
