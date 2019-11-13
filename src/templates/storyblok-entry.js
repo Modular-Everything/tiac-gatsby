@@ -40,7 +40,7 @@ class StoryblokEntry extends React.Component {
           key: content._uid,
           blok: content,
         })}
-        <Credits who={credits} />
+        <Credits who={credits} pageSlug={slug} />
         <SelectedProjects projects={selectedProjects} />
       </Layout>
     )
