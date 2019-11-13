@@ -8,9 +8,15 @@ import './swiper-base.css'
 import './slider.css'
 
 const Slider = props => {
-  if (props.blok.slides.length > 1) {
+  if (props.blok.slides.length === 1) {
     var params = {
+      init: false,
+    }
+  } else {
+    var params = {
+      init: true,
       loop: true,
+      lazy: true,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
