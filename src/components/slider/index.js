@@ -45,7 +45,7 @@ const Slider = props => {
                   <Img fixed={fluidProps} />
                 </div>
                 {hasCaption ? (
-                  <p className="text-brand-gray-600 text-center text-xxs tracking-wide leading-loose mt-16 mb-0">
+                  <p className="text-brand-gray-600 text-center text-xxs tracking-wide leading-loose mt-16 mb-0 px-4">
                     {slide.caption}
                   </p>
                 ) : (
