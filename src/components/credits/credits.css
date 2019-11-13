@@ -1,0 +1,30 @@
+.credits {
+  @apply .mb-12;
+
+  & h2 {
+    @apply .text-lg .text-brand-black .mb-12;
+  }
+
+  & .credits__name {
+    @apply .text-brand-black;
+  }
+
+  & .credits__role {
+    @apply .text-brand-gray-600;
+  }
+
+  & ul {
+    @apply .text-sm;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 0.25rem 2rem;
+
+    @media (min-width: 640px) {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  & ul li ul {
+    @apply .flex .justify-between;
+  }
+}

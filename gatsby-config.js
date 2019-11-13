@@ -27,6 +27,7 @@ module.exports = {
           'page.pageCategories',
           'page.selected_projects',
           'page.tag_list',
+          'page.credits.credit',
         ],
       },
     },

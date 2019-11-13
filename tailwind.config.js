@@ -46,7 +46,7 @@ module.exports = {
     },
   },
   variants: {
-    margin: ['responsive', 'last'],
+    margin: ['responsive', 'last', 'odd'],
     fontSize: ['responsive'],
     opacity: ['responsive', 'hover'],
   },
