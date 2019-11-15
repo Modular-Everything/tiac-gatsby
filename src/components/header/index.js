@@ -8,7 +8,7 @@ const Header = () => {
       query Navigation {
         allStoryblokLink(
           filter: { parent_id: { eq: 0 }, slug: { ne: "categories" } }
-          sort: { fields: [name], order: ASC }
+          sort: { fields: [name], order: DESC }
         ) {
           edges {
             node {
