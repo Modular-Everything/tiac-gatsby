@@ -13,7 +13,7 @@ const Slider = props => {
       init: false,
     }
   } else {
-    var params = {
+    params = {
       init: true,
       loop: true,
       lazy: true,
