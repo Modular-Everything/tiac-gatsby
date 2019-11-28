@@ -50,5 +50,8 @@ module.exports = {
     fontSize: ['responsive'],
     opacity: ['responsive', 'hover'],
   },
-  plugins: [require('tailwindcss-aspect-ratio')()],
+  plugins: [
+    require('tailwindcss-aspect-ratio')(),
+    require('tailwindcss-transitions')(),
+  ],
 }

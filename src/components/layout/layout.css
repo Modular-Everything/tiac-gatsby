@@ -1,3 +1,7 @@
 body {
   @apply .font-serif .bg-brand-gray-50;
 }
+
+main {
+  @apply .pt-20;
+}

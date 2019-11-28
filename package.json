@@ -26,7 +26,8 @@
     "react-id-swiper": "^2.3.2",
     "read-more-react": "^1.0.9",
     "storyblok-react": "0.0.9",
-    "swiper": "^5.0.4"
+    "swiper": "^5.0.4",
+    "tailwindcss-transitions": "^2.1.0"
   },
   "devDependencies": {
     "postcss-nesting": "^7.0.1",
