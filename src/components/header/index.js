@@ -73,13 +73,13 @@ const Header = () => {
           </li>
         </ul>
 
-        <div class="sm:hidden">
+        <div className="sm:hidden">
           <button
             onClick={toggleMenu}
-            class="flex items-center text-white hover:text-brand-gray-50"
+            className="flex items-center text-white hover:text-brand-gray-50"
           >
             <svg
-              class="fill-current h-3 w-6"
+              className="fill-current h-3 w-6"
               viewBox="0 0 20 20"
               xmlns="http://www.w3.org/2000/svg"
             >
