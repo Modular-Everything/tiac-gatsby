@@ -24,7 +24,7 @@ const SelectedProjects = props => {
         })
         thumbnail = (
           <div className="sp__project-card overflow-hidden sm:z-0 sm:cursor-pointer">
-            <Img fluid={fluidProps} />
+            {/* <Img fluid={fluidProps} /> */}
           </div>
         )
       }
