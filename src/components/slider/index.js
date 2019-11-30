@@ -16,7 +16,7 @@ const Slider = props => {
     params = {
       init: true,
       loop: true,
-      lazy: true,
+      lazy: false,
       pagination: {
         el: '.swiper-pagination',
         clickable: true,
@@ -29,9 +29,13 @@ const Slider = props => {
       <div className={props.blok.container ? 'container' : ''}>
         <Swiper {...params}>
           {props.blok.slides.map((slide, index) => {
-            const fluidProps = getFluidGatsbyImage(slide.image, {
-              maxWidth: 1800,
-            })
+            let fluidProps = ''
+            if (slide.image !== 'undefined' && slide.image !== '') {
+              fluidProps = getFluidGatsbyImage(slide.image, {
+                maxWidth: 1000,
+                maxHeight: 585,
+              })
+            }
 
             if (slide.caption === '') {
               var hasCaption = false
@@ -42,10 +46,10 @@ const Slider = props => {
             return (
               <div key={index}>
                 <div>
-                  <Img fixed={fluidProps} />
+                  <Img fluid={fluidProps} />
                 </div>
                 {hasCaption ? (
-                  <p className="text-brand-gray-600 text-center text-xxs tracking-wide leading-loose mt-16 mb-0 px-4">
+                  <p className="text-brand-gray-600 text-center text-xxs tracking-wide leading-loose mt-10 mb-0 px-4">
                     {slide.caption}
                   </p>
                 ) : (

@@ -1,18 +1,9 @@
 .swiper-container {
-  @apply .mb-10 .relative;
-
-  & .gatsby-image-wrapper {
-    @apply .aspect-ratio-43/25;
-  }
+  @apply .mb-10 .h-auto;
 }
 
 .swiper-pagination {
-  @apply .flex .justify-center;
-}
-
-.swiper-pagination-bullets {
-  @apply .absolute;
-  bottom: 3rem !important;
+  @apply .flex .justify-center .static .mt-4;
 }
 
 .swiper-pagination-bullet {
