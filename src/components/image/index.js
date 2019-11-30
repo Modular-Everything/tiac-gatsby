@@ -6,7 +6,7 @@ import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 
 const Image = props => {
   const fluidProps = getFluidGatsbyImage(props.blok.image, {
-    maxWidth: 1800,
+    maxWidth: 1000,
   })
 
   return (
