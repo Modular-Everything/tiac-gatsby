@@ -5,3 +5,11 @@ body {
 main {
   @apply .pt-20;
 }
+
+.container-wide {
+  @apply mx-auto p-4;
+
+  @media (min-width: 1280px) {
+    max-width: 100rem;
+  }
+}
