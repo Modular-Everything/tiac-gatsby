@@ -5,7 +5,7 @@ import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 import './selected-projects.css'
 
 const SelectedProjects = props => {
-  if (Array.isArray(props.projects) && props.projects.length) {
+  if (Array.isArray(props.projects) && props.projects.length !== 0) {
     var projects = []
 
     for (const [index, value] of props.projects.entries()) {
@@ -31,7 +31,10 @@ const SelectedProjects = props => {
       }
 
       projects.push(
-        <li key={index} className="text-white mr-4 sm:relative sm:flex-1">
+        <li
+          key={index}
+          className="text-white mr-4 sm:mt-2 sm:mb-2 sm:relative sm:flex-1"
+        >
           <Link to={value.full_slug}>
             <h2 className="text-xs mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100">
               {value.name}
