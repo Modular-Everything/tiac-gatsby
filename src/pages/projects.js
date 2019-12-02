@@ -25,7 +25,7 @@ const Projects = () => {
 
   return (
     <Layout>
-      <div className="grid projects container py-8 md:py-4">
+      <div className="grid projects container container-wide py-4">
         {data.allStoryblokEntry.edges.map(({ node }, index) => {
           var regex = RegExp(/(.mp4)/)
           if (regex.test(node.field_cover_string)) {
@@ -41,6 +41,9 @@ const Projects = () => {
                 } relative overflow-hidden`}
               >
                 <Link to={node.full_slug}>
+                  <h2 className="text-xs sm:text-white mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100">
+                    {node.name}
+                  </h2>
                   {!isVideo ? (
                     <img
                       src={node.field_cover_string}
