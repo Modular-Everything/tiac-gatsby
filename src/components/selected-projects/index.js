@@ -10,6 +10,7 @@ const SelectedProjects = props => {
 
     for (const [index, value] of props.projects.entries()) {
       const regex = RegExp(/(.mp4)/) // is it a video?
+
       if (regex.test(value.content.cover)) {
         var thumbnail = (
           <div className="sp__project-card overflow-hidden sm:z-0 sm:cursor-pointer">
@@ -24,7 +25,7 @@ const SelectedProjects = props => {
         })
         thumbnail = (
           <div className="sp__project-card overflow-hidden sm:z-0 sm:cursor-pointer">
-            {/* <Img fluid={fluidProps} /> */}
+            <Img fluid={fluidProps} />
           </div>
         )
       }
