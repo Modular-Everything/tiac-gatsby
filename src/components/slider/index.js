@@ -15,7 +15,7 @@ const Slider = props => {
       effect: 'fade',
     }
   } else {
-    var params = {
+    params = {
       init: true,
       loop: true,
       lazy: false,
