@@ -6,22 +6,17 @@ const Header = () => {
   const data = useStaticQuery(
     graphql`
       query Navigation {
-        allStoryblokLink(
-          filter: { parent_id: { eq: 0 }, slug: { ne: "categories" } }
-          sort: { fields: [name], order: DESC }
-        ) {
-          edges {
-            node {
-              name
-              slug
-              parent_id
-            }
-          }
-        }
         allStoryblokSpace {
           edges {
             node {
               name
+            }
+          }
+        }
+        allStoryblokEntry(filter: { field_component: { eq: "global" } }) {
+          edges {
+            node {
+              content
             }
           }
         }
@@ -34,6 +29,25 @@ const Header = () => {
     setMenuOpen(!isMenuOpen)
   }
 
+  const parsed_nav = JSON.parse(data.allStoryblokEntry.edges[0].node.content)
+  const nav_entries = Object.entries(parsed_nav.header_links)
+  var navigation = []
+  nav_entries.forEach(([key, value]) => {
+    navigation.push(
+      <li
+        key={key}
+        className="mb-4 sm:mb-0 sm:mr-6 last:mb-0 last:mr-0 text-2xl sm:text-xs ml-8 sm:ml-0"
+      >
+        <Link
+          to={value.link.cached_url === 'home' ? '/' : value.link.cached_url}
+          className="text-white hover:text-brand-gray-600"
+        >
+          {value.header_link_name}
+        </Link>
+      </li>
+    )
+  })
+
   return (
     <header
       className={
@@ -45,31 +59,27 @@ const Header = () => {
       <Helmet>
         <title>{data.allStoryblokSpace.edges[0].node.name}</title>
       </Helmet>
+
       <div className="container flex flex-row">
         <ul className="flex flex-col h-full sm:h-auto sm:flex-row w-full">
           <li className="text-white text-sm sm:hidden mb-12">
             {data.allStoryblokSpace.edges[0].node.name}
           </li>
-          {data.allStoryblokLink.edges.map(({ node }, index) => (
-            <li
-              key={index}
-              className="mb-4 sm:mb-0 sm:mr-6 last:mb-0 last:mr-0 text-2xl sm:text-xs ml-8 sm:ml-0"
-            >
-              <Link
-                to={node.slug === 'home' ? '/' : '/' + node.slug}
-                className="text-white hover:text-brand-gray-600"
-              >
-                {node.name}
-              </Link>
-            </li>
-          ))}
+
+          {navigation}
+
           <li
             className={
-              `text-white ml-8 sm:ml-auto fixed sm:static bottom-0 sm:bottom-auto mb-12 sm:mb-auto text-sm sm:text-xs ` +
+              `ml-8 sm:ml-auto fixed sm:static bottom-0 sm:bottom-auto mb-12 sm:mb-auto text-sm sm:text-xs sm:visible` +
               (isMenuOpen ? `visible` : `hidden`)
             }
           >
-            <a href="mailto:ac@tiac.design">ac@tiac.design</a>
+            <a
+              href="mailto:ac@tiac.design"
+              className="text-white hover:text-brand-gray-600"
+            >
+              ac@tiac.design
+            </a>
           </li>
         </ul>
 
