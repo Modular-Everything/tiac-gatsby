@@ -16,7 +16,9 @@ const Image = props => {
           <div className="relative">
             <div className="relative overflow-hidden">
               {/* <Img fixed={fluidProps} /> */}
-              <img src={props.blok.image.toLowerCase()} alt="" />
+              <div className="gatsby-image-wrapper">
+                <img src={props.blok.image.toLowerCase()} alt="" />
+              </div>
             </div>
 
             {/* {props.blok.hover_caption !== undefined ? (
