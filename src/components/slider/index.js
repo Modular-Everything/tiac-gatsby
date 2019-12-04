@@ -48,8 +48,8 @@ const Slider = props => {
 
               return (
                 <div key={index}>
-                  <div>
-                    {/* <Img fluid={fluidProps} /> */}
+                  {/* <Img fluid={fluidProps} /> */}
+                  <div className="gatsby-image-wrapper">
                     <img src={slide.image} alt="" />
                   </div>
                   {hasCaption ? (

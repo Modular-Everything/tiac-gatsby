@@ -17,3 +17,8 @@
      with gatsby-image */
   opacity: 1 !important;
 }
+
+.swiper-slide .gatsby-image-wrapper {
+  min-height: 800px;
+  // temporary
+}
