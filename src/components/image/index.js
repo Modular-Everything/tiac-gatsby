@@ -1,21 +1,22 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import './image.css'
-import Img from 'gatsby-image'
-import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
+// import Img from 'gatsby-image'
+// import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 
 const Image = props => {
   if (props.blok.image) {
-    const fluidProps = getFluidGatsbyImage(props.blok.image.toLowerCase(), {
-      maxWidth: 1000,
-    })
+    // const fluidProps = getFluidGatsbyImage(props.blok.image.toLowerCase(), {
+    //   maxWidth: 1000,
+    // })
 
     return (
       <SbEditable content={props.blok}>
         <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
           <div className="relative">
             <div className="relative overflow-hidden">
-              <Img fixed={fluidProps} />
+              {/* <Img fixed={fluidProps} /> */}
+              <img src={props.blok.image.toLowerCase()} alt="" />
             </div>
 
             {/* {props.blok.hover_caption !== undefined ? (

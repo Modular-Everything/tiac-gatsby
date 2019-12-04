@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
+// import Img from 'gatsby-image'
+// import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 import './selected-projects.css'
 
 const SelectedProjects = props => {
@@ -20,32 +20,35 @@ const SelectedProjects = props => {
           </div>
         )
       } else {
-        const fluidProps = getFluidGatsbyImage(value.content.cover, {
-          maxWidth: 216,
-        })
-        thumbnail = (
-          <div className="sp__project-card overflow-hidden sm:z-0 sm:cursor-pointer">
-            <Img fluid={fluidProps} />
-          </div>
+        if (value.content.cover !== '') {
+          // const fluidProps = getFluidGatsbyImage(value.content.cover, {
+          //   maxWidth: 216,
+          // })
+          thumbnail = (
+            <div className="sp__project-card overflow-hidden sm:z-0 sm:cursor-pointer">
+              {/* <Img fluid={fluidProps} /> */}
+              <img src={value.content.cover} alt="" />
+            </div>
+          )
+        }
+
+        projects.push(
+          <li
+            key={index}
+            className="text-white mr-4 sm:mt-2 sm:mb-2 sm:relative sm:flex-1"
+          >
+            <Link to={value.full_slug}>
+              <h2 className="text-xs mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100">
+                {value.name}
+              </h2>
+              {thumbnail}
+              <h3 className="text-xxs text-brand-gray-600 mt-3 sm:hidden">
+                {value.tag_list[0]}
+              </h3>
+            </Link>
+          </li>
         )
       }
-
-      projects.push(
-        <li
-          key={index}
-          className="text-white mr-4 sm:mt-2 sm:mb-2 sm:relative sm:flex-1"
-        >
-          <Link to={value.full_slug}>
-            <h2 className="text-xs mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100">
-              {value.name}
-            </h2>
-            {thumbnail}
-            <h3 className="text-xxs text-brand-gray-600 mt-3 sm:hidden">
-              {value.tag_list[0]}
-            </h3>
-          </Link>
-        </li>
-      )
     }
 
     return (
