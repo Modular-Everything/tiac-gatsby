@@ -11,14 +11,3 @@
   width: 2rem;
   border-bottom: 1px solid black;
 }
-
-.swiper-slide-duplicate img {
-  /* Bug fix for invisible duplicate slides introduced
-     with gatsby-image */
-  opacity: 1 !important;
-}
-
-.swiper-slide .gatsby-image-wrapper {
-  min-height: 800px;
-  // temporary
-}

@@ -46,12 +46,14 @@ const Slider = props => {
                 hasCaption = true
               }
 
+              const imageService = '//img2.storyblok.com/'
+              const path = slide.image.replace('//a.storyblok.com', '')
+              const resizedImage = imageService + '2560x1388' + path
+
               return (
                 <div key={index}>
                   {/* <Img fluid={fluidProps} /> */}
-                  <div className="gatsby-image-wrapper">
-                    <img src={slide.image} alt="" />
-                  </div>
+                  <img src={resizedImage} alt="" />
                   {hasCaption ? (
                     <p className="text-brand-gray-600 text-center text-xxs tracking-wide leading-loose mt-10 mb-0 px-4">
                       {slide.caption}
