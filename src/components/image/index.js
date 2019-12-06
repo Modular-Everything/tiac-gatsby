@@ -32,7 +32,7 @@ const Image = props => {
             <h4
               className={`my-3 text-brand-gray-600 text-xxs text-${
                 props.blok.caption_align ? props.blok.caption_align : 'left'
-              } lg:text-sm tracking-wide`}
+              } lg:text-xs lg:leading-relaxed tracking-normal`}
             >
               {props.blok.caption}
             </h4>
