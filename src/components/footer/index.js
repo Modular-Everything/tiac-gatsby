@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Footer = props => (
-  <div className="bg-brand-gray-50">
+  <div className="bg-white">
     <div className="container py-12">
       <ul className="flex justify-center">
         <li className="text-brand-gray-800 text-sm relative mr-6 md:mr-8 lg:mr-12">

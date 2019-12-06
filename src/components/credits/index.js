@@ -11,34 +11,36 @@ const Credits = props => {
     // }
 
     return (
-      <div className="credits container">
-        <h2>Credits</h2>
-        <ul>
-          <li>
-            <ul>
-              <li className="credits__name">Andy Cooke</li>
-              <li className="credits__role">Designer</li>
-            </ul>
-          </li>
-          <li>
-            <ul>
-              <li className="credits__name">Andy Cooke</li>
-              <li className="credits__role">Designer</li>
-            </ul>
-          </li>
-          <li>
-            <ul>
-              <li className="credits__name">Andy Cooke</li>
-              <li className="credits__role">Designer</li>
-            </ul>
-          </li>
-          <li>
-            <ul>
-              <li className="credits__name">Andy Cooke</li>
-              <li className="credits__role">Designer</li>
-            </ul>
-          </li>
-        </ul>
+      <div className="bg-white py-6">
+        <div className="credits container">
+          <h2>Credits</h2>
+          <ul>
+            <li>
+              <ul>
+                <li className="credits__name">Andy Cooke</li>
+                <li className="credits__role">Designer</li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li className="credits__name">Andy Cooke</li>
+                <li className="credits__role">Designer</li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li className="credits__name">Andy Cooke</li>
+                <li className="credits__role">Designer</li>
+              </ul>
+            </li>
+            <li>
+              <ul>
+                <li className="credits__name">Andy Cooke</li>
+                <li className="credits__role">Designer</li>
+              </ul>
+            </li>
+          </ul>
+        </div>
       </div>
     )
   } else {
