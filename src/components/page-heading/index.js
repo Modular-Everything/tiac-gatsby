@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql, useStaticQuery } from 'gatsby'
+import './page-heading.css'
 
 const PageHeading = props => {
   if (props.pageSlug === 'home') {
@@ -27,9 +28,10 @@ const PageHeading = props => {
       categories.push(
         <li
           key={index}
-          className="rounded-sm text-brand-gray-600 text-xs mr-1 sm:mr-6 sm:p-3 sm:bg-brand-gray-100 sm:text-brand-gray-800 last:mr-0"
+          className="rounded-sm text-brand-gray-600 text-xxs mr-1 sm:mr-6 sm:p-3 sm:bg-brand-gray-100 sm:text-brand-gray-800 last:mr-0 pageCategories"
         >
           {value.name}
+          <span>, </span>
         </li>
       )
     }
