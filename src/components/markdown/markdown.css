@@ -34,7 +34,7 @@
 
   & h4 {
     /* Small Sub Headings */
-    @apply .text-xxs .text-brand-gray-600 .tracking-normal .mb-2;
+    @apply .text-xxs .text-brand-gray-600 .tracking-normal .mb-3;
 
     @media (min-width: 1024px) {
       @apply .text-xs .leading-relaxed;
