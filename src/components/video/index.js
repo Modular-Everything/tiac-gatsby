@@ -6,11 +6,19 @@ const Video = props => {
     <SbEditable content={props.blok}>
       <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
         <div className="relative">
-          <video height="100%" width="100%" autoPlay loop muted>
+          <video
+            height="100%"
+            width="100%"
+            autoPlay
+            loop
+            autobuffer
+            muted
+            playsinline
+          >
             <source src={props.blok.video} type="video/mp4"></source>
           </video>
 
-          {/* {props.blok.hover_caption !== '' ? (
+          {/* {props.blok.hover_caption !== '' ? ( 
           <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center bg-brand-black text-white text-xs opacity-75">
           <p>{props.blok.hover_caption}</p>
           </div>
