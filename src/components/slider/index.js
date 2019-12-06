@@ -53,7 +53,9 @@ const Slider = props => {
               return (
                 <div key={index}>
                   {/* <Img fluid={fluidProps} /> */}
-                  <img src={resizedImage} alt="" />
+                  <div>
+                    <img src={resizedImage} alt="" />
+                  </div>
                   {hasCaption ? (
                     <p className="text-brand-gray-600 text-center text-xxs tracking-wide leading-loose mt-10 mb-0 px-4">
                       {slide.caption}
