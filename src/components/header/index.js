@@ -72,7 +72,7 @@ const Header = () => {
           <li
             className={
               `ml-8 sm:ml-auto fixed sm:static bottom-0 sm:bottom-auto mb-12 sm:mb-auto text-sm sm:text-xs sm:visible` +
-              (isMenuOpen ? `visible` : `hidden`)
+              (isMenuOpen ? ` visible` : ` hidden`)
             }
           >
             <a
