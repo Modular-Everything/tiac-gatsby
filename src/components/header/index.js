@@ -64,7 +64,7 @@ const Header = () => {
       <div className="container flex flex-row">
         <ul className="flex flex-col h-full sm:h-auto sm:flex-row w-full">
           <li className="text-white text-sm sm:hidden mb-12">
-            {data.allStoryblokSpace.edges[0].node.name}
+            <Link to="/">{data.allStoryblokSpace.edges[0].node.name}</Link>
           </li>
 
           {navigation}
