@@ -10,13 +10,24 @@ const Image = props => {
     //   maxWidth: 1000,
     // })
 
+    const imageService = '//img2.storyblok.com/'
+    const path = props.blok.image.replace('//a.storyblok.com', '')
+    const height = props.blok.rows === 'two' ? '1530' : '746'
+    const width = props.blok.columns === 'two' ? '2496' : '1232'
+    const resizedImage = imageService + width + 'x' + height + path
+
     return (
       <SbEditable content={props.blok}>
         <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
           <div className="relative">
             <div className="relative overflow-hidden">
               {/* <Img fixed={fluidProps} /> */}
-              <img src={props.blok.image.toLowerCase()} alt="" />
+              <img
+                src={resizedImage}
+                alt=""
+                width={width / 2}
+                height={height / 2}
+              />
             </div>
 
             {/* {props.blok.hover_caption !== undefined ? (
