@@ -38,7 +38,7 @@ const SelectedProjects = props => {
             className="text-white mr-4 sm:mt-2 sm:mb-2 sm:relative sm:flex-1"
           >
             <Link to={'/' + value.full_slug}>
-              <h2 className="text-xs mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100">
+              <h2 className="text-xs mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-ease-in-out transition-opacity">
                 {value.name}
               </h2>
               {thumbnail}
