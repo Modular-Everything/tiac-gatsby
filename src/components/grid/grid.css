@@ -8,12 +8,14 @@
     grid-gap: 2rem;
   }
 
-  & .md:first-of-type {
-    @apply text-left !important;
-  }
+  @media (min-width: 768px) {
+    & .md:first-of-type {
+      @apply text-left !important;
+    }
 
-  & .md:last-of-type {
-    @apply text-right;
+    & .md:last-of-type {
+      @apply text-right;
+    }
   }
 }
 
