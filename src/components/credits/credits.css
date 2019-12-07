@@ -1,16 +1,14 @@
 .credits {
-  @apply .mb-12;
-
   & h2 {
     @apply .text-lg .text-brand-black .mb-12;
   }
 
   & .credits__name {
-    @apply .text-brand-black;
+    @apply .text-brand-black .w-6/12;
   }
 
   & .credits__role {
-    @apply .text-brand-gray-600;
+    @apply .text-brand-gray-600 .text-left .w-6/12;
   }
 
   & ul {
