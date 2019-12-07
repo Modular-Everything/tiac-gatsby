@@ -2,8 +2,6 @@ import React from 'react'
 import './credits.css'
 
 const Credits = props => {
-  console.log(props)
-
   var credits = []
   for (const [index, value] of props.who.entries()) {
     credits.push(
