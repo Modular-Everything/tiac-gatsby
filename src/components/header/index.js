@@ -90,7 +90,7 @@ const Header = () => {
             className="flex items-center text-white hover:text-brand-gray-50"
           >
             <svg
-              className="fill-current h-3 w-6"
+              className="fill-current h-3 w-8"
               viewBox="0 0 29 8"
               xmlns="http://www.w3.org/2000/svg"
             >
