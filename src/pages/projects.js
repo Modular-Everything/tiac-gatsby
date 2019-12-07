@@ -41,7 +41,7 @@ const Projects = () => {
                 } relative overflow-hidden`}
               >
                 <Link to={node.full_slug}>
-                  <h2 className="text-xs sm:text-white mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100">
+                  <h2 className="text-xs sm:text-white mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out">
                     {node.name}
                   </h2>
                   {!isVideo ? (

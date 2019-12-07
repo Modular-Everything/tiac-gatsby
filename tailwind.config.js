@@ -33,7 +33,7 @@ module.exports = {
           'gray-800': '#3c3c3b',
           'gray-850': '#333',
           black: '#191919',
-          'black-overlay': 'rgba(25,25,25,0.75)',
+          'black-overlay': 'rgba(25,25,25,0.95)',
         },
       },
       maxWidth: {
