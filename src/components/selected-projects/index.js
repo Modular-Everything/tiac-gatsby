@@ -35,14 +35,23 @@ const SelectedProjects = props => {
         projects.push(
           <li
             key={index}
-            className="text-white mr-4 sm:mt-2 sm:mb-2 sm:relative sm:flex-1"
+            className="relative overflow-hidden text-white mr-4 last:mr-0 sm:mt-2 sm:mb-2 sm:relative sm:flex-1"
           >
             <Link to={'/' + value.full_slug}>
-              <h2 className="text-xs mb-2 sm:absolute sm:flex sm:justify-center sm:items-center sm:w-full sm:h-full sm:mb-0 sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-ease-in-out transition-opacity">
+              <div className="hidden sm:visible sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out">
+                <h2 className="text-xs sm:text-white">{value.name}</h2>
+                <h3 className="text-xxs mt-2 sm:text-white sm:text-center">
+                  {value.tag_list[0]}
+                </h3>
+              </div>
+
+              <h2 className="visible sm:hidden text-xs mb-3 text-white">
                 {value.name}
               </h2>
+
               {thumbnail}
-              <h3 className="text-xxs text-brand-gray-600 mt-3 sm:hidden">
+
+              <h3 className="visible sm:hidden text-xxs mt-4 text-brand-gray-600">
                 {value.tag_list[0]}
               </h3>
             </Link>
