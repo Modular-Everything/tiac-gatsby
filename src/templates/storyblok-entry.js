@@ -1,9 +1,13 @@
 import React from 'react'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { fab } from '@fortawesome/free-brands-svg-icons'
 import Components from '../components/components.js'
 import Layout from '../components/layout'
 import PageHeading from '../components/page-heading'
 import SelectedProjects from '../components/selected-projects'
 import Credits from '../components/credits'
+
+library.add(fab)
 
 class StoryblokEntry extends React.Component {
   static getDerivedStateFromProps(props, state) {

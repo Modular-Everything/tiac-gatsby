@@ -1,47 +1,55 @@
 import React from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Footer = props => (
-  <div className="bg-white">
-    <div className="container py-12">
-      <ul className="flex justify-center">
-        <li className="text-brand-gray-800 text-sm relative mr-6 md:mr-8 lg:mr-12">
-          <i className="absolute right-0 left-0 text-center opacity-0 hover:opacity-1">
-            temp.
-          </i>
-          <a href="http://instagram.com" className="hover:opacity-0">
-            Instagram
-          </a>
-        </li>
+const Footer = () => {
+  const data = useStaticQuery(
+    graphql`
+      query Social {
+        allStoryblokEntry(filter: { field_component: { eq: "global" } }) {
+          edges {
+            node {
+              content
+            }
+          }
+        }
+      }
+    `
+  )
 
-        <li className="text-brand-gray-800 text-sm relative mr-6 md:mr-8 lg:mr-12">
-          <i className="absolute right-0 left-0 text-center opacity-0 hover:opacity-1">
-            temp.
-          </i>
-          <a href="http://twitter.com" className="hover:opacity-0">
-            Twitter
-          </a>
-        </li>
+  const parsed_nav = JSON.parse(data.allStoryblokEntry.edges[0].node.content)
+  const social_entries = Object.entries(parsed_nav.social_links)
+  var social_links = []
+  social_entries.forEach(([key, value]) => {
+    social_links.push(
+      <li
+        key={key}
+        className="text-brand-gray-800 text-sm relative mr-12 sm:mr-16 last:mr-0"
+      >
+        <a
+          href={value.link.cached_url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="relative"
+        >
+          <div className="text-2xl text-brand-gray-800 sm:rounded-full sm:bg-brand-gray-25 sm:h-16 sm:w-16 sm:flex sm:justify-center sm:items-center sm:shadow-xl sm:absolute sm:opacity-0 sm:hover:opacity-100 sm:transition-ease-in-out sm:transition-opacity z-50">
+            <FontAwesomeIcon icon={['fab', value.icon]} />
+          </div>
+          <div className="hidden sm:visible sm:h-16 sm:flex sm:items-center">
+            {value.name}
+          </div>
+        </a>
+      </li>
+    )
+  })
 
-        <li className="text-brand-gray-800 text-sm relative mr-6 md:mr-8 lg:mr-12">
-          <i className="absolute right-0 left-0 text-center opacity-0 hover:opacity-1">
-            temp.
-          </i>
-          <a href="http://linkedin.com" className="hover:opacity-0">
-            LinkedIn
-          </a>
-        </li>
-
-        <li className="text-brand-gray-800 text-sm relative">
-          <i className="absolute right-0 left-0 text-center opacity-0 hover:opacity-1">
-            temp.
-          </i>
-          <a href="http://behance.com" className="hover:opacity-0">
-            Behance
-          </a>
-        </li>
-      </ul>
+  return (
+    <div className="bg-white">
+      <div className="container py-12">
+        <ul className="flex justify-center items-center">{social_links}</ul>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default Footer
