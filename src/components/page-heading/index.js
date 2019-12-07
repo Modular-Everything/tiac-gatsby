@@ -28,7 +28,7 @@ const PageHeading = props => {
       categories.push(
         <li
           key={index}
-          className="rounded-sm text-brand-gray-600 text-xxs mr-1 sm:mr-6 sm:p-3 sm:bg-brand-gray-100 sm:text-brand-gray-800 last:mr-0 pageCategories"
+          className="rounded-sm text-brand-gray-600 text-xxs sm:text-xs mr-1 sm:mr-6 sm:p-3 sm:bg-brand-gray-100 sm:text-brand-gray-800 last:mr-0 pageCategories"
         >
           {value.name}
           <span className="sm:hidden">, </span>
