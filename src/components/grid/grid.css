@@ -8,8 +8,12 @@
     grid-gap: 2rem;
   }
 
+  & .md:first-of-type {
+    @apply text-left !important;
+  }
+
   & .md:last-of-type {
-    text-align: right;
+    @apply text-right;
   }
 }
 
