@@ -16,14 +16,18 @@ const Credits = props => {
     )
   }
 
-  return (
-    <div className="bg-white py-12">
-      <div className="credits container">
-        <h2>Credits</h2>
-        <ul>{credits}</ul>
+  if (props.who.length !== 0) {
+    return (
+      <div className="bg-white py-12">
+        <div className="credits container">
+          <h2>Credits</h2>
+          <ul>{credits}</ul>
+        </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return null
+  }
 }
 
 export default Credits
