@@ -28,7 +28,6 @@ class StoryblokEntry extends React.Component {
   constructor(props) {
     super()
     this.state = StoryblokEntry.prepareStory(props)
-    console.log(props)
   }
 
   render() {
