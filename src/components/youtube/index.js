@@ -8,7 +8,7 @@ const YouTubeEmbed = props => {
     <SbEditable content={props.blok}>
       <div className="container mb-12">
         <div className="youtubePlayer">
-          <YouTube video={props.blok.source} muted />
+          <YouTube video={props.blok.source} muted autoplay />
         </div>
       </div>
     </SbEditable>
