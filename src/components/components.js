@@ -5,6 +5,8 @@ import Markdown from './markdown'
 import Divider from './divider'
 import Image from './image'
 import Video from './video'
+import YouTubeEmbed from './youtube'
+import VimeoEmbed from './vimeo'
 import ComponentNotFound from './component-not-found'
 
 const ComponentList = {
@@ -15,6 +17,8 @@ const ComponentList = {
   divider: Divider,
   image: Image,
   video: Video,
+  youtube: YouTubeEmbed,
+  vimeo: VimeoEmbed,
 }
 
 const Components = type => {

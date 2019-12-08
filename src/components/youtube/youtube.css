@@ -1,0 +1,7 @@
+.youtubePlayer {
+  @apply .aspect-ratio-16/9 h-0 relative;
+
+  & iframe {
+    @apply absolute top-0 left-0 w-full h-full;
+  }
+}
