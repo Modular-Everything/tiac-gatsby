@@ -43,7 +43,7 @@ const PageHeading = props => {
         <div className="flex flex-col-reverse justify-between sm:flex-row sm:flex-1">
           {isHome ? (
             <>
-              <h1 className="hidden text-brand-black text-xl mt-2 sm:mt-0 sm:text-xl sm:flex sm:flex-col sm:justify-center md:text-2xl">
+              <h1 className="hidden text-xl font-semibold leading-tight text-brand-gray-800 tracking-tight mt-2 sm:mt-0 sm:flex sm:flex-col sm:justify-center md:text-2xl">
                 {data.allStoryblokSpace.edges[0].node.name}
               </h1>
               <p className="text-sm max-w-xs">

@@ -46,7 +46,9 @@ const Projects = () => {
             <div key={index} className="relative overflow-hidden">
               <Link to={'/' + node.full_slug}>
                 <div className="hidden sm:visible sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out">
-                  <h2 className="text-sm sm:text-white">{node.name}</h2>
+                  <h2 className="text-xl font-semibold mb-2 leading-tight tracking-tight sm:text-white">
+                    {node.name}
+                  </h2>
                   <ul className="text-xs sm:text-white sm:text-center">
                     {tags}
                   </ul>
