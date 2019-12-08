@@ -4,7 +4,6 @@ import { fab } from '@fortawesome/free-brands-svg-icons'
 import Components from '../components/components.js'
 import Layout from '../components/layout'
 import PageHeading from '../components/page-heading'
-import PrevNext from '../components/prev-next-projects'
 import SelectedProjects from '../components/selected-projects'
 import Credits from '../components/credits'
 
