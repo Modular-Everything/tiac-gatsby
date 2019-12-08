@@ -29,8 +29,10 @@ const Header = () => {
     setMenuOpen(!isMenuOpen)
   }
 
-  const parsed_nav = JSON.parse(data.allStoryblokEntry.edges[0].node.content)
-  const nav_entries = Object.entries(parsed_nav.header_links)
+  const parsed_content = JSON.parse(
+    data.allStoryblokEntry.edges[0].node.content
+  )
+  const nav_entries = Object.entries(parsed_content.header_links)
   var navigation = []
   nav_entries.forEach(([key, value]) => {
     navigation.push(
@@ -72,14 +74,14 @@ const Header = () => {
           <li
             className={
               `ml-8 sm:ml-auto fixed sm:static bottom-0 sm:bottom-auto mb-12 sm:mb-auto text-sm sm:text-xs sm:visible` +
-              (isMenuOpen ? ` visible` : ` hidden`)
+              (isMenuOpen ? ` visible` : ` invisible`)
             }
           >
             <a
-              href="mailto:ac@tiac.design"
+              href={`mailto:` + parsed_content.contact_email}
               className="text-white hover:text-brand-gray-600"
             >
-              ac@tiac.design
+              {parsed_content.contact_email}
             </a>
           </li>
         </ul>

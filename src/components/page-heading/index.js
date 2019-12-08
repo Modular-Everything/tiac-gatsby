@@ -9,11 +9,18 @@ const PageHeading = props => {
 
   const data = useStaticQuery(
     graphql`
-      query {
+      query PageData {
         allStoryblokSpace {
           edges {
             node {
               name
+            }
+          }
+        }
+        allStoryblokEntry(filter: { field_component: { eq: "global" } }) {
+          edges {
+            node {
+              content
             }
           }
         }
@@ -37,6 +44,10 @@ const PageHeading = props => {
     }
   }
 
+  const parsed_content = JSON.parse(
+    data.allStoryblokEntry.edges[0].node.content
+  )
+
   return (
     <div className="bg-white">
       <div className="container py-6 sm:py-12 md:py-16">
@@ -46,10 +57,7 @@ const PageHeading = props => {
               <h1 className="hidden text-xl font-semibold leading-tight text-brand-gray-800 tracking-tight mt-2 sm:mt-0 sm:flex sm:flex-col sm:justify-center md:text-2xl">
                 {data.allStoryblokSpace.edges[0].node.name}
               </h1>
-              <p className="text-sm max-w-xs">
-                Designing &amp; directing across brand identity, screen and
-                print.
-              </p>
+              <p className="text-sm max-w-xs">{parsed_content.byline}</p>
             </>
           ) : (
             <>
