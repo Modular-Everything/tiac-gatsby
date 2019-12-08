@@ -7,10 +7,10 @@
   }
 
   & .sp__project-card {
-    height: 80px;
+    /* height: 80px; */
 
     @media (min-width: 640px) {
-      height: 110px;
+      /* height: 110px; */
     }
   }
 

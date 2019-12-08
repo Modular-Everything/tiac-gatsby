@@ -1,7 +1,5 @@
 import React from 'react'
 import { Link } from 'gatsby'
-// import Img from 'gatsby-image'
-// import { getFluidGatsbyImage } from 'gatsby-storyblok-image'
 import './selected-projects.css'
 
 const SelectedProjects = props => {
@@ -21,13 +19,13 @@ const SelectedProjects = props => {
         )
       } else {
         if (value.content.cover !== '') {
-          // const fluidProps = getFluidGatsbyImage(value.content.cover, {
-          //   maxWidth: 216,
-          // })
+          const imageService = '//img2.storyblok.com/'
+          const path = value.content.cover.replace('//a.storyblok.com', '')
+          const resizedImage = imageService + '400x230' + path
+
           thumbnail = (
-            <div className="sp__project-card overflow-hidden sm:z-0 sm:cursor-pointer">
-              {/* <Img fluid={fluidProps} /> */}
-              <img src={value.content.cover} alt="" />
+            <div className="sp__project-card sm:z-0 sm:cursor-pointer">
+              <img src={resizedImage} alt="" />
             </div>
           )
         }
