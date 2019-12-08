@@ -9,7 +9,7 @@ import Credits from '../components/credits'
 
 // Credit where credit is due
 console.log(
-  '%c Built with 🤟🏻 by Chrish Dunne\nhttp://chrish.design/\n 👆👆👆👆👆👆👆👆👆👆👆👆👆',
+  '%c Built with 🤟 by Chrish Dunne\nhttp://chrish.design/\n 👆👆👆👆👆👆👆👆👆👆👆👆👆',
   'background: #222; color: #bada55'
 )
 
