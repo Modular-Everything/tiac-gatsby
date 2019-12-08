@@ -32,7 +32,7 @@ const Footer = () => {
           rel="noopener noreferrer"
           className="relative"
         >
-          <div className="text-2xl text-brand-gray-800 sm:rounded-full sm:h-16 sm:w-16 sm:flex sm:justify-center sm:items-center sm:shadow-xl sm:absolute sm:opacity-0 sm:hover:opacity-100 sm:transition-ease-in-out sm:transition-opacity z-50">
+          <div className="text-2xl text-brand-gray-800 sm:rounded-full sm:bg-white sm:h-16 sm:w-16 sm:flex sm:justify-center sm:items-center sm:shadow-xl sm:absolute sm:opacity-0 sm:hover:opacity-100 sm:transition-ease-in-out sm:transition-opacity z-50">
             <FontAwesomeIcon icon={['fab', value.icon]} />
           </div>
           <div className="hidden sm:visible sm:h-16 sm:flex sm:items-center">
