@@ -7,6 +7,13 @@ import PageHeading from '../components/page-heading'
 import SelectedProjects from '../components/selected-projects'
 import Credits from '../components/credits'
 
+// Credit where credit is due
+console.log(
+  '%c Built with 🤟🏻 by Chrish Dunne\nhttp://chrish.design/\n 👆👆👆👆👆👆👆👆👆👆👆👆👆',
+  'background: #222; color: #bada55'
+)
+
+// Add Font Awesome brand icons globally
 library.add(fab)
 
 class StoryblokEntry extends React.Component {
