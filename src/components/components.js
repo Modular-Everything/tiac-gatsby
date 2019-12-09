@@ -1,13 +1,14 @@
-import Page from './page'
-import Grid from './grid'
-import Slider from './slider'
-import Markdown from './markdown'
+import ComponentNotFound from './component-not-found'
 import Divider from './divider'
+import Front from './front'
+import Grid from './grid'
 import Image from './image'
+import Markdown from './markdown'
+import Page from './page'
+import Slider from './slider'
 import Video from './video'
 import YouTubeEmbed from './youtube'
 import VimeoEmbed from './vimeo'
-import ComponentNotFound from './component-not-found'
 
 const ComponentList = {
   page: Page,
@@ -19,6 +20,7 @@ const ComponentList = {
   video: Video,
   youtube: YouTubeEmbed,
   vimeo: VimeoEmbed,
+  front: Front,
 }
 
 const Components = type => {
