@@ -7,7 +7,7 @@ const Grid = props => {
   return (
     <SbEditable content={props.blok}>
       <div
-        className={`grid mb-12 container ${
+        className={`grid mb-16 md:mb-24 container ${
           props.blok.grid_type === undefined ? '' : props.blok.grid_type
         }`}
       >
