@@ -8,13 +8,13 @@ const ListItem = props => {
 
   if (!props.children) {
     return (
-      <li className="h-8 flex lg:h-auto">
-        <span className="text-xxs font-normal mr-2 pt-2 lg:text-lg lg:pt-6 lg:mr-4">
+      <li className="h-8 flex md:h-auto">
+        <span className="text-xxs font-normal mr-2 pt-2 md:text-xs lg:text-lg lg:pt-6 lg:mr-4">
           {props.num < 10 ? '0' + props.num : props.num}
         </span>
         <span
           className={
-            `text-xl lg:text-6xl font-semibold ` +
+            `text-xl md:text-3xl lg:text-6xl font-semibold ` +
             (props.isDone ? `line-through` : ` `)
           }
         >
@@ -27,12 +27,12 @@ const ListItem = props => {
     return (
       <li className="h-auto flex flex-col">
         <div className="flex">
-          <span className="text-xxs font-normal mr-2 pt-2 lg:text-lg lg:pt-6 lg:mr-4">
+          <span className="text-xxs font-normal mr-2 pt-2 md:text-xs lg:text-lg lg:pt-6 lg:mr-4">
             {props.num < 10 ? '0' + props.num : props.num}
           </span>
           <span
             className={
-              `text-xl lg:text-6xl font-semibold ` +
+              `text-xl md:text-3xl lg:text-6xl font-semibold ` +
               (props.isDone ? `line-through` : ` `)
             }
           >
@@ -51,7 +51,7 @@ const ListItem = props => {
 const Front = props => {
   return (
     <div className="container my-6">
-      <h1 className="text-brand-gray-800 lg:text-lg lg:pt-6 lg:mr-4-gray-800 text-xl lg:text-6xl font-semibold mb-4">
+      <h1 className="text-brand-gray-800 text-xl md:text-3xl lg:pt-6 lg:mr-4-gray-800 text-xl lg:text-6xl font-semibold mb-4">
         {props.blok.title}
       </h1>
       <ul className="front-content text-brand-gray-800">
