@@ -6,6 +6,8 @@ import Layout from '../components/layout'
 import PageHeading from '../components/page-heading'
 import SelectedProjects from '../components/selected-projects'
 import Credits from '../components/credits'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 // Credit where credit is due
 console.log(
@@ -46,13 +48,19 @@ class StoryblokEntry extends React.Component {
 
     return (
       <Layout>
-        <PageHeading pageName={name} pageData={content} pageSlug={slug} />
+        <Header />
+        {slug !== 'front' ? (
+          <PageHeading pageName={name} pageData={content} pageSlug={slug} />
+        ) : (
+          ''
+        )}
         {React.createElement(Components(content.component), {
           key: content._uid,
           blok: content,
         })}
         <Credits who={credits} />
         <SelectedProjects projects={selectedProjects} />
+        {slug !== 'front' ? <Footer /> : ''}
       </Layout>
     )
   }

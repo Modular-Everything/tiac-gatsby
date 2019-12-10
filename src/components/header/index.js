@@ -54,7 +54,7 @@ const Header = () => {
   return (
     <header
       className={
-        `bg-brand-black py-8 tracking-wide fixed w-full z-50 ` +
+        `bg-brand-black py-8 tracking-wide fixed w-full z-50 top-0 ` +
         (isMenuOpen ? `h-full` : `h-20`) +
         ` sm:h-auto overflow-hidden transition-h transition-250 transition-ease-in-out`
       }
