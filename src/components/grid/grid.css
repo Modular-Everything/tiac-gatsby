@@ -21,49 +21,32 @@
 
 .grid.gallery {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto 1fr;
   grid-gap: 1rem;
 
   & .rows-one {
     grid-row: span 1;
-
-    & .gatsby-image-wrapper {
-      @apply .aspect-ratio-43/25;
-    }
   }
 
   & .rows-two {
     grid-row: span 2;
-
-    & .gatsby-image-wrapper {
-      @apply .aspect-ratio-43/25;
-    }
   }
 
-  & .rows-two.cols-one {
-    & .gatsby-image-wrapper {
-      @apply .aspect-ratio-140/171;
-    }
+  & .rows-three {
+    grid-row: span 3;
   }
 
-  @media (min-width: 640px) {
-    & .rows-two.cols-one {
-      & .gatsby-image-wrapper {
-        @apply .aspect-ratio-43/25;
-      }
-    }
+  & .cols-one {
+    grid-column: span 1;
   }
 
-  & .rows-two.cols-one + .rows-two.cols-one {
-    & .gatsby-image-wrapper {
-      @apply .aspect-ratio-140/171;
-    }
-  }
-
-  & .cols-one,
   & .cols-two {
     grid-column: span 2;
+  }
+
+  & .cols-three {
+    grid-column: span 3;
   }
 
   & .cols-one.rows-two div {
