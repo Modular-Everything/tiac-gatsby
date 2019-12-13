@@ -25,6 +25,17 @@ const Projects = () => {
     `
   )
 
+  try {
+    document.createEvent('TouchEvent')
+  } catch (error) {
+    var isTouch = true
+    if (error) {
+      isTouch = false
+    }
+  }
+
+  console.log('Touch? ' + isTouch)
+
   return (
     <Layout>
       <div className="grid projects container container-wide py-4">
