@@ -49,7 +49,7 @@ class StoryblokEntry extends React.Component {
     return (
       <Layout>
         <Header />
-        {slug !== 'front' ? (
+        {slug !== 'home' ? (
           <PageHeading pageName={name} pageData={content} pageSlug={slug} />
         ) : (
           ''
@@ -60,7 +60,7 @@ class StoryblokEntry extends React.Component {
         })}
         <Credits who={credits} />
         <SelectedProjects projects={selectedProjects} />
-        {slug !== 'front' ? <Footer /> : ''}
+        {slug !== 'home' ? <Footer /> : ''}
       </Layout>
     )
   }
