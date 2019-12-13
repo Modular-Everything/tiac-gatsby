@@ -1,0 +1,7 @@
+.front-content a {
+  @apply .underline;
+
+  &:hover {
+    @apply .text-brand-gray-600;
+  }
+}

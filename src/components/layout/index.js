@@ -1,6 +1,4 @@
 import React from 'react'
-import Header from '../header'
-import Footer from '../footer'
 import './tailwind.css'
 import './layout.css'
 
@@ -10,9 +8,7 @@ class Layout extends React.Component {
 
     return (
       <>
-        <Header />
         <main>{children}</main>
-        <Footer />
       </>
     )
   }

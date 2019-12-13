@@ -3,6 +3,8 @@ import React from 'react'
 import Layout from '../components/layout'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import '../components/grid/grid.css'
+import Header from '../components/header'
+import Footer from '../components/footer'
 
 const Projects = () => {
   const data = useStaticQuery(
@@ -38,6 +40,7 @@ const Projects = () => {
 
   return (
     <Layout>
+      <Header />
       <div className="grid projects container container-wide py-4">
         {data.allStoryblokEntry.edges.map(({ node }, index) => {
           var regex = RegExp(/(.mp4)/)
@@ -91,6 +94,7 @@ const Projects = () => {
           }
         })}
       </div>
+      <Footer />
     </Layout>
   )
 }
