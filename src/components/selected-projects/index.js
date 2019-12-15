@@ -49,10 +49,6 @@ const SelectedProjects = props => {
               </h2>
 
               {thumbnail}
-
-              <h3 className="block sm:hidden text-xxs mt-4 text-brand-gray-600">
-                {value.tag_list[0]}
-              </h3>
             </Link>
           </li>
         )
