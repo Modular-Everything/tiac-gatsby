@@ -1,17 +1,18 @@
 .sp__scrolling-wrapper {
-  @apply .flex .flex-no-wrap .overflow-x-auto;
+  @apply .overflow-x-auto;
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: 150px;
+  grid-auto-flow: column;
   -webkit-overflow-scrolling: touch;
 
   @media (min-width: 640px) {
-    @apply .flex-wrap;
+    grid-auto-flow: unset;
+    grid-template-columns: 1fr 1fr;
   }
 
-  & .sp__project-card {
-    /* height: 80px; */
-
-    @media (min-width: 640px) {
-      /* height: 110px; */
-    }
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
   }
 
   &::-webkit-scrollbar {
@@ -19,16 +20,17 @@
   }
 
   & li {
-    flex: 0 0 auto;
-    width: 143px;
+    width: 150px;
+  }
 
-    @media (min-width: 640px) {
-      width: 200px;
+  @media (min-width: 640px) {
+    & li {
+      width: auto;
     }
+  }
 
-    &:last-of-type {
-      /* Fixes bug where cards won't scroll to the edge of the screen */
-      @apply .w-2;
-    }
+  & li:last-of-type {
+    /* Fixes bug where cards won't scroll to the edge of the screen */
+    @apply .w-2;
   }
 }
