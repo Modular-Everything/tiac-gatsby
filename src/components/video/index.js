@@ -9,21 +9,13 @@ const Video = props => {
           <video height="100%" width="100%" autoPlay loop muted playsInline>
             <source src={props.blok.video} type="video/mp4"></source>
           </video>
-
-          {/* {props.blok.hover_caption !== '' ? ( 
-          <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center bg-brand-black text-white text-xs opacity-75">
-          <p>{props.blok.hover_caption}</p>
-          </div>
-          ) : (
-            ''
-          )} */}
         </div>
 
         {props.blok.caption !== '' ? (
           <h4
-            className={`mt-3 cen text-brand-gray-600 text-xxs text-${
+            className={`my-3 text-brand-gray-600 text-xxs text-${
               props.blok.caption_align ? props.blok.caption_align : 'left'
-            } lg:text-sm tracking-wide`}
+            } lg:text-xs lg:leading-relaxed tracking-normal`}
           >
             {props.blok.caption}
           </h4>
