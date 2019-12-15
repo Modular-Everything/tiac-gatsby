@@ -1,3 +1,4 @@
+/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
 
@@ -16,5 +17,6 @@
   font-style: normal;
   font-weight: 600;
 }
+/* purgecss end ignore */
 
 @tailwind utilities;
