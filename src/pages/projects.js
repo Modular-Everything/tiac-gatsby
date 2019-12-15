@@ -1,4 +1,3 @@
-/* eslint-disable */
 import React from 'react'
 import Layout from '../components/layout'
 import { graphql, useStaticQuery, Link } from 'gatsby'
@@ -26,17 +25,6 @@ const Projects = () => {
       }
     `
   )
-
-  try {
-    document.createEvent('TouchEvent')
-  } catch (error) {
-    var isTouch = true
-    if (error) {
-      isTouch = false
-    }
-  }
-
-  console.log('Touch? ' + isTouch)
 
   return (
     <Layout>
