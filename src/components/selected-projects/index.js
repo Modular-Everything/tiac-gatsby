@@ -61,11 +61,11 @@ const SelectedProjects = props => {
 
     return (
       <div className="bg-brand-gray-850">
-        <div className="container pt-10 pb-20">
-          <h2 className="text-xs mb-16 text-brand-gray-600 pl-2">
+        <div className="container px-0 sm:px-4 pt-10 pb-20">
+          <h2 className="text-xs mb-16 text-brand-gray-600 pl-4 sm:pl-0">
             Selected Projects
           </h2>
-          <ul className="sp__scrolling-wrapper pl-2 overflow-x-auto">
+          <ul className="sp__scrolling-wrapper overflow-x-auto pl-4 sm:pl-0">
             {projects}
             <li className="w-2 sm:w-2 sm:hidden"></li>
           </ul>
