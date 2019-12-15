@@ -47,6 +47,12 @@ const Projects = () => {
             )
           }
 
+          // Image rendering / cropping
+          const imageService = '//img2.storyblok.com/'
+          const path = node.field_cover_string.replace('//a.storyblok.com', '')
+          const resizedImage = imageService + '976x586' + path
+          // ***
+
           if (
             node.field_isInvisible_boolean === 'null' ||
             node.field_isInvisible_boolean === false
@@ -67,7 +73,7 @@ const Projects = () => {
                   </div>
                   {!isVideo ? (
                     <img
-                      src={node.field_cover_string}
+                      src={resizedImage}
                       alt=""
                       className="w-full h-full object-cover"
                     />
