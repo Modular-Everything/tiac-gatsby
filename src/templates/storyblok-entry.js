@@ -49,18 +49,14 @@ class StoryblokEntry extends React.Component {
     return (
       <Layout>
         <Header />
-        {slug !== 'home' ? (
-          <PageHeading pageName={name} pageData={content} pageSlug={slug} />
-        ) : (
-          ''
-        )}
+        <PageHeading pageName={name} pageData={content} pageSlug={slug} />
         {React.createElement(Components(content.component), {
           key: content._uid,
           blok: content,
         })}
         <Credits who={credits} />
         <SelectedProjects projects={selectedProjects} />
-        {slug !== 'home' ? <Footer /> : ''}
+        <Footer />
       </Layout>
     )
   }
