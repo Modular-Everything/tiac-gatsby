@@ -8,7 +8,7 @@ const ListItem = props => {
 
   if (!props.children) {
     return (
-      <li className="h-8 flex md:h-auto">
+      <li className="h-auto flex">
         <span className="text-xxs font-normal mr-2 pt-2 md:text-xs lg:text-lg lg:pt-6 lg:mr-4">
           {props.num < 10 ? '0' + props.num : props.num}
         </span>
