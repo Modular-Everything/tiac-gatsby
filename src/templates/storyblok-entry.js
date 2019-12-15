@@ -42,7 +42,7 @@ class StoryblokEntry extends React.Component {
   render() {
     let name = this.state.story.name
     let content = this.state.story.content
-    let slug = this.state.story.slug
+    let slug = this.state.story.full_slug
     let selectedProjects = this.state.story.content.selected_projects
     let credits = this.state.story.content.credits
 

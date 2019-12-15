@@ -3,8 +3,9 @@ import { graphql, useStaticQuery } from 'gatsby'
 import './page-heading.css'
 
 const PageHeading = props => {
-  if (props.pageSlug === 'home') {
-    var isHome = true
+  const regex = RegExp('(projects/)')
+  if (!regex.test(props.pageSlug)) {
+    var isNotProject = true
   }
 
   const data = useStaticQuery(
@@ -52,10 +53,12 @@ const PageHeading = props => {
     <div className="bg-white">
       <div className="container py-6 sm:py-12 md:py-16">
         <div className="flex flex-col-reverse justify-between sm:flex-row sm:flex-1">
-          {isHome ? (
+          {isNotProject ? (
             <>
               <h1 className="hidden text-xl font-semibold leading-tight text-brand-gray-800 tracking-tight mt-2 sm:mt-0 sm:flex sm:flex-col sm:justify-center md:text-2xl">
-                {data.allStoryblokSpace.edges[0].node.name}
+                {props.pageName === 'Goals'
+                  ? data.allStoryblokSpace.edges[0].node.name
+                  : props.pageName}
               </h1>
               <p className="text-sm max-w-xs">{parsed_content.byline}</p>
             </>
