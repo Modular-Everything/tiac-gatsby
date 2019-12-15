@@ -4,6 +4,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import '../components/grid/grid.css'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import '../components/page-heading/page-heading.css'
 
 const Projects = () => {
   const data = useStaticQuery(
@@ -36,11 +37,12 @@ const Projects = () => {
             var isVideo = true
           }
 
-          var tags = []
+          let tags = []
           for (const [index, value] of node.tag_list.entries()) {
             tags.push(
-              <li key={index} className="sm:mt-1 first:mt-2">
+              <li key={index} className="mr-1 last:mr-0 pageCategories">
                 {value}
+                <span>,</span>
               </li>
             )
           }
@@ -51,12 +53,15 @@ const Projects = () => {
           ) {
             return (
               <div key={index} className="relative overflow-hidden">
-                <Link to={'/' + node.full_slug}>
-                  <div className="hidden sm:visible sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out">
-                    <h2 className="text-xl font-semibold mb-2 leading-tight tracking-tight sm:text-white">
+                <Link
+                  to={'/' + node.full_slug}
+                  className="flex flex-col-reverse"
+                >
+                  <div className="flex flex-col-reverse">
+                    <h2 className="text-xl font-semibold mb-2 leading-tight tracking-tight">
                       {node.name}
                     </h2>
-                    <ul className="text-xs sm:text-white sm:text-center">
+                    <ul className="flex text-brand-gray-600 text-xxs mt-4 mb-1">
                       {tags}
                     </ul>
                   </div>
