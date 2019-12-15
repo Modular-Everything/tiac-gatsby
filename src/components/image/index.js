@@ -24,14 +24,6 @@ const Image = props => {
         <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
           <div className="relative">
             <div className="relative overflow-hidden">{imageLink}</div>
-
-            {/* {props.blok.hover_caption !== undefined ? (
-              <div className="absolute top-0 left-0 h-full w-full flex justify-center items-center bg-brand-black opacity-75 text-white text-xs">
-                <p>{props.blok.hover_caption}</p>
-              </div>
-            ) : (
-              ''
-            )} */}
           </div>
 
           {props.blok.caption !== '' ? (
