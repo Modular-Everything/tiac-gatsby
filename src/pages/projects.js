@@ -58,7 +58,13 @@ const Projects = () => {
             node.field_isInvisible_boolean === false
           ) {
             return (
-              <div key={index} className="relative overflow-hidden">
+              <div
+                key={index}
+                className="relative overflow-hidden"
+                data-sal="slide-up"
+                data-sal-delay="200"
+                data-sal-easing="ease"
+              >
                 <Link
                   to={'/' + node.full_slug}
                   className="flex flex-col-reverse"
