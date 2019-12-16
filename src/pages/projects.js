@@ -64,7 +64,7 @@ const Projects = () => {
                   className="flex flex-col-reverse"
                 >
                   <div className="flex flex-col-reverse">
-                    <h2 className="text-xl font-semibold mb-2 leading-tight tracking-tight">
+                    <h2 className="text-xl text-brand-black font-semibold mb-2 leading-tight tracking-tight">
                       {node.name}
                     </h2>
                     <ul className="flex text-brand-gray-600 text-xxs mt-4 mb-1">
