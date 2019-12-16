@@ -56,9 +56,7 @@ const PageHeading = props => {
           {isNotProject ? (
             <>
               <h1 className="hidden text-xl font-semibold leading-tight text-brand-gray-800 tracking-tight mt-2 sm:mt-0 sm:flex sm:flex-col sm:justify-center md:text-2xl">
-                {props.pageName === 'Goals'
-                  ? data.allStoryblokSpace.edges[0].node.name
-                  : props.pageName}
+                {data.allStoryblokSpace.edges[0].node.name}
               </h1>
               <p className="text-sm max-w-xs">{parsed_content.byline}</p>
             </>
