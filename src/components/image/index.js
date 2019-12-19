@@ -11,13 +11,21 @@ const Image = props => {
     const width = props.blok.columns === 'two' ? '2496' : '1232'
     const resizedImage = imageService + width + 'x' + height + path
 
-    const imageLink = props.blok.image_link ? (
-      <Link to={`/` + props.blok.image_link.cached_url}>
+    const imageLink =
+      props.blok.image_link.cached_url !== '' ? (
+        <Link to={`/` + props.blok.image_link.cached_url}>
+          <img
+            src={resizedImage}
+            alt=""
+            width={width / 2}
+            height={height / 2}
+          />
+        </Link>
+      ) : (
         <img src={resizedImage} alt="" width={width / 2} height={height / 2} />
-      </Link>
-    ) : (
-      <img src={resizedImage} alt="" width={width / 2} height={height / 2} />
-    )
+      )
+
+    // console.log(imageLink)
 
     return (
       <SbEditable content={props.blok}>
