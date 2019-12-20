@@ -12,7 +12,7 @@ const Image = props => {
     const resizedImage = imageService + width + 'x' + height + path
 
     const imageLink =
-      props.blok.image_link.cached_url !== '' ? (
+      props.blok.image_link && props.blok.image_link.cached_url !== '' ? (
         <Link to={`/` + props.blok.image_link.cached_url}>
           <img
             src={resizedImage}
@@ -24,8 +24,6 @@ const Image = props => {
       ) : (
         <img src={resizedImage} alt="" width={width / 2} height={height / 2} />
       )
-
-    // console.log(imageLink)
 
     return (
       <SbEditable content={props.blok}>
