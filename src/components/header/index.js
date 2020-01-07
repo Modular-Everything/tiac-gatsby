@@ -61,6 +61,15 @@ const Header = () => {
     >
       <Helmet>
         <title>{data.allStoryblokSpace.edges[0].node.name}</title>
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-155565849-1"
+        ></script>
+        <script>
+          window.dataLayer = window.dataLayer || []; function gtag()
+          {dataLayer.push(arguments)}
+          gtag('js', new Date()); gtag('config', 'UA-155565849-1');
+        </script>
       </Helmet>
 
       <div className="container flex flex-row">
