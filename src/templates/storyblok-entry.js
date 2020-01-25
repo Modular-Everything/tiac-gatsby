@@ -1,8 +1,11 @@
 import React from 'react'
+import PropTypes from 'prop-types'
+
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import Components from '../components/components.js'
+
 import Layout from '../components/layout'
+import Components from '../components/components'
 import PageHeading from '../components/page-heading'
 import SelectedProjects from '../components/selected-projects'
 import Credits from '../components/credits'
@@ -28,7 +31,7 @@ class StoryblokEntry extends React.Component {
   }
 
   static prepareStory(props) {
-    const story = Object.assign({}, props.pageContext.story)
+    const story = { ...props.pageContext.story }
     story.content = JSON.parse(story.content)
 
     return { story }
@@ -40,18 +43,18 @@ class StoryblokEntry extends React.Component {
   }
 
   render() {
-    let name = this.state.story.name
-    let content = this.state.story.content
-    let slug = this.state.story.full_slug
-    let selectedProjects = this.state.story.content.selected_projects
-    let credits = this.state.story.content.credits
+    const { story } = this.state
+    const { name, content } = story
+    const slug = story.full_slug
+    const selectedProjects = story.content.selected_projects
+    const { credits } = story.content
 
     return (
       <Layout>
         <Header />
         <PageHeading pageName={name} pageData={content} pageSlug={slug} />
         {React.createElement(Components(content.component), {
-          key: content._uid,
+          key: content.uid,
           blok: content,
         })}
         <Credits who={credits} />
@@ -63,3 +66,11 @@ class StoryblokEntry extends React.Component {
 }
 
 export default StoryblokEntry
+
+StoryblokEntry.propTypes = {
+  pageContext: PropTypes.shape({
+    story: PropTypes.shape({
+      uuid: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+}
