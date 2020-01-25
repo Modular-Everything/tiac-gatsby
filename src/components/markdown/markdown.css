@@ -72,4 +72,12 @@
       @apply .text-base .leading-relaxed .text-sm;
     }
   }
+
+  & a {
+    @apply .font-bold;
+  }
+
+  & a[target='_blank'] {
+    text-decoration: underline;
+  }
 }
