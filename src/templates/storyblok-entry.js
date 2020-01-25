@@ -13,6 +13,7 @@ import Header from '../components/header'
 import Footer from '../components/footer'
 
 // Credit where credit is due
+/* eslint no-console: "off" */
 console.log(
   '%c Built with 🤟 by Chrish Dunne\nhttp://chrish.design/\n 👆👆👆👆👆👆👆👆👆👆👆👆👆',
   'background: #222; color: #bada55'
