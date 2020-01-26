@@ -1,9 +1,11 @@
-import React, { Component } from 'react'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
-export default class Entry extends Component {
+export default class Entry extends PureComponent {
   render() {
-    const { storyblokEntry } = this.props.data
+    const { data } = this.props
+    const { storyblokEntry } = data
     return (
       <div>
         <h4>{storyblokEntry.name}</h4>
@@ -25,3 +27,11 @@ export const query = graphql`
     }
   }
 `
+
+Entry.propTypes = {
+  data: PropTypes.shape({
+    storyblokEntry: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+    }),
+  }).isRequired,
+}
