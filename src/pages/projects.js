@@ -1,101 +1,49 @@
-import React from 'react'
-import Layout from '../components/layout'
-import { graphql, useStaticQuery, Link } from 'gatsby'
-import '../components/grid/grid.css'
-import Header from '../components/header'
-import Footer from '../components/footer'
-import '../components/page-heading/page-heading.css'
+import React, { PureComponent } from 'react'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 
-const Projects = () => {
-  const data = useStaticQuery(
-    graphql`
-      query Projects {
-        allStoryblokEntry(filter: { parent_id: { eq: 2875854 } }) {
-          edges {
-            node {
-              name
-              full_slug
-              parent_id
-              field_cover_string
-              tag_list
-              published_at
-              field_isInvisible_boolean
-            }
-          }
-        }
-      }
-    `
-  )
+import ProjectCard from '../components/project-card'
 
-  return (
-    <Layout>
-      <Header />
-      <div className="grid projects container container-wide py-4">
-        {data.allStoryblokEntry.edges.map(({ node }, index) => {
-          var regex = RegExp(/(.mp4)/)
-          if (regex.test(node.field_cover_string)) {
-            var isVideo = true
-          }
-
-          let tags = []
-          for (const [index, value] of node.tag_list.entries()) {
-            tags.push(
-              <li key={index} className="mr-1 last:mr-0 pageCategories">
-                {value}
-                <span>,</span>
-              </li>
-            )
-          }
-
-          // Image rendering / cropping
-          const imageService = '//img2.storyblok.com/'
-          const path = node.field_cover_string.replace('//a.storyblok.com', '')
-          const resizedImage = imageService + '976x586' + path
-          // ***
-
-          if (
-            node.field_isInvisible_boolean === 'null' ||
-            node.field_isInvisible_boolean === false
-          ) {
-            return (
-              <div key={index} className="relative overflow-hidden">
-                <Link
-                  to={'/' + node.full_slug}
-                  className="flex flex-col-reverse"
-                >
-                  <div className="flex flex-col-reverse">
-                    <h2 className="text-xl text-brand-gray-800 font-semibold mb-2 leading-tight tracking-tight">
-                      {node.name}
-                    </h2>
-                    <ul className="flex text-brand-gray-600 text-xxs mt-4 mb-1">
-                      {tags}
-                    </ul>
-                  </div>
-                  {!isVideo ? (
-                    <img
-                      src={resizedImage}
-                      alt=""
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <video height="100%" width="100%" autoPlay loop muted>
-                      <source
-                        src={node.field_cover_string}
-                        type="video/mp4"
-                      ></source>
-                    </video>
-                  )}
-                </Link>
-              </div>
-            )
-          } else {
-            return null
-          }
-        })}
+export default class Entry extends PureComponent {
+  render() {
+    const { data } = this.props
+    const { allStoryblokEntry } = data
+    return (
+      <div>
+        <h4>Projects:</h4>
+        <div>
+          {allStoryblokEntry.edges.map(project => (
+            <ProjectCard meta={project} />
+          ))}
+        </div>
       </div>
-      <Footer />
-    </Layout>
-  )
+    )
+  }
 }
 
-export default Projects
+export const query = graphql`
+  query ProjectsQuery {
+    allStoryblokEntry(filter: { parent_id: { eq: 2875854 } }) {
+      edges {
+        node {
+          name
+          full_slug
+          tag_list
+          parent_id
+        }
+      }
+    }
+  }
+`
+
+Entry.propTypes = {
+  data: PropTypes.shape({
+    allStoryblokEntry: PropTypes.shape({
+      edges: PropTypes.arrayOf(
+        PropTypes.shape({
+          name: PropTypes.string.isRequired,
+        })
+      ),
+    }),
+  }).isRequired,
+}
