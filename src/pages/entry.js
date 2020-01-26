@@ -15,7 +15,7 @@ export default class Entry extends PureComponent {
 }
 
 export const query = graphql`
-  query ProjectQuery($STORY_ID: String!) {
+  query ProjectQuery($STORY_ID: String) {
     storyblokEntry(uuid: { eq: $STORY_ID }) {
       name
       slug
