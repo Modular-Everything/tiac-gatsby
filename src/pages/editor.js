@@ -1,41 +1,24 @@
-import React from 'react'
-import Layout from '../components/layout'
-import Components from '../components/components.js'
+import React, { Component } from 'react'
 import SbEditable from 'storyblok-react'
+import Components from '../components/components'
 import config from '../../gatsby-config'
+
+import Layout from '../components/layout'
 
 const sbConfigs = config.plugins.filter(item => {
   return item.resolve === 'gatsby-source-storyblok'
 })
 const sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {}
 
-const loadStoryblokBridge = function(cb) {
-  let script = document.createElement('script')
+const loadStoryblokBridge = function loadStoryblokBridge(cb) {
+  const script = document.createElement('script')
   script.type = 'text/javascript'
   script.src = `//app.storyblok.com/f/storyblok-latest.js?t=${sbConfig.options.accessToken}`
   script.onload = cb
   document.getElementsByTagName('head')[0].appendChild(script)
 }
 
-// eslint-disable-next-line
-const getParam = function(val) {
-  var result = ''
-  var tmp = []
-
-  window.location.search
-    .substr(1)
-    .split('&')
-    .forEach(function(item) {
-      tmp = item.split('=')
-      if (tmp[0] === val) {
-        result = decodeURIComponent(tmp[1])
-      }
-    })
-
-  return result
-}
-
-class StoryblokEntry extends React.Component {
+class StoryblokEntry extends Component {
   constructor(props) {
     super(props)
     this.state = { story: null }
@@ -63,15 +46,17 @@ class StoryblokEntry extends React.Component {
   initStoryblokEvents() {
     this.loadStory()
 
-    let sb = window.storyblok
+    const sb = window.storyblok
 
-    sb.on(['change', 'published'], payload => {
+    sb.on(['change', 'published'], () => {
       this.loadStory()
     })
 
     sb.on('input', payload => {
-      if (this.state.story && payload.story.id === this.state.story.id) {
-        payload.story.content = sb.addComments(
+      const { story } = this.state
+      if (story && payload.story.id === story.id) {
+        const storyPayload = payload
+        storyPayload.story.content = sb.addComments(
           payload.story.content,
           payload.story.id
         )
@@ -87,18 +72,19 @@ class StoryblokEntry extends React.Component {
   }
 
   render() {
-    if (this.state.story == null) {
-      return <div></div>
+    const { story } = this.state
+    if (story == null) {
+      return null
     }
 
-    let content = this.state.story.content
+    const { content } = story
 
     return (
       <Layout>
         <SbEditable content={content}>
           <>
             {React.createElement(Components(content.component), {
-              key: content._uid,
+              key: content.uid,
               blok: content,
             })}
           </>
