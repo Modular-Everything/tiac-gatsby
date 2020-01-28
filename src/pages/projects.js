@@ -1,25 +1,23 @@
-import React, { PureComponent } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 
 import ProjectCard from '../components/project-card'
 
-export default class Entry extends PureComponent {
-  render() {
-    const { data } = this.props
-    const { allStoryblokEntry } = data
-    return (
+const Entry = ({ data }) => {
+  return (
+    <div>
+      <h2 className="font-bold text-2xl mb-2">Projects:</h2>
       <div>
-        <h4>Projects:</h4>
-        <div>
-          {allStoryblokEntry.edges.map(project => (
-            <ProjectCard meta={project} />
-          ))}
-        </div>
+        {data.allStoryblokEntry.edges.map(project => (
+          <ProjectCard meta={project} key={project.uuid} />
+        ))}
       </div>
-    )
-  }
+    </div>
+  )
 }
+
+export default Entry
 
 export const query = graphql`
   query ProjectsQuery {
@@ -41,7 +39,9 @@ Entry.propTypes = {
     allStoryblokEntry: PropTypes.shape({
       edges: PropTypes.arrayOf(
         PropTypes.shape({
-          name: PropTypes.string.isRequired,
+          node: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+          }),
         })
       ),
     }),
