@@ -50,7 +50,7 @@ const Projects = () => {
           // Image rendering / cropping
           const imageService = '//img2.storyblok.com/'
           const path = node.field_cover_string.replace('//a.storyblok.com', '')
-          const resizedImage = imageService + '976x586' + path
+          const resizedImage = imageService + '1200x675' + path
           // ***
 
           if (
@@ -71,20 +71,26 @@ const Projects = () => {
                       {tags}
                     </ul>
                   </div>
-                  {!isVideo ? (
-                    <img
-                      src={resizedImage}
-                      alt=""
-                      className="w-full h-full object-cover"
-                    />
-                  ) : (
-                    <video height="100%" width="100%" autoPlay loop muted>
-                      <source
-                        src={node.field_cover_string}
-                        type="video/mp4"
-                      ></source>
-                    </video>
-                  )}
+                  <div className="aspect-ratio-16/9">
+                    {!isVideo ? (
+                      <img src={resizedImage} alt="" className="absolute" />
+                    ) : (
+                      <video
+                        height="100%"
+                        width="100%"
+                        className="absolute"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      >
+                        <source
+                          src={node.field_cover_string}
+                          type="video/mp4"
+                        ></source>
+                      </video>
+                    )}
+                  </div>
                 </Link>
               </div>
             )
