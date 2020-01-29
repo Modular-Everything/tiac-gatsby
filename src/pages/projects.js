@@ -58,7 +58,7 @@ const Projects = () => {
             node.field_isInvisible_boolean === false
           ) {
             return (
-              <div key={index} className="relative overflow-hidden">
+              <div key={index} className="relative">
                 <Link
                   to={'/' + node.full_slug}
                   className="flex flex-col-reverse"
@@ -71,7 +71,7 @@ const Projects = () => {
                       {tags}
                     </ul>
                   </div>
-                  <div className="aspect-ratio-16/9">
+                  <div className="aspect-ratio-16/9 relative overflow-hidden">
                     {!isVideo ? (
                       <img src={resizedImage} alt="" className="absolute" />
                     ) : (
