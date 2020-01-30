@@ -12,7 +12,7 @@ const SelectedProjects = props => {
       if (regex.test(value.content.cover)) {
         var thumbnail = (
           <div className="sp__project-card overflow-hidden sm:z-0 sm:cursor-pointer">
-            <video height="100%" width="100%" autoPlay loop muted>
+            <video height="100%" width="100%" autoPlay loop muted playsInline>
               <source src={value.content.cover} type="video/mp4"></source>
             </video>
           </div>
