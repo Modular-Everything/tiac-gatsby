@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 import './selected-projects.css'
 
 const SelectedProjects = props => {
-  if (Array.isArray(props.projects) && props.projects.length !== 0) {
+  if (Array.isArray(props.projects) && props.projects !== undefined) {
     var projects = []
 
     for (const [index, value] of props.projects.entries()) {
@@ -23,7 +23,7 @@ const SelectedProjects = props => {
         const resizedImage = imageService + '600x345' + path
 
         thumbnail = (
-          <div className="sp__project-card sm:z-0 sm:cursor-pointer">
+          <div className="sp__project-card sm:z-0 sm:cursor-pointer aspect-ratio-16/9">
             <img
               src={resizedImage}
               alt=""
@@ -52,21 +52,23 @@ const SelectedProjects = props => {
         </li>
       )
     }
-  }
 
-  return (
-    <div className="bg-brand-gray-850">
-      <div className="container px-0 sm:px-4 pt-10 pb-20">
-        <h2 className="text-xs mb-16 text-brand-gray-600 pl-4 sm:pl-0">
-          Selected Projects
-        </h2>
-        <ul className="sp__scrolling-wrapper overflow-x-auto pl-4 sm:pl-0">
-          {projects}
-          <li className="w-2 sm:w-2 sm:hidden"></li>
-        </ul>
+    return (
+      <div className="bg-brand-gray-850">
+        <div className="container px-0 sm:px-4 pt-10 pb-20">
+          <h2 className="text-xs mb-16 text-brand-gray-600 pl-4 sm:pl-0">
+            Selected Projects
+          </h2>
+          <ul className="sp__scrolling-wrapper overflow-x-auto pl-4 sm:pl-0">
+            {projects}
+            <li className="w-2 sm:w-2 sm:hidden"></li>
+          </ul>
+        </div>
       </div>
-    </div>
-  )
+    )
+  } else {
+    return null
+  }
 }
 
 export default SelectedProjects
