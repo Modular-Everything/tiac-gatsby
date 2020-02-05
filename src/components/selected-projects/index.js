@@ -3,7 +3,8 @@ import { Link } from 'gatsby'
 import './selected-projects.css'
 
 const SelectedProjects = props => {
-  if (Array.isArray(props.projects) && props.projects !== undefined) {
+  console.log(props.projects)
+  if (props.projects.length !== 0 && props.projects !== undefined) {
     var projects = []
 
     for (const [index, value] of props.projects.entries()) {
