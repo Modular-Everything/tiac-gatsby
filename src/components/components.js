@@ -9,6 +9,7 @@ import Slider from './slider'
 import Video from './video'
 import YouTubeEmbed from './youtube'
 import VimeoEmbed from './vimeo'
+import Logo from './logo'
 
 const ComponentList = {
   page: Page,
@@ -21,6 +22,7 @@ const ComponentList = {
   youtube: YouTubeEmbed,
   vimeo: VimeoEmbed,
   front: Front,
+  logo: Logo,
 }
 
 const Components = type => {
