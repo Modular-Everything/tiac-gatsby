@@ -24,7 +24,7 @@ const LoadStoryblokBridge = cb => {
 const StoryblokEntry = () => {
   const [story, setStory] = useState()
 
-  const loadStory = useCallback(() => {
+  const loadStory = () => {
     window.storyblok.get(
       {
         slug: window.storyblok.getParam(`path`),
@@ -35,7 +35,7 @@ const StoryblokEntry = () => {
         setStory(data.story)
       }
     )
-  })
+  }
 
   const initStoryblokEvents = useCallback(() => {
     loadStory()
