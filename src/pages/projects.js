@@ -4,6 +4,7 @@ import { graphql, useStaticQuery, Link } from 'gatsby'
 import '../components/grid/grid.css'
 import Header from '../components/header'
 import Footer from '../components/footer'
+import Cursor from '../components/cursor'
 import '../components/page-heading/page-heading.css'
 
 const Projects = () => {
@@ -27,8 +28,24 @@ const Projects = () => {
     `
   )
 
+  function ProjectHover(e) {
+    const cursor = document.querySelector('#cursor')
+    cursor.style.opacity = 1
+    cursor.style.top = `${e.pageY - 38}px`
+    cursor.style.left = `${e.pageX - 38}px`
+
+    const label = e.currentTarget.getAttribute('data-label')
+    cursor.innerHTML = label
+  }
+
+  function ProjectOut(e) {
+    const cursor = document.querySelector('#cursor')
+    cursor.style.opacity = 0
+  }
+
   return (
     <Layout>
+      <Cursor />
       <Header />
       <div className="grid projects container container-wide py-4">
         {data.allStoryblokEntry.edges.map(({ node }, index) => {
@@ -71,7 +88,12 @@ const Projects = () => {
                       {tags}
                     </ul>
                   </div>
-                  <div className="aspect-ratio-16/9 relative overflow-hidden">
+                  <div
+                    data-label="View"
+                    className="aspect-ratio-16/9 relative overflow-hidden"
+                    onMouseMove={e => ProjectHover(e)}
+                    onMouseOut={e => ProjectOut(e)}
+                  >
                     {!isVideo ? (
                       <img src={resizedImage} alt="" className="absolute" />
                     ) : (
