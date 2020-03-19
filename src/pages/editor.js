@@ -1,16 +1,17 @@
-import React, { Component } from 'react'
-import SbEditable from 'storyblok-react'
-import Components from '../components/components'
+import React, { useState, useEffect, useCallback } from 'react'
 import config from '../../gatsby-config'
+import StoryblokComponents from '../components/components'
 
-import Layout from '../components/layout'
+// ============================================================================
 
 const sbConfigs = config.plugins.filter(item => {
-  return item.resolve === 'gatsby-source-storyblok'
+  return item.resolve === `gatsby-source-storyblok`
 })
 const sbConfig = sbConfigs.length > 0 ? sbConfigs[0] : {}
 
-const loadStoryblokBridge = function loadStoryblokBridge(cb) {
+// ============================================================================
+
+const LoadStoryblokBridge = cb => {
   const script = document.createElement('script')
   script.type = 'text/javascript'
   script.src = `//app.storyblok.com/f/storyblok-latest.js?t=${sbConfig.options.accessToken}`
@@ -18,50 +19,37 @@ const loadStoryblokBridge = function loadStoryblokBridge(cb) {
   document.getElementsByTagName('head')[0].appendChild(script)
 }
 
-class StoryblokEntry extends Component {
-  constructor(props) {
-    super(props)
-    this.state = { story: null }
-  }
+// ============================================================================
 
-  componentDidMount() {
-    loadStoryblokBridge(() => {
-      this.initStoryblokEvents()
-    })
-  }
+const StoryblokEntry = () => {
+  const [story, setStory] = useState()
 
-  loadStory() {
+  const loadStory = useCallback(() => {
     window.storyblok.get(
       {
-        slug: window.storyblok.getParam('path'),
-        version: 'draft',
+        slug: window.storyblok.getParam(`path`),
+        version: `draft`,
         resolve_relations: sbConfig.options.resolveRelations || [],
       },
       data => {
-        this.setState({ story: data.story })
+        setStory(data.story)
       }
     )
-  }
+  })
 
-  initStoryblokEvents() {
-    this.loadStory()
+  const initStoryblokEvents = useCallback(() => {
+    loadStory()
 
     const sb = window.storyblok
 
     sb.on(['change', 'published'], () => {
-      this.loadStory()
+      loadStory()
     })
 
-    sb.on('input', payload => {
-      const { story } = this.state
-      if (story && payload.story.id === story.id) {
-        const storyPayload = payload
-        storyPayload.story.content = sb.addComments(
-          payload.story.content,
-          payload.story.id
-        )
-        this.setState({ story: payload.story })
-      }
+    sb.on(['input'], payload => {
+      const pl = payload
+      pl.story.content = sb.addComments(pl.story.content, pl.story.id)
+      setStory(payload.story)
     })
 
     sb.pingEditor(() => {
@@ -69,29 +57,31 @@ class StoryblokEntry extends Component {
         sb.enterEditmode()
       }
     })
+  }, [loadStory, story])
+
+  useEffect(() => {
+    LoadStoryblokBridge(() => {
+      initStoryblokEvents()
+    })
+  }, [])
+
+  if (!story) {
+    return <div />
   }
 
-  render() {
-    const { story } = this.state
-    if (story == null) {
-      return null
-    }
+  const { content } = story
 
-    const { content } = story
-
-    return (
-      <Layout>
-        <SbEditable content={content}>
-          <>
-            {React.createElement(Components(content.component), {
-              key: content.uid,
-              blok: content,
-            })}
-          </>
-        </SbEditable>
-      </Layout>
-    )
-  }
+  return (
+    <>
+      {React.createElement(StoryblokComponents(content.component), {
+        // eslint-disable-next-line no-underscore-dangle
+        key: content._uid,
+        blok: content,
+      })}
+    </>
+  )
 }
+
+// ============================================================================
 
 export default StoryblokEntry
