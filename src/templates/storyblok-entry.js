@@ -45,6 +45,7 @@ class StoryblokEntry extends React.Component {
     let slug = this.state.story.full_slug
     let selectedProjects = this.state.story.content.selected_projects
     let credits = this.state.story.content.credits
+    let parent_id = this.state.story.parent_id
 
     return (
       <Layout>
@@ -55,7 +56,9 @@ class StoryblokEntry extends React.Component {
           blok: content,
         })}
         <Credits who={credits} />
-        <SelectedProjects projects={selectedProjects} />
+        {parent_id === 2875854 && (
+          <SelectedProjects projects={selectedProjects} />
+        )}
         <Footer />
       </Layout>
     )
