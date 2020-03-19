@@ -24,6 +24,7 @@ module.exports = {
         version: process.env.NODE_ENV === 'production' ? 'published' : 'draft',
         includeLinks: true,
         resolveRelations: [
+          'global',
           'page.pageCategories',
           'page.selected_projects',
           'page.tag_list',

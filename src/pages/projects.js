@@ -5,7 +5,7 @@ import '../components/grid/grid.css'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Cursor from '../components/cursor'
-import '../components/page-heading/page-heading.css'
+import ProjectsHeading from '../components/projects-heading'
 
 const Projects = () => {
   const data = useStaticQuery(
@@ -47,6 +47,8 @@ const Projects = () => {
     <Layout>
       <Cursor />
       <Header />
+      <ProjectsHeading />
+
       <div className="grid projects container container-wide py-4">
         {data.allStoryblokEntry.edges.map(({ node }, index) => {
           var regex = RegExp(/(.mp4)/)
