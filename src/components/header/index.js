@@ -38,12 +38,12 @@ const Header = () => {
     navigation.push(
       <li
         key={key}
-        className="mb-4 sm:mb-0 sm:mr-12 last:mb-0 last:mr-0 text-2xl sm:text-xs ml-8 sm:ml-0"
+        className="mb-4 sm:mb-0 sm:mr-12 last:mb-0 last:mr-0 text-2xl sm:text-xs ml-8 sm:ml-0 text-brand-gray-600"
       >
         <Link
           to={value.link.cached_url === 'home' ? '/' : value.link.cached_url}
-          className="text-white hover:text-brand-gray-600"
-          activeClassName="text-brand-gray-600"
+          activeClassName="text-white"
+          className="hover:text-brand-gray-600"
         >
           {value.header_link_name}
         </Link>
