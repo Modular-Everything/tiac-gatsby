@@ -29,7 +29,7 @@ const PageHeading = props => {
     `
   )
 
-  if (props.pageData.pageCategories !== undefined) {
+  if (props.pageData !== undefined) {
     var categories = []
 
     for (const [index, value] of props.pageData.pageCategories.entries()) {

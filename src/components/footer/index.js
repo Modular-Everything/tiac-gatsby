@@ -2,7 +2,7 @@ import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
-const Footer = () => {
+const Footer = props => {
   const data = useStaticQuery(
     graphql`
       query Social {
@@ -17,6 +17,7 @@ const Footer = () => {
     `
   )
 
+  const { alt } = props
   const parsed_nav = JSON.parse(data.allStoryblokEntry.edges[0].node.content)
   const social_entries = Object.entries(parsed_nav.social_links)
   var social_links = []
@@ -44,7 +45,7 @@ const Footer = () => {
   })
 
   return (
-    <div className="bg-white">
+    <div className={`${alt ? 'bg-transparent' : 'bg-white'}`}>
       <div className="container py-12">
         <ul className="flex justify-center items-center">{social_links}</ul>
       </div>
