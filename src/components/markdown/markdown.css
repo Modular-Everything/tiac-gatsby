@@ -77,6 +77,11 @@
     @apply .font-bold .underline;
   }
 
+  & em {
+    font-style: normal;
+    text-decoration: line-through;
+  }
+
   & a[target='_blank'] {
     text-decoration: underline;
   }
