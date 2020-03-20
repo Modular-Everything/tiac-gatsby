@@ -27,8 +27,10 @@ const Image = props => (
 
 const PrevNext = props => {
   const regex = RegExp(/(.mp4)/)
-  const PrevProjectCover = props.prev.node.field_cover_string
-  const NextProjectCover = props.next.node.field_cover_string
+  const PrevProjectCover =
+    props.prev !== undefined && props.prev.node.field_cover_string
+  const NextProjectCover =
+    props.next !== undefined && props.next.node.field_cover_string
 
   return (
     <div className="bg-brand-black">
