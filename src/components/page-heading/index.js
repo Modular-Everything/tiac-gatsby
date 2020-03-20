@@ -29,7 +29,7 @@ const PageHeading = props => {
     `
   )
 
-  if (props.pageData !== undefined) {
+  if (!isNotProject) {
     var categories = []
 
     for (const [index, value] of props.pageData.pageCategories.entries()) {
