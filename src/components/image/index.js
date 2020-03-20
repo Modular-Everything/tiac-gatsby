@@ -1,5 +1,6 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
+import Fade from 'react-reveal/Fade'
 import { Link } from 'gatsby'
 import './image.css'
 
@@ -27,23 +28,25 @@ const Image = props => {
 
     return (
       <SbEditable content={props.blok}>
-        <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
-          <div className="relative">
-            <div className="relative overflow-hidden">{imageLink}</div>
-          </div>
+        <Fade up>
+          <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
+            <div className="relative">
+              <div className="relative overflow-hidden">{imageLink}</div>
+            </div>
 
-          {props.blok.caption !== '' ? (
-            <h4
-              className={`my-3 text-brand-gray-600 text-xxs text-${
-                props.blok.caption_align ? props.blok.caption_align : 'left'
-              } lg:text-xs lg:leading-relaxed tracking-normal`}
-            >
-              {props.blok.caption}
-            </h4>
-          ) : (
-            ''
-          )}
-        </div>
+            {props.blok.caption !== '' ? (
+              <h4
+                className={`my-3 text-brand-gray-600 text-xxs text-${
+                  props.blok.caption_align ? props.blok.caption_align : 'left'
+                } lg:text-xs lg:leading-relaxed tracking-normal`}
+              >
+                {props.blok.caption}
+              </h4>
+            ) : (
+              ''
+            )}
+          </div>
+        </Fade>
       </SbEditable>
     )
   } else {

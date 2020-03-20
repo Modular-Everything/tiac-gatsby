@@ -1,4 +1,5 @@
 import React from 'react'
+import Fade from 'react-reveal/Fade'
 import * as markdownit from 'markdown-it'
 import './front.css'
 
@@ -55,29 +56,31 @@ const Front = props => {
         {props.blok.title}
       </h1>
       <ul className="front-content text-brand-gray-800">
-        {props.blok.goal.map((goal, index) => {
-          if (!goal.extra_copy) {
-            return (
-              <ListItem
-                key={index}
-                goal={goal.goal_text}
-                isDone={goal.done}
-                num={index + 1}
-              />
-            )
-          } else {
-            return (
-              <ListItem
-                key={index}
-                goal={goal.goal_text}
-                isDone={goal.done}
-                num={index + 1}
-              >
-                {goal.extra_copy}
-              </ListItem>
-            )
-          }
-        })}
+        <Fade up>
+          {props.blok.goal.map((goal, index) => {
+            if (!goal.extra_copy) {
+              return (
+                <ListItem
+                  key={index}
+                  goal={goal.goal_text}
+                  isDone={goal.done}
+                  num={index + 1}
+                />
+              )
+            } else {
+              return (
+                <ListItem
+                  key={index}
+                  goal={goal.goal_text}
+                  isDone={goal.done}
+                  num={index + 1}
+                >
+                  {goal.extra_copy}
+                </ListItem>
+              )
+            }
+          })}
+        </Fade>
       </ul>
     </div>
   )

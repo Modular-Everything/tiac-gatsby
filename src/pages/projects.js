@@ -1,11 +1,13 @@
 import React from 'react'
-import Layout from '../components/layout'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import '../components/grid/grid.css'
+import Fade from 'react-reveal/Fade'
+
+import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
 import Cursor from '../components/cursor'
 import ProjectsHeading from '../components/projects-heading'
+import '../components/grid/grid.css'
 
 const Projects = () => {
   const data = useStaticQuery(
@@ -77,50 +79,52 @@ const Projects = () => {
             node.field_isInvisible_boolean === false
           ) {
             return (
-              <div key={index} className="relative">
-                <Link
-                  to={'/' + node.full_slug}
-                  className="flex flex-col-reverse"
-                >
-                  <div className="flex flex-col-reverse">
-                    <h2 className="text-xl text-brand-gray-800 font-semibold mb-2 leading-tight tracking-tight">
-                      {node.name}
-                    </h2>
-                    <ul className="flex text-brand-gray-600 text-xxs mt-4 mb-1">
-                      {tags}
-                    </ul>
-                  </div>
-                  <div
-                    data-label="View"
-                    className="aspect-ratio-16/9 relative overflow-hidden"
-                    onMouseMove={e => ProjectHover(e)}
-                    onFocus={e => ProjectHover(e)}
-                    onMouseOut={e => ProjectOut(e)}
-                    onBlur={e => ProjectOut(e)}
-                    role="link"
-                    tabindex="0"
+              <Fade up>
+                <div key={index} className="relative">
+                  <Link
+                    to={'/' + node.full_slug}
+                    className="flex flex-col-reverse"
                   >
-                    {!isVideo ? (
-                      <img src={resizedImage} alt="" className="absolute" />
-                    ) : (
-                      <video
-                        height="100%"
-                        width="100%"
-                        className="absolute"
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                      >
-                        <source
-                          src={node.field_cover_string}
-                          type="video/mp4"
-                        ></source>
-                      </video>
-                    )}
-                  </div>
-                </Link>
-              </div>
+                    <div className="flex flex-col-reverse">
+                      <h2 className="text-xl text-brand-gray-800 font-semibold mb-2 leading-tight tracking-tight">
+                        {node.name}
+                      </h2>
+                      <ul className="flex text-brand-gray-600 text-xxs mt-4 mb-1">
+                        {tags}
+                      </ul>
+                    </div>
+                    <div
+                      data-label="View"
+                      className="aspect-ratio-16/9 relative overflow-hidden"
+                      onMouseMove={e => ProjectHover(e)}
+                      onFocus={e => ProjectHover(e)}
+                      onMouseOut={e => ProjectOut(e)}
+                      onBlur={e => ProjectOut(e)}
+                      role="link"
+                      tabindex="0"
+                    >
+                      {!isVideo ? (
+                        <img src={resizedImage} alt="" className="absolute" />
+                      ) : (
+                        <video
+                          height="100%"
+                          width="100%"
+                          className="absolute"
+                          autoPlay
+                          loop
+                          muted
+                          playsInline
+                        >
+                          <source
+                            src={node.field_cover_string}
+                            type="video/mp4"
+                          ></source>
+                        </video>
+                      )}
+                    </div>
+                  </Link>
+                </div>
+              </Fade>
             )
           } else {
             return null
