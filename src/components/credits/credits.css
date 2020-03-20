@@ -1,10 +1,6 @@
 .credits {
   & h2 {
-    @apply .text-lg .text-brand-black .mb-16;
-
-    @media (min-width: 768px) {
-      @apply .mb-24;
-    }
+    @apply .text-lg .text-brand-black .mb-8;
   }
 
   & .credits__name {
