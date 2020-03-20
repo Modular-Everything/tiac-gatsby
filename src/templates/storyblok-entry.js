@@ -1,4 +1,5 @@
 import React from 'react'
+import { graphql, useStaticQuery } from 'gatsby'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import Components from '../components/components.js'
@@ -7,6 +8,7 @@ import PageHeading from '../components/page-heading'
 import SelectedProjects from '../components/selected-projects'
 import Credits from '../components/credits'
 import Header from '../components/header'
+import PrevNext from '../components/prev-next-projects'
 import Footer from '../components/footer'
 
 // Credit where credit is due
@@ -40,12 +42,19 @@ class StoryblokEntry extends React.Component {
   }
 
   render() {
-    let name = this.state.story.name
-    let content = this.state.story.content
-    let slug = this.state.story.full_slug
-    let selectedProjects = this.state.story.content.selected_projects
-    let credits = this.state.story.content.credits
-    let parent_id = this.state.story.parent_id
+    const name = this.state.story.name
+    const content = this.state.story.content
+    const slug = this.state.story.full_slug
+    const selectedProjects = this.state.story.content.selected_projects
+    const credits = this.state.story.content.credits
+    const parent_id = this.state.story.parent_id
+
+    const projects = this.props.data.allStoryblokEntry.edges
+    const currentProject = projects.findIndex(
+      ({ node }) => node.full_slug === slug
+    )
+    const prevProject = currentProject - 1
+    const nextProject = currentProject + 1
 
     return (
       <Layout>
@@ -57,12 +66,32 @@ class StoryblokEntry extends React.Component {
         })}
         <Credits who={credits} />
         {parent_id === 2875854 && (
-          <SelectedProjects projects={selectedProjects} />
+          <>
+            <PrevNext
+              prev={projects[prevProject]}
+              next={projects[nextProject]}
+            />
+            <SelectedProjects projects={selectedProjects} />
+          </>
         )}
         <Footer />
       </Layout>
     )
   }
 }
+
+export const data = graphql`
+  query ProjectPages {
+    allStoryblokEntry(filter: { parent_id: { eq: 2875854 } }) {
+      edges {
+        node {
+          name
+          field_cover_string
+          full_slug
+        }
+      }
+    }
+  }
+`
 
 export default StoryblokEntry
