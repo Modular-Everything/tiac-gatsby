@@ -46,7 +46,7 @@ const Footer = props => {
 
   return (
     <div className={`${alt ? 'bg-transparent' : 'bg-white'}`}>
-      <div className="container py-12">
+      <div className="container py-20 sm:py-32">
         <ul className="flex justify-center items-center">{social_links}</ul>
       </div>
     </div>
