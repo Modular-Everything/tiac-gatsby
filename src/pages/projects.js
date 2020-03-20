@@ -94,7 +94,11 @@ const Projects = () => {
                     data-label="View"
                     className="aspect-ratio-16/9 relative overflow-hidden"
                     onMouseMove={e => ProjectHover(e)}
+                    onFocus={e => ProjectHover(e)}
                     onMouseOut={e => ProjectOut(e)}
+                    onBlur={e => ProjectOut(e)}
+                    role="link"
+                    tabindex="0"
                   >
                     {!isVideo ? (
                       <img src={resizedImage} alt="" className="absolute" />

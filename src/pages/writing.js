@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { css, jsx } from '@emotion/core'
 import Layout from '../components/layout'
@@ -59,7 +58,11 @@ const Writing = () => {
             `}
             data-label="Read"
             onMouseMove={e => WritingHover(e)}
+            onFocus={e => WritingHover(e)}
             onMouseOut={e => WritingOut(e)}
+            onBlur={e => WritingOut(e)}
+            role="link"
+            tabindex="0"
           >
             <div className="container">
               <Link

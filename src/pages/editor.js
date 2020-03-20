@@ -24,7 +24,7 @@ const LoadStoryblokBridge = cb => {
 const StoryblokEntry = () => {
   const [story, setStory] = useState()
 
-  const loadStory = () => {
+  const loadStory = useCallback(() => {
     window.storyblok.get(
       {
         slug: window.storyblok.getParam(`path`),
@@ -35,7 +35,7 @@ const StoryblokEntry = () => {
         setStory(data.story)
       }
     )
-  }
+  }, [])
 
   const initStoryblokEvents = useCallback(() => {
     loadStory()
@@ -57,13 +57,13 @@ const StoryblokEntry = () => {
         sb.enterEditmode()
       }
     })
-  }, [loadStory, story])
+  }, [loadStory])
 
   useEffect(() => {
     LoadStoryblokBridge(() => {
       initStoryblokEvents()
     })
-  }, [])
+  }, [initStoryblokEvents])
 
   if (!story) {
     return <div />

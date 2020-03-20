@@ -1,5 +1,4 @@
 /** @jsx jsx */
-import React from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 import Arrow from '../../images/arrow.svg'
 import { css, jsx, keyframes } from '@emotion/core'
@@ -43,6 +42,7 @@ const ProjectsHeading = props => {
                 data.allStoryblokEntry.edges[0].node.field_credentials_string
               }
               target="_blank"
+              rel="noopener noreferrer"
               className="text-xs text-brand-black flex flex-row items-center"
               css={css`
                 &:hover {
