@@ -1,5 +1,5 @@
 import React from 'react'
-import { graphql, useStaticQuery } from 'gatsby'
+import { graphql } from 'gatsby'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import Components from '../components/components.js'
@@ -9,6 +9,7 @@ import SelectedProjects from '../components/selected-projects'
 import Credits from '../components/credits'
 import Header from '../components/header'
 import PrevNext from '../components/prev-next-projects'
+import FooterNavigation from '../components/footer-navigation'
 import Footer from '../components/footer'
 
 // Credit where credit is due
@@ -72,6 +73,7 @@ class StoryblokEntry extends React.Component {
               next={projects[nextProject]}
             />
             <SelectedProjects projects={selectedProjects} />
+            <FooterNavigation />
           </>
         )}
         <Footer />
