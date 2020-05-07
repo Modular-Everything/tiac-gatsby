@@ -67,15 +67,20 @@ const Writing = () => {
               role="link"
               tabindex="0"
             >
-              <div className="container">
-                <Link
-                  to={`/${article.node.full_slug}`}
-                  className="items-center py-4"
+              <Link
+                to={`/${article.node.full_slug}`}
+                className="items-center py-4"
+                css={css`
+                  cursor: none;
+                `}
+              >
+                <div
+                  className="container"
                   css={css`
-                    cursor: none;
                     display: grid;
                     grid-template-columns: 1fr 3fr 1fr;
                     border-top: 1px solid #d8d8d8;
+                    padding: 2rem 0;
 
                     @media (max-width: 440px) {
                       grid-template-columns: 1fr;
@@ -90,17 +95,17 @@ const Writing = () => {
                     }
                   `}
                 >
-                  <div className="text-xs text-brand-gray-800 pt-1 mr-4 sm:mr-0">
+                  <div className="mr-4 flex justify-center flex-col ml-4 sm:mr-0 text-brand-gray-800 text-xs">
                     {article.node.published_at}
                   </div>
-                  <div className="text-lg sm:text-2xl font-bold text-brand-gray-800 mr-4">
+                  <div className="text-lg sm:text-2xl font-bold text-brand-gray-800 mr-4 ml-4 sm:ml-0">
                     {article.node.name}
                   </div>
-                  <div className="text-xs text-brand-gray-600 pt-1">
+                  <div className="flex justify-center flex-col text-brand-gray-600 text-xs ml-4 sm:ml-0">
                     {article.node.field_read_time_string} minute read
                   </div>
-                </Link>
-              </div>
+                </div>
+              </Link>
             </div>
           </Fade>
         ))}
