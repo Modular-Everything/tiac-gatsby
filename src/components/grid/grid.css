@@ -116,7 +116,7 @@
   grid-gap: 2rem;
 
   & > div {
-    max-height: 100px;
+    max-height: 200px;
   }
 
   @media (max-width: 768px) {
