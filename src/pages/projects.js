@@ -23,6 +23,7 @@ const Projects = () => {
               tag_list
               published_at
               field_isInvisible_boolean
+              field_projectDescription_string
             }
           }
         }
@@ -40,7 +41,9 @@ const Projects = () => {
     cursor.innerHTML = label
 
     const extraCopy = e.currentTarget.querySelector('.extraCopy')
-    extraCopy.style.opacity = 1
+    if (extraCopy !== null) {
+      extraCopy.style.opacity = 1
+    }
   }
 
   function ProjectOut(e) {
@@ -48,7 +51,9 @@ const Projects = () => {
     cursor.style.opacity = 0
 
     const extraCopy = e.currentTarget.querySelector('.extraCopy')
-    extraCopy.style.opacity = 0
+    if (extraCopy !== null) {
+      extraCopy.style.opacity = 0
+    }
   }
 
   return (
@@ -110,13 +115,11 @@ const Projects = () => {
                       role="link"
                       tabindex="0"
                     >
-                      <h2 className="extraCopy opacity-0 bg-brand-white-overlay transition ease-in duration-200 text-xl text-brand-gray-800 font-semibold mb-2 leading-tight tracking-tight absolute top-0 left-0 z-50 p-16 flex justify-center flex-col text-center h-full leading-normal">
-                        Viva A Revolucão Bonita; ‘The Beautiful Revolution’.
-                        Pelé Sports needed a new visual language that would not
-                        only bring Pelé and his identity to a 21st century
-                        market, but also show off the rich heritage that the
-                        player represents.
-                      </h2>
+                      {node.field_projectDescription_string && (
+                        <h2 className="absolute bg-brand-white-overlay duration-200 ease-in extraCopy flex flex-col font-semibold h-full justify-center leading-normal leading-tight left-0 mb-2 opacity-0 p-16 text-brand-gray-800 text-center text-xl top-0 tracking-tight transition z-50">
+                          {node.field_projectDescription_string}
+                        </h2>
+                      )}
                       {!isVideo ? (
                         <img src={resizedImage} alt="" className="absolute" />
                       ) : (
