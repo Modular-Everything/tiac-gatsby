@@ -38,11 +38,17 @@ const Projects = () => {
 
     const label = e.currentTarget.getAttribute('data-label')
     cursor.innerHTML = label
+
+    const extraCopy = e.currentTarget.querySelector('.extraCopy')
+    extraCopy.style.opacity = 1
   }
 
   function ProjectOut(e) {
     const cursor = document.querySelector('#cursor')
     cursor.style.opacity = 0
+
+    const extraCopy = e.currentTarget.querySelector('.extraCopy')
+    extraCopy.style.opacity = 0
   }
 
   return (
@@ -93,9 +99,10 @@ const Projects = () => {
                         {tags}
                       </ul>
                     </div>
+
                     <div
                       data-label="View"
-                      className="aspect-ratio-16/9 relative overflow-hidden"
+                      className="aspect-ratio-16/9 overflow-hidden relative"
                       onMouseMove={e => ProjectHover(e)}
                       onFocus={e => ProjectHover(e)}
                       onMouseOut={e => ProjectOut(e)}
@@ -103,6 +110,13 @@ const Projects = () => {
                       role="link"
                       tabindex="0"
                     >
+                      <h2 className="extraCopy opacity-0 bg-brand-white-overlay transition ease-in duration-200 text-xl text-brand-gray-800 font-semibold mb-2 leading-tight tracking-tight absolute top-0 left-0 z-50 p-16 flex justify-center flex-col text-center h-full leading-normal">
+                        Viva A Revolucão Bonita; ‘The Beautiful Revolution’.
+                        Pelé Sports needed a new visual language that would not
+                        only bring Pelé and his identity to a 21st century
+                        market, but also show off the rich heritage that the
+                        player represents.
+                      </h2>
                       {!isVideo ? (
                         <img src={resizedImage} alt="" className="absolute" />
                       ) : (
