@@ -96,7 +96,7 @@ const Writing = () => {
                   `}
                 >
                   <div className="mr-4 flex justify-center flex-col ml-4 sm:mr-0 text-brand-gray-800 text-xs">
-                    {article.node.published_at}
+                    {article.node.first_published_at}
                   </div>
                   <div className="text-lg sm:text-2xl font-bold text-brand-gray-800 mr-4 ml-4 sm:ml-0">
                     {article.node.name}
