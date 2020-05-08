@@ -101,7 +101,7 @@ const Writing = () => {
                   <div className="text-lg sm:text-2xl font-bold text-brand-gray-800 mr-4 ml-4 sm:ml-0">
                     {article.node.name}
                   </div>
-                  <div className="flex justify-center flex-col text-brand-gray-600 text-xs ml-4 sm:ml-0">
+                  <div className="flex flex-col justify-center ml-4 mr-4 sm:ml-0 text-brand-gray-600 text-right text-xs">
                     {article.node.field_read_time_string} minute read
                   </div>
                 </div>
