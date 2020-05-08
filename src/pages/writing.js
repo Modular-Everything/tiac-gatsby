@@ -20,7 +20,7 @@ const Writing = () => {
               field_read_time_string
               name
               full_slug
-              published_at(formatString: "Do MMMM YYYY")
+              first_published_at(formatString: "Do MMMM YYYY")
             }
           }
         }
