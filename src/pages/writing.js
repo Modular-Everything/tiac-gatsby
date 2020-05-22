@@ -65,7 +65,7 @@ const Writing = () => {
               onMouseOut={e => WritingOut(e)}
               onBlur={e => WritingOut(e)}
               role="link"
-              tabindex="0"
+              tabIndex="0"
             >
               <Link
                 to={`/${article.node.full_slug}`}
