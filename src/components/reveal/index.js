@@ -4,8 +4,6 @@ import { useInView } from "react-intersection-observer";
 export const AnimateIn = ({ threshold = 0.15, triggerOnce = true, ...remainingProps }) => {
   const [ref, inView] = useInView({ threshold, triggerOnce })
 
-  console.log(inView);
-
   return (
     <div
       ref={ref}
