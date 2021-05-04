@@ -39,7 +39,7 @@ const PrevNext = props => {
           <li>
             {props.prev !== undefined && (
               <Link
-                to="/"
+              to={`/${props.prev.node.full_slug}`}
                 className="p-4 -ml-4 hover:bg-black text-white transition-ease-in-out transition-bg"
               >
                 Previous Project
@@ -49,7 +49,7 @@ const PrevNext = props => {
           <li>
             {props.next !== undefined && (
               <Link
-                to="/"
+                to={`/${props.next.node.full_slug}`}
                 className="p-4 -mr-4 hover:bg-black text-white transition-ease-in-out transition-bg"
               >
                 Next Project
@@ -60,7 +60,7 @@ const PrevNext = props => {
         <ul className="flex justify-between">
           <li className="w-6/12 mr-2 border border-solid border-brand-gray-850">
             {props.prev !== undefined && (
-              <Link to={props.prev.node.full_slug}>
+              <Link to={`/${props.prev.node.full_slug}`}>
                 {regex.test(PrevProjectCover) ? (
                   <Video cover={PrevProjectCover} name={props.prev.node.name} />
                 ) : (
@@ -71,7 +71,7 @@ const PrevNext = props => {
           </li>
           <li className="w-6/12 ml-2">
             {props.next !== undefined && (
-              <Link to={props.next.node.full_slug}>
+              <Link to={`/${props.next.node.full_slug}`}>
                 {regex.test(NextProjectCover) ? (
                   <Video cover={NextProjectCover} name={props.next.node.name} />
                 ) : (
