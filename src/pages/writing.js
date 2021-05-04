@@ -1,7 +1,6 @@
 /** @jsx jsx */
 import { graphql, useStaticQuery, Link } from 'gatsby'
 import { css, jsx } from '@emotion/core'
-import Fade from 'react-reveal/Fade'
 
 import Layout from '../components/layout'
 import Header from '../components/header'
@@ -51,63 +50,62 @@ const Writing = () => {
 
       <section className="bg-white pb-16">
         {data.allStoryblokEntry.edges.map(article => (
-          <Fade up>
-            <div
-              className="hover:bg-brand-gray-50"
+          <div
+            data-sal="fade"
+            className="hover:bg-brand-gray-50"
+            css={css`
+              &:last-of-type a {
+                border-bottom: 1px solid #d8d8d8;
+              }
+            `}
+            data-label="Read"
+            onMouseMove={e => WritingHover(e)}
+            onFocus={e => WritingHover(e)}
+            onMouseOut={e => WritingOut(e)}
+            onBlur={e => WritingOut(e)}
+            role="link"
+            tabIndex="0"
+          >
+            <Link
+              to={`/${article.node.full_slug}`}
+              className="items-center py-4"
               css={css`
-                &:last-of-type a {
-                  border-bottom: 1px solid #d8d8d8;
-                }
+                cursor: none;
               `}
-              data-label="Read"
-              onMouseMove={e => WritingHover(e)}
-              onFocus={e => WritingHover(e)}
-              onMouseOut={e => WritingOut(e)}
-              onBlur={e => WritingOut(e)}
-              role="link"
-              tabIndex="0"
             >
-              <Link
-                to={`/${article.node.full_slug}`}
-                className="items-center py-4"
+              <div
+                className="container"
                 css={css`
-                  cursor: none;
+                  display: grid;
+                  grid-template-columns: 1fr 3fr 1fr;
+                  border-top: 1px solid #d8d8d8;
+                  padding: 2rem 0;
+
+                  @media (max-width: 440px) {
+                    grid-template-columns: 1fr;
+
+                    & > div {
+                      margin-bottom: 0.25rem;
+                    }
+
+                    & > div:last-of-type {
+                      margin-bottom: 0;
+                    }
+                  }
                 `}
               >
-                <div
-                  className="container"
-                  css={css`
-                    display: grid;
-                    grid-template-columns: 1fr 3fr 1fr;
-                    border-top: 1px solid #d8d8d8;
-                    padding: 2rem 0;
-
-                    @media (max-width: 440px) {
-                      grid-template-columns: 1fr;
-
-                      & > div {
-                        margin-bottom: 0.25rem;
-                      }
-
-                      & > div:last-of-type {
-                        margin-bottom: 0;
-                      }
-                    }
-                  `}
-                >
-                  <div className="mr-4 flex justify-center flex-col ml-4 sm:mr-0 text-brand-gray-800 text-xs">
-                    {article.node.first_published_at}
-                  </div>
-                  <div className="text-lg sm:text-2xl font-bold text-brand-gray-800 mr-4 ml-4 sm:ml-0">
-                    {article.node.name}
-                  </div>
-                  <div className="flex flex-col justify-center ml-4 mr-4 sm:ml-0 text-brand-gray-600 text-right text-xs">
-                    {article.node.field_read_time_string} minute read
-                  </div>
+                <div className="mr-4 flex justify-center flex-col ml-4 sm:mr-0 text-brand-gray-800 text-xs">
+                  {article.node.first_published_at}
                 </div>
-              </Link>
-            </div>
-          </Fade>
+                <div className="text-lg sm:text-2xl font-bold text-brand-gray-800 mr-4 ml-4 sm:ml-0">
+                  {article.node.name}
+                </div>
+                <div className="flex flex-col justify-center ml-4 mr-4 sm:ml-0 text-brand-gray-600 text-right text-xs">
+                  {article.node.field_read_time_string} minute read
+                </div>
+              </div>
+            </Link>
+          </div>
         ))}
       </section>
 

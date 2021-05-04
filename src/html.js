@@ -5,6 +5,11 @@ export default class HTML extends React.Component {
     return (
       <html lang="en">
         <head>
+          <style type="text/css">{`
+            :root {
+              --sal-duration: 1500ms;
+            }
+          `}</style>
           <meta charSet="utf-8" />
           <meta
             name="viewport"

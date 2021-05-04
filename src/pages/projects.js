@@ -1,6 +1,5 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
-import Fade from 'react-reveal/Fade'
 
 import Layout from '../components/layout'
 import Header from '../components/header'
@@ -90,58 +89,56 @@ const Projects = () => {
             node.field_isInvisible_boolean === false
           ) {
             return (
-              <Fade up>
-                <div key={index} className="relative">
-                  <Link
-                    to={'/' + node.full_slug}
-                    className="flex flex-col-reverse"
-                  >
-                    <div className="flex flex-col-reverse">
-                      <h2 className="text-xl text-brand-gray-800 font-semibold mb-2 leading-tight tracking-tight">
-                        {node.name}
-                      </h2>
-                      <ul className="flex text-brand-gray-600 text-xxs mt-4 mb-1">
-                        {tags}
-                      </ul>
-                    </div>
+              <div key={index} className="relative"data-sal="fade">
+                <Link
+                  to={'/' + node.full_slug}
+                  className="flex flex-col-reverse"
+                >
+                  <div className="flex flex-col-reverse">
+                    <h2 className="text-xl text-brand-gray-800 font-semibold mb-2 leading-tight tracking-tight">
+                      {node.name}
+                    </h2>
+                    <ul className="flex text-brand-gray-600 text-xxs mt-4 mb-1">
+                      {tags}
+                    </ul>
+                  </div>
 
-                    <div
-                      data-label="View"
-                      className="aspect-ratio-16/9 overflow-hidden relative"
-                      onMouseMove={e => ProjectHover(e)}
-                      onFocus={e => ProjectHover(e)}
-                      onMouseOut={e => ProjectOut(e)}
-                      onBlur={e => ProjectOut(e)}
-                      role="link"
-                      tabIndex="0"
-                    >
-                      {node.field_projectDescription_string && (
-                        <h2 className="absolute bg-brand-white-overlay duration-200 ease-in extraCopy flex flex-col font-semibold h-full justify-center leading-normal leading-tight left-0 mb-2 opacity-0 p-16 text-brand-gray-800 text-center text-xl top-0 tracking-tight transition z-50 hidden sm:flex">
-                          {node.field_projectDescription_string}
-                        </h2>
-                      )}
-                      {!isVideo ? (
-                        <img src={resizedImage} alt="" className="absolute" />
-                      ) : (
-                        <video
-                          height="100%"
-                          width="100%"
-                          className="absolute"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                        >
-                          <source
-                            src={node.field_cover_string}
-                            type="video/mp4"
-                          ></source>
-                        </video>
-                      )}
-                    </div>
-                  </Link>
-                </div>
-              </Fade>
+                  <div
+                    data-label="View"
+                    className="aspect-ratio-16/9 overflow-hidden relative"
+                    onMouseMove={e => ProjectHover(e)}
+                    onFocus={e => ProjectHover(e)}
+                    onMouseOut={e => ProjectOut(e)}
+                    onBlur={e => ProjectOut(e)}
+                    role="link"
+                    tabIndex="0"
+                  >
+                    {node.field_projectDescription_string && (
+                      <h2 className="absolute bg-brand-white-overlay duration-200 ease-in extraCopy flex flex-col font-semibold h-full justify-center leading-normal leading-tight left-0 mb-2 opacity-0 p-16 text-brand-gray-800 text-center text-xl top-0 tracking-tight transition z-50 hidden sm:flex">
+                        {node.field_projectDescription_string}
+                      </h2>
+                    )}
+                    {!isVideo ? (
+                      <img src={resizedImage} alt="" className="absolute" />
+                    ) : (
+                      <video
+                        height="100%"
+                        width="100%"
+                        className="absolute"
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                      >
+                        <source
+                          src={node.field_cover_string}
+                          type="video/mp4"
+                        ></source>
+                      </video>
+                    )}
+                  </div>
+                </Link>
+              </div>
             )
           } else {
             return null

@@ -4,7 +4,7 @@ import SbEditable from 'storyblok-react'
 const Video = props => {
   return (
     <SbEditable content={props.blok}>
-      <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
+      <div data-sal="fade" className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
         <div className="relative">
           <video height="100%" width="100%" autoPlay loop muted playsInline>
             <source src={props.blok.video} type="video/mp4"></source>

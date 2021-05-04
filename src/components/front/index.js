@@ -1,5 +1,4 @@
 import React from 'react'
-import Fade from 'react-reveal/Fade'
 import * as markdownit from 'markdown-it'
 import './front.css'
 
@@ -55,8 +54,7 @@ const Front = props => {
       <h1 className="text-brand-gray-800 text-xl md:text-3xl lg:pt-6 lg:mr-4-gray-800 text-xl lg:text-6xl font-semibold mb-4">
         {props.blok.title}
       </h1>
-      <ul className="front-content text-brand-gray-800">
-        <Fade up>
+      <ul className="front-content text-brand-gray-800" data-sal="fade">
           {props.blok.goal.map((goal, index) => {
             if (!goal.extra_copy) {
               return (
@@ -80,7 +78,6 @@ const Front = props => {
               )
             }
           })}
-        </Fade>
       </ul>
     </div>
   )
