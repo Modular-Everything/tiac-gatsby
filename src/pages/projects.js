@@ -89,7 +89,7 @@ const Projects = () => {
             node.field_isInvisible_boolean === false
           ) {
             return (
-              <div key={index} className="relative"data-sal="fade">
+              <div key={index} className="relative" data-sal="fade">
                 <Link
                   to={'/' + node.full_slug}
                   className="flex flex-col-reverse"
