@@ -2,6 +2,7 @@ import React from 'react'
 import SbEditable from 'storyblok-react'
 import { Link } from 'gatsby'
 import './image.css'
+import { AnimateIn } from '../reveal';
 
 const Image = props => {
   if (props.blok.image) {
@@ -27,23 +28,25 @@ const Image = props => {
 
     return (
       <SbEditable content={props.blok}>
-        <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`} data-sal="fade">
-          <div className="relative">
-            <div className="relative overflow-hidden">{imageLink}</div>
-          </div>
+        <AnimateIn>
+          <div className={`rows-${props.blok.rows} cols-${props.blok.columns}`}>
+            <div className="relative">
+              <div className="relative overflow-hidden">{imageLink}</div>
+            </div>
 
-          {props.blok.caption !== '' ? (
-            <h4
-              className={`my-3 text-brand-gray-600 text-xxs text-${
-                props.blok.caption_align ? props.blok.caption_align : 'left'
-              } lg:text-xs lg:leading-relaxed tracking-normal`}
-            >
-              {props.blok.caption}
-            </h4>
-          ) : (
-            ''
-          )}
-        </div>
+            {props.blok.caption !== '' ? (
+              <h4
+                className={`my-3 text-brand-gray-600 text-xxs text-${
+                  props.blok.caption_align ? props.blok.caption_align : 'left'
+                } lg:text-xs lg:leading-relaxed tracking-normal`}
+              >
+                {props.blok.caption}
+              </h4>
+            ) : (
+              ''
+            )}
+          </div>
+        </AnimateIn>
       </SbEditable>
     )
   } else {

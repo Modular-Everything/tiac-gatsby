@@ -1,6 +1,7 @@
 import React from 'react'
 import * as markdownit from 'markdown-it'
 import './front.css'
+import { AnimateIn } from '../reveal';
 
 const ListItem = props => {
   const md = markdownit()
@@ -54,31 +55,34 @@ const Front = props => {
       <h1 className="text-brand-gray-800 text-xl md:text-3xl lg:pt-6 lg:mr-4-gray-800 text-xl lg:text-6xl font-semibold mb-4">
         {props.blok.title}
       </h1>
-      <ul className="front-content text-brand-gray-800" data-sal="fade">
-          {props.blok.goal.map((goal, index) => {
-            if (!goal.extra_copy) {
-              return (
-                <ListItem
-                  key={index}
-                  goal={goal.goal_text}
-                  isDone={goal.done}
-                  num={index + 1}
-                />
-              )
-            } else {
-              return (
-                <ListItem
-                  key={index}
-                  goal={goal.goal_text}
-                  isDone={goal.done}
-                  num={index + 1}
-                >
-                  {goal.extra_copy}
-                </ListItem>
-              )
-            }
-          })}
-      </ul>
+
+      <AnimateIn>
+        <ul className="front-content text-brand-gray-800">
+            {props.blok.goal.map((goal, index) => {
+              if (!goal.extra_copy) {
+                return (
+                  <ListItem
+                    key={index}
+                    goal={goal.goal_text}
+                    isDone={goal.done}
+                    num={index + 1}
+                  />
+                )
+              } else {
+                return (
+                  <ListItem
+                    key={index}
+                    goal={goal.goal_text}
+                    isDone={goal.done}
+                    num={index + 1}
+                  >
+                    {goal.extra_copy}
+                  </ListItem>
+                )
+              }
+            })}
+        </ul>
+      </AnimateIn>
     </div>
   )
 }

@@ -13,7 +13,6 @@ const Cursor = props => {
         background-color: #ff8172;
         transition: opacity 150ms ease;
         z-index: 99999;
-        position: relative;
       `}
     >
       {children}
