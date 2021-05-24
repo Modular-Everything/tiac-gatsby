@@ -3,7 +3,6 @@ import React from 'react'
 
 const Logo = props => {
   const { blok } = props
-  console.log(blok)
 
   const imageService = '//img2.storyblok.com/'
   const path = blok.image.replace('//a.storyblok.com', '')
