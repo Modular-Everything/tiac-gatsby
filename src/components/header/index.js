@@ -35,7 +35,6 @@ const Header = () => {
   const nav_entries = Object.entries(parsed_content.header_links)
   var navigation = []
   nav_entries.forEach(([key, value]) => {
-    console.log(value);
     navigation.push(
       <li
         key={key}

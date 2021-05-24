@@ -56,33 +56,35 @@ const Front = props => {
         {props.blok.title}
       </h1>
 
-      <AnimateIn>
         <ul className="front-content text-brand-gray-800">
             {props.blok.goal.map((goal, index) => {
               if (!goal.extra_copy) {
                 return (
-                  <ListItem
-                    key={index}
-                    goal={goal.goal_text}
-                    isDone={goal.done}
-                    num={index + 1}
-                  />
+                  <AnimateIn triggerOnce={false}>
+                    <ListItem
+                      key={index}
+                      goal={goal.goal_text}
+                      isDone={goal.done}
+                      num={index + 1}
+                    />
+                  </AnimateIn>
                 )
               } else {
                 return (
-                  <ListItem
-                    key={index}
-                    goal={goal.goal_text}
-                    isDone={goal.done}
-                    num={index + 1}
-                  >
-                    {goal.extra_copy}
-                  </ListItem>
+                  <AnimateIn triggerOnce={false}>
+                    <ListItem
+                      key={index}
+                      goal={goal.goal_text}
+                      isDone={goal.done}
+                      num={index + 1}
+                    >
+                      {goal.extra_copy}
+                    </ListItem>
+                  </AnimateIn>
                 )
               }
             })}
         </ul>
-      </AnimateIn>
     </div>
   )
 }
