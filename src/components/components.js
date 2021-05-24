@@ -10,6 +10,7 @@ import Video from './video'
 import YouTubeEmbed from './youtube'
 import VimeoEmbed from './vimeo'
 import Logo from './logo'
+import iFrame from './iframe'
 
 const ComponentList = {
   page: Page,
@@ -23,6 +24,7 @@ const ComponentList = {
   vimeo: VimeoEmbed,
   front: Front,
   logo: Logo,
+  iframe: iFrame,
 }
 
 const Components = type => {
