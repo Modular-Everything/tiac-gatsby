@@ -34,6 +34,7 @@ module.exports = {
           'gray-700': '#4a4a4a',
           'gray-800': '#3c3c3b',
           'gray-850': '#333',
+          pink: '#ff8172',
           black: '#191919',
           'black-overlay': 'rgba(25,25,25,0.95)',
           'white-overlay': 'rgba(255,255,255, 0.9)',
