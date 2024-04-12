@@ -14,8 +14,8 @@ import Footer from '../components/footer'
 
 // Credit where credit is due
 console.log(
-  '%c Built with 🤟 by Chrish Dunne\nhttp://chrish.design/\n 👆👆👆👆👆👆👆👆👆👆👆👆👆',
-  'background: #222; color: #bada55'
+  '%c Built with 🤟 by Chrish Dunne\nhttps://modular-everything.com/\n 👆👆👆👆👆👆👆👆👆👆👆👆👆',
+  'background: #9FF1FF; color: #141414'
 )
 
 // Add Font Awesome brand icons globally
