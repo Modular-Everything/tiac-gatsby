@@ -1,6 +1,7 @@
 import React from 'react'
 import { graphql, useStaticQuery, Link } from 'gatsby'
 
+import Lock from '../images/lock.svg'
 import Layout from '../components/layout'
 import Header from '../components/header'
 import Footer from '../components/footer'
@@ -12,6 +13,8 @@ import { Helmet } from 'react-helmet'
 import { isLoggedIn } from '../utils/auth'
 
 const PrivateProjects = () => {
+  const [showPasswordField, setShowPasswordField] = React.useState(false)
+
   const data = useStaticQuery(
     graphql`
       query PrivateProjects {
@@ -58,6 +61,40 @@ const PrivateProjects = () => {
     }
   }
 
+  if (!isLoggedIn()) {
+    return (
+      <Layout>
+        <Cursor />
+        <Header />
+        <Helmet>
+          <meta name={`robots`} content={`noindex, nofollow`} />
+        </Helmet>
+
+        <div class="w-full h-screen -mt-20 pt-20 flex items-center justify-center">
+          {showPasswordField ? (
+            <div class="flex space-x-4">
+              <input type="password" className="w-64 pt-5 p-4 rounded" />
+              <button className="w-full text-center justify-center text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors">
+                Unlock
+              </button>
+            </div>
+          ) : (
+            <button
+              type="button"
+              className="text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors"
+              onClick={() => setShowPasswordField(true)}
+            >
+              Reveal Hidden Projects
+              <span className="w-4 h-4 ml-2 -mt-1">
+                <img src={Lock} alt="Unlock" />
+              </span>
+            </button>
+          )}
+        </div>
+      </Layout>
+    )
+  }
+
   return (
     <Layout>
       <Cursor />
@@ -65,7 +102,8 @@ const PrivateProjects = () => {
       <Helmet>
         <meta name={`robots`} content={`noindex, nofollow`} />
       </Helmet>
-      <ProjectsHeading password={!isLoggedIn()} />
+
+      <ProjectsHeading />
 
       <div className="grid projects container container-wide py-4">
         {data.allStoryblokEntry.edges.map(({ node }, index) => {
@@ -88,8 +126,6 @@ const PrivateProjects = () => {
           const imageService = '//img2.storyblok.com/'
           const path = node.field_cover_string.replace('//a.storyblok.com', '')
           const resizedImage = imageService + '1200x675' + path
-          const blurredImage =
-            imageService + '600x338' + '/filters:blur(100)' + path
           // ***
 
           if (
@@ -151,22 +187,6 @@ const PrivateProjects = () => {
                 </div>
               </AnimateIn>
             )
-          } else {
-            if (!isLoggedIn()) {
-              return (
-                <>
-                  <div className="aspect-ratio-16/9 overflow-hidden relative">
-                    <img
-                      src={blurredImage}
-                      alt=""
-                      className="absolute w-full h-full object-cover"
-                    />
-                  </div>
-                </>
-              )
-            } else {
-              return null
-            }
           }
         })}
       </div>
