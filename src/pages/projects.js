@@ -8,6 +8,7 @@ import Cursor from '../components/cursor'
 import ProjectsHeading from '../components/projects-heading'
 import '../components/grid/grid.css'
 import { AnimateIn } from '../components/reveal'
+import ProjectVideo from '../components/project-video'
 
 const Projects = () => {
   const allProjects = useStaticQuery(
@@ -158,20 +159,7 @@ const Projects = () => {
                       {!isVideo ? (
                         <img src={resizedImage} alt="" className="absolute" />
                       ) : (
-                        <video
-                          height="100%"
-                          width="100%"
-                          className="absolute"
-                          autoPlay
-                          loop
-                          muted
-                          playsInline
-                        >
-                          <source
-                            src={node.field_cover_string}
-                            type="video/mp4"
-                          ></source>
-                        </video>
+                        <ProjectVideo videoUrl={node.field_cover_string} />
                       )}
                     </div>
                   </Link>
