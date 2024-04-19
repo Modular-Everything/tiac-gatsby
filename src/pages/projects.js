@@ -39,7 +39,6 @@ const Projects = () => {
   )
 
   const fetchProjects = async () => {
-    console.log('Fetching new projects...')
     setPage(prevPage => {
       const nextPage = prevPage + 1
       const nextProjects = allProjects.allStoryblokEntry.edges.slice(
