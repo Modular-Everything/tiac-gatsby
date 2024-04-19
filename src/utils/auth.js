@@ -1,3 +1,5 @@
+// import { graphql, useStaticQuery } from 'gatsby'
+
 const isBrowser = typeof window !== `undefined`
 
 const getUser = () =>
@@ -5,11 +7,11 @@ const getUser = () =>
 
 const setUser = user => (window.localStorage.auth = JSON.stringify(user))
 
-export const handleLogin = ({ username, password }) => {
+export const handleLogin = ({ password, match }) => {
   if (!isBrowser) return false
 
-  if (password === `demo`) {
-    console.log(`Credentials match! Setting the active user.`)
+  if (password === match) {
+    window.location.reload()
     return setUser({
       loggedIn: true,
     })

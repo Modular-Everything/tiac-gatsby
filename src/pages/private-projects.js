@@ -10,15 +10,16 @@ import ProjectsHeading from '../components/projects-heading'
 import '../components/grid/grid.css'
 import { AnimateIn } from '../components/reveal'
 import { Helmet } from 'react-helmet'
-import { isLoggedIn } from '../utils/auth'
+import { isLoggedIn, handleLogin } from '../utils/auth'
 
 const PrivateProjects = () => {
   const [showPasswordField, setShowPasswordField] = React.useState(false)
+  const [password, setPassword] = React.useState('')
 
   const data = useStaticQuery(
     graphql`
-      query PrivateProjects {
-        allStoryblokEntry(filter: { parent_id: { eq: 477500109 } }) {
+      query PrivateProjectsContent {
+        content: allStoryblokEntry(filter: { parent_id: { eq: 477500109 } }) {
           edges {
             node {
               name
@@ -32,9 +33,20 @@ const PrivateProjects = () => {
             }
           }
         }
+
+        pwd: allStoryblokEntry(filter: { slug: { eq: "globals" } }) {
+          edges {
+            node {
+              field_password_string
+            }
+          }
+        }
       }
     `
   )
+
+  const match =
+    data.pwd.edges[0].node.field_password_string || 'set_your_password'
 
   function ProjectHover(e) {
     const cursor = document.querySelector('#cursor')
@@ -70,13 +82,25 @@ const PrivateProjects = () => {
           <meta name={`robots`} content={`noindex, nofollow`} />
         </Helmet>
 
-        <div class="w-full h-screen -mt-20 pt-20 flex items-center justify-center">
+        <div className="w-full h-screen -mt-20 pt-20 flex items-center justify-center">
           {showPasswordField ? (
-            <div class="flex space-x-4">
-              <input type="password" className="w-64 pt-5 p-4 rounded" />
-              <button className="w-full text-center justify-center text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors">
-                Unlock
-              </button>
+            <div>
+              <form
+                onSubmit={() => handleLogin({ password, match })}
+                className="flex space-x-4"
+              >
+                <input
+                  type="password"
+                  className="w-64 pt-5 p-4 rounded"
+                  onChange={e => setPassword(e.currentTarget.value)}
+                />
+                <button
+                  className="w-full text-center justify-center text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors"
+                  type="submit"
+                >
+                  Unlock
+                </button>
+              </form>
             </div>
           ) : (
             <button
@@ -106,7 +130,7 @@ const PrivateProjects = () => {
       <ProjectsHeading />
 
       <div className="grid projects container container-wide py-4">
-        {data.allStoryblokEntry.edges.map(({ node }, index) => {
+        {data.content.edges.map(({ node }, index) => {
           var regex = RegExp(/(.mp4)/)
           if (regex.test(node.field_cover_string)) {
             var isVideo = true
