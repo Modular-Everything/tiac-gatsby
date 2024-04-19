@@ -10,7 +10,7 @@ import '../components/grid/grid.css'
 import { AnimateIn } from '../components/reveal'
 
 const Projects = () => {
-  const data = useStaticQuery(
+  const allProjects = useStaticQuery(
     graphql`
       query Projects {
         allStoryblokEntry(filter: { parent_id: { eq: 2875854 } }) {
@@ -30,6 +30,42 @@ const Projects = () => {
       }
     `
   )
+
+  const pagesPerLoad = 10
+
+  const [page, setPage] = React.useState(1)
+  const [projects, setProjects] = React.useState(
+    allProjects.allStoryblokEntry.edges.slice(0, pagesPerLoad)
+  )
+
+  const fetchProjects = async () => {
+    console.log('Fetching new projects...')
+    setPage(prevPage => {
+      const nextPage = prevPage + 1
+      const nextProjects = allProjects.allStoryblokEntry.edges.slice(
+        0,
+        nextPage * pagesPerLoad
+      )
+      setProjects(nextProjects)
+      return nextPage
+    })
+  }
+
+  React.useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop !==
+        document.documentElement.offsetHeight
+      ) {
+        return false
+      }
+
+      return fetchProjects()
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   function ProjectHover(e) {
     const cursor = document.querySelector('#cursor')
@@ -63,7 +99,7 @@ const Projects = () => {
       <ProjectsHeading />
 
       <div className="grid projects container container-wide py-4">
-        {data.allStoryblokEntry.edges.map(({ node }, index) => {
+        {projects.map(({ node }, index) => {
           var regex = RegExp(/(.mp4)/)
           if (regex.test(node.field_cover_string)) {
             var isVideo = true
