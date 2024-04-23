@@ -34,6 +34,9 @@ exports.createPages = ({ graphql, actions }) => {
 
         const entries = result.data.allStoryblokEntry.edges
         entries.forEach((entry, index) => {
+          if (entry.node.full_slug == 'private-projects') {
+            return null
+          }
           let pagePath =
             entry.node.full_slug == 'home' ? '' : `${entry.node.full_slug}/`
           createPage({
