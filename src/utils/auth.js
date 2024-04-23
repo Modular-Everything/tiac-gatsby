@@ -1,6 +1,7 @@
 // import { graphql, useStaticQuery } from 'gatsby'
 
-export const isBrowser = typeof window !== 'undefined'
+export const isBrowser =
+  typeof window !== 'undefined' && typeof window.EventTarget !== 'undefined'
 
 const getUser = () =>
   window.localStorage.auth ? JSON.parse(window.localStorage.auth) : {}
