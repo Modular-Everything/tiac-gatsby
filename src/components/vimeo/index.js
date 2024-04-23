@@ -5,8 +5,6 @@ import { AnimateIn } from '../reveal'
 import { isBrowser } from '../../utils/auth'
 
 const VimeoEmbed = props => {
-  if (!isBrowser) return null
-
   return (
     <SbEditable content={props.blok}>
       <AnimateIn>
