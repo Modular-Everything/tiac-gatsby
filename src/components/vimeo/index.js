@@ -1,9 +1,12 @@
 import React from 'react'
 import SbEditable from 'storyblok-react'
 import Vimeo from '@u-wave/react-vimeo'
-import { AnimateIn } from '../reveal';
+import { AnimateIn } from '../reveal'
+import { isBrowser } from '../../utils/auth'
 
 const VimeoEmbed = props => {
+  if (!isBrowser) return null
+
   return (
     <SbEditable content={props.blok}>
       <AnimateIn>
