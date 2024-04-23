@@ -53,10 +53,7 @@ const Projects = () => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if (
-        window.innerHeight + document.documentElement.scrollTop !==
-        document.documentElement.offsetHeight
-      ) {
+      if (window.scrollY + window.innerHeight !== document.body.offsetHeight) {
         return false
       }
 
