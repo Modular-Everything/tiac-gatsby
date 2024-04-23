@@ -82,9 +82,9 @@ const PrivateProjects = () => {
           <meta name={`robots`} content={`noindex, nofollow`} />
         </Helmet>
 
-        <div className="w-full min-h-screen -mt-20 pt-20 items-center justify-center grid projects container container-wide py-4">
+        <div className="w-full h-screen -mt-20 pt-20 flex items-center justify-center">
           {showPasswordField ? (
-            <div className="col-span-full flex items-center justify-center">
+            <div>
               <form
                 onSubmit={() => handleLogin({ password, match })}
                 className="flex space-x-4"
@@ -103,18 +103,16 @@ const PrivateProjects = () => {
               </form>
             </div>
           ) : (
-            <div className="col-span-full flex items-center justify-center">
-              <button
-                type="button"
-                className="text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors"
-                onClick={() => setShowPasswordField(true)}
-              >
-                Reveal Hidden Projects
-                <span className="w-4 h-4 ml-2 -mt-1">
-                  <img src={Lock} alt="Unlock" />
-                </span>
-              </button>
-            </div>
+            <button
+              type="button"
+              className="text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors"
+              onClick={() => setShowPasswordField(true)}
+            >
+              Reveal Hidden Projects
+              <span className="w-4 h-4 ml-2 -mt-1">
+                <img src={Lock} alt="Unlock" />
+              </span>
+            </button>
           )}
         </div>
       </Layout>

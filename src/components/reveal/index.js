@@ -1,7 +1,12 @@
-import React from 'react';
-import { useInView } from "react-intersection-observer";
+import React from 'react'
+import { useInView } from 'react-intersection-observer'
 
-export const AnimateIn = ({ threshold = 0.15, triggerOnce = true, ...remainingProps }) => {
+export const AnimateIn = ({
+  threshold = 0.15,
+  triggerOnce = true,
+  children,
+  ...remainingProps
+}) => {
   const [ref, inView] = useInView({ threshold, triggerOnce })
 
   return (
@@ -9,11 +14,13 @@ export const AnimateIn = ({ threshold = 0.15, triggerOnce = true, ...remainingPr
       ref={ref}
       style={{
         // adjust these as desired
-        transition: "opacity 300ms, transform 300ms",
+        transition: 'opacity 300ms, transform 300ms',
         opacity: inView ? 1 : 0,
         transform: `translateY(${inView ? 0 : 100}px)`,
       }}
       {...remainingProps}
-    />
+    >
+      {children}
+    </div>
   )
 }
