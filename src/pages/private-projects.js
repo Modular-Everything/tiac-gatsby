@@ -73,15 +73,15 @@ const PrivateProjects = () => {
     }
   }
 
-  if (!isLoggedIn()) {
-    return (
-      <Layout>
-        <Cursor />
-        <Header />
-        <Helmet>
-          <meta name={`robots`} content={`noindex, nofollow`} />
-        </Helmet>
+  return (
+    <Layout>
+      <Cursor />
+      <Header />
+      <Helmet>
+        <meta name={`robots`} content={`noindex, nofollow`} />
+      </Helmet>
 
+      {!isLoggedIn() && (
         <div className="w-full h-screen -mt-20 pt-20 flex items-center justify-center">
           {showPasswordField ? (
             <div>
@@ -115,19 +115,7 @@ const PrivateProjects = () => {
             </button>
           )}
         </div>
-      </Layout>
-    )
-  }
-
-  return (
-    <Layout>
-      <Cursor />
-      <Header />
-      <Helmet>
-        <meta name={`robots`} content={`noindex, nofollow`} />
-      </Helmet>
-
-      <ProjectsHeading />
+      )}
 
       <div className="grid projects container container-wide py-4">
         {data.content.edges.map(({ node }, index) => {
