@@ -11,7 +11,6 @@ export const handleLogin = ({ password, match }) => {
   if (!isBrowser) return false
 
   if (password === match) {
-    window.location.reload()
     return setUser({
       loggedIn: true,
     })

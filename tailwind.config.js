@@ -50,6 +50,9 @@ module.exports = {
       boxShadow: {
         focus: '0 0 30px rgba(0, 0, 0, 0.10)',
       },
+      height: {
+        login: 'calc(100vh - 5rem)',
+      },
     },
   },
   variants: {
