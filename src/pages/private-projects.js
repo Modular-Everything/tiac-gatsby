@@ -80,29 +80,28 @@ const PrivateProjects = () => {
       <Helmet>
         <meta name={`robots`} content={`noindex, nofollow`} />
       </Helmet>
-
-      {!isLoggedIn() && (
-        <div className="w-full h-screen -mt-20 pt-20 flex items-center justify-center">
-          {showPasswordField ? (
-            <div>
-              <form
-                onSubmit={() => handleLogin({ password, match })}
-                className="flex space-x-4"
+      <div className="grid projects container container-wide py-4">
+        {!isLoggedIn() && showPasswordField ? (
+          <div className="col-span-full w-full h-screen -mt-20 pt-20 flex items-center justify-center">
+            <form
+              onSubmit={() => handleLogin({ password, match })}
+              className="flex space-x-4"
+            >
+              <input
+                type="password"
+                className="w-64 pt-5 p-4 rounded"
+                onChange={e => setPassword(e.currentTarget.value)}
+              />
+              <button
+                className="w-full text-center justify-center text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors"
+                type="submit"
               >
-                <input
-                  type="password"
-                  className="w-64 pt-5 p-4 rounded"
-                  onChange={e => setPassword(e.currentTarget.value)}
-                />
-                <button
-                  className="w-full text-center justify-center text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors"
-                  type="submit"
-                >
-                  Unlock
-                </button>
-              </form>
-            </div>
-          ) : (
+                Unlock
+              </button>
+            </form>
+          </div>
+        ) : (
+          <div className="col-span-full w-full h-screen -mt-20 pt-20 flex items-center justify-center">
             <button
               type="button"
               className="text-xs text-white bg-brand-pink rounded p-4 pt-5 flex flex-row items-center hover:bg-brand-black transition-colors"
@@ -113,11 +112,9 @@ const PrivateProjects = () => {
                 <img src={Lock} alt="Unlock" />
               </span>
             </button>
-          )}
-        </div>
-      )}
+          </div>
+        )}
 
-      <div className="grid projects container container-wide py-4">
         {data.content.edges.map(({ node }, index) => {
           var regex = RegExp(/(.mp4)/)
           if (regex.test(node.field_cover_string)) {
