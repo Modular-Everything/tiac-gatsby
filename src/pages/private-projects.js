@@ -4,10 +4,14 @@ import Layout from '../components/layout'
 import PrivateProjectsAuthd from '../components/private-projects/PrivateProjects'
 import Login from '../components/private-projects/Login'
 import PrivateRoute from '../components/PrivateRoute'
-import { isLoggedIn } from '../utils/auth'
+import { isLoggedIn, isBrowser } from '../utils/auth'
 import { navigate } from 'gatsby'
 
 const PrivateProjects = () => {
+  if (!isBrowser) {
+    return null
+  }
+
   if (isLoggedIn()) {
     navigate(`/private-projects/list`)
   } else {
