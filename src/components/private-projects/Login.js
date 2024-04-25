@@ -12,7 +12,7 @@ const Login = () => {
   const [password, setPassword] = React.useState('')
 
   if (isLoggedIn()) {
-    navigate(`/private-projects/list`)
+    navigate(`/private-projects`)
   }
 
   const data = useStaticQuery(
