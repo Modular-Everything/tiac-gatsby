@@ -53,11 +53,11 @@ const Projects = () => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY + window.innerHeight !== document.body.offsetHeight) {
-        return false
+      if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+        fetchProjects()
       }
 
-      return fetchProjects()
+      return false
     }
 
     window.addEventListener('scroll', handleScroll)
