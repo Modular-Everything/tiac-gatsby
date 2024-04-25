@@ -1,4 +1,5 @@
 // import { graphql, useStaticQuery } from 'gatsby'
+import { navigate } from 'gatsby'
 
 export const isBrowser =
   typeof window !== 'undefined' && typeof window.EventTarget !== 'undefined'
@@ -12,6 +13,7 @@ export const handleLogin = ({ password, match }) => {
   if (!isBrowser) return false
 
   if (password === match) {
+    navigate(`/private-projects`)
     return setUser({
       loggedIn: true,
     })
