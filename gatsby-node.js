@@ -58,7 +58,8 @@ exports.onCreatePage = async ({ page, actions }) => {
   // page.matchPath is a special key that's used for matching pages
   // only on the client.
   if (page.path.match(/^\/private-projects/)) {
-    page.matchPath = `/private-projects/*`
+    page.matchPath = `/private-projects/list`
+    page.matchPath = `/private-projects/login`
 
     // Update the page.
     createPage(page)
