@@ -93,7 +93,6 @@ const Projects = () => {
     <Layout>
       <Cursor />
       <Header />
-      <ProjectsHeading />
 
       <div className="grid projects container container-wide py-4">
         {projects.map(({ node }, index) => {
