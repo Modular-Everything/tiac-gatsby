@@ -87,11 +87,7 @@ const PrivateProjectsAuthd = () => {
           const resizedImage = imageService + '1200x675' + path
           // ***
 
-          if (
-            isLoggedIn() &&
-            (node.field_isInvisible_boolean === 'null' ||
-              node.field_isInvisible_boolean === false)
-          ) {
+          if (isLoggedIn()) {
             return (
               <AnimateIn>
                 <div key={index} className="relative">
