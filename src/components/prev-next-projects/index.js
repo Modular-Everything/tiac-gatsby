@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 const Video = props => (
   <div className="overflow-hidden relative">
-    <div className="hidden sm:block sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out">
+    <div className="hidden sm:block sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out rounded-xl overflow-hidden">
       <h2 className="text-xs sm:text-white">{props.name}</h2>
     </div>
     <video height="100%" width="100%" autoPlay loop muted playsInline>
@@ -14,7 +14,7 @@ const Video = props => (
 
 const Image = props => (
   <div className="aspect-ratio-16/9 relative">
-    <div className="hidden sm:block sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out">
+    <div className="hidden sm:block sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out rounded-xl overflow-hidden">
       <h2 className="text-xs sm:text-white">{props.name}</h2>
     </div>
     <img
@@ -39,7 +39,7 @@ const PrevNext = props => {
           <li>
             {props.prev !== undefined && (
               <Link
-              to={`/${props.prev.node.full_slug}`}
+                to={`/${props.prev.node.full_slug}`}
                 className="p-4 -ml-4 hover:bg-black text-white transition-ease-in-out transition-bg"
               >
                 Previous Project

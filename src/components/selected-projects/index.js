@@ -35,7 +35,7 @@ const SelectedProjects = props => {
     projects.push(
       <li key={index} className="relative overflow-hidden text-white relative">
         <Link to={'/' + value.full_slug}>
-          <div className="hidden sm:block sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out">
+          <div className="hidden sm:block sm:absolute sm:flex sm:justify-center sm:flex-col sm:items-center sm:w-full sm:h-full sm:z-10 sm:p-2 sm:bg-brand-black-overlay sm:opacity-0 sm:hover:opacity-100 transition-opacity transition-ease-in-out rounded-xl overflow-hidden">
             <h2 className="text-xs sm:text-white">{value.name}</h2>
           </div>
 
