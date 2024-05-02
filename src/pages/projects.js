@@ -53,11 +53,13 @@ const Projects = () => {
 
   React.useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY + window.innerHeight >= document.body.offsetHeight) {
+      const trigger = document.querySelector('.socials')
+      if (trigger.getBoundingClientRect().top <= window.innerHeight) {
         fetchProjects()
       }
-
-      return false
+      // if (wrapper.scrollTop + window.innerHeight >= wrapper.scrollHeight) {
+      //   fetchProjects()
+      // }
     }
 
     window.addEventListener('scroll', handleScroll)
@@ -148,7 +150,7 @@ const Projects = () => {
                       tabIndex="0"
                     >
                       {node.field_projectDescription_string && (
-                        <h2 className="absolute bg-brand-white-overlay duration-200 ease-in extraCopy flex flex-col font-semibold h-full justify-center leading-normal leading-tight left-0 mb-2 opacity-0 p-16 text-brand-gray-800 text-center text-xl top-0 tracking-tight transition z-50 hidden sm:flex">
+                        <h2 className="absolute bg-brand-white-overlay duration-200 ease-in extraCopy flex flex-col font-semibold h-full justify-center leading-normal leading-tight left-0 right-0 mb-2 opacity-0 p-16 text-brand-gray-800 text-center text-xl top-0 tracking-tight transition z-50 hidden sm:flex">
                           {node.field_projectDescription_string}
                         </h2>
                       )}
