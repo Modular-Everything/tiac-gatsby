@@ -106,7 +106,7 @@ const PrivateProjectsAuthd = () => {
 
                     <div
                       data-label="View"
-                      className="aspect-ratio-16/9 overflow-hidden relative"
+                      className="aspect-ratio-16/9 overflow-hidden relative rounded-xl"
                       onMouseMove={e => ProjectHover(e)}
                       onFocus={e => ProjectHover(e)}
                       onMouseOut={e => ProjectOut(e)}

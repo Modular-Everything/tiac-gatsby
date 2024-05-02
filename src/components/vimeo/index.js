@@ -10,7 +10,7 @@ const VimeoEmbed = props => {
     <SbEditable content={props.blok}>
       <AnimateIn>
         <div className="container mb-16 md:mb-24">
-          <div className="aspect-ratio-16/9 relative">
+          <div className="aspect-ratio-16/9 relative rounded-xl overflow-hidden">
             <ReactPlayer
               url={url}
               playing
