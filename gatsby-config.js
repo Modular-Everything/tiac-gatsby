@@ -6,7 +6,19 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
-    `gatsby-plugin-netlify`,
+    {
+      resolve: `gatsby-plugin-netlify`,
+      options: {
+        headers: {
+          '/editor': [
+            'X-Frame-Options: ALLOW',
+            'X-XSS-Protection: 1; mode=block',
+            'X-Content-Type-Options: nosniff',
+            'Referrer-Policy: same-origin',
+          ],
+        },
+      },
+    },
     `gatsby-plugin-postcss`,
     {
       resolve: `gatsby-source-filesystem`,
