@@ -11,7 +11,7 @@ module.exports = {
       options: {
         headers: {
           '/editor': [
-            'X-Frame-Options: ALLOW',
+            'X-Frame-Options: SAMEORIGIN',
             'X-XSS-Protection: 1; mode=block',
             'X-Content-Type-Options: nosniff',
             'Referrer-Policy: same-origin',
