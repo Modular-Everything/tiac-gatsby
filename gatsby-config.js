@@ -11,7 +11,7 @@ module.exports = {
       options: {
         headers: {
           '/editor': [
-            'X-Frame-Options: SAMEORIGIN',
+            'X-Frame-Options: ALLOW-FROM https://tiac.design',
             'X-XSS-Protection: 1; mode=block',
             'X-Content-Type-Options: nosniff',
             'Referrer-Policy: same-origin',
@@ -20,7 +20,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-postcss`,
-    {
+    {v
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
