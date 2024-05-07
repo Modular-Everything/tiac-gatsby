@@ -20,7 +20,7 @@ module.exports = {
       },
     },
     `gatsby-plugin-postcss`,
-    {v
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
